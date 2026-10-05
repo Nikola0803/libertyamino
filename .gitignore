@@ -1,0 +1,15 @@
+# Node / Next.js
+la-site/node_modules/
+la-site/.next/
+la-site/.env.local
+la-site/.env.*.local
+
+# Build outputs
+la-site/out/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

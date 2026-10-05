@@ -1,0 +1,21 @@
+.altr-cms-wrap .altr-cms-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.altr-cms-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.altr-cms-card h2 {
+    margin-top: 0;
+}
+
+.altr-cms-wrap .button-hero {
+    margin-top: 8px;
+}
