@@ -16,17 +16,17 @@ Work log format:
 - [x] Copy `evlv-site` → `la-site/` as base
 - [x] Copy `evlv-cms-plugin` → `la-wp/` as base
 - [x] Write `CLAUDE.md`, `PROJECT.md`, `TASKS.md`, `README.md` for both packages
-- [ ] **Rename all EVLV/ALTR internal references** in `la-site/`:
+- [x] **Rename all EVLV/ALTR internal references** in `la-site/`:
   - `la-site/package.json` → name `liberty-aminos-site`
   - All remaining `evlv` / `altr` text in comments and config
-- [ ] **Rename plugin internals** in `la-wp/`:
+- [x] **Rename plugin internals** in `la-wp/`:
   - Plugin file header: name, slug, prefix
   - PHP prefix: `altr_` → `la_`, `ALTR_CMS_` → `LA_CMS_`
   - Postmeta prefix: `_altr_` → `_la_`
   - REST namespace: `altr/v1` → `la/v1`
   - Admin menu: "ALTR CMS" → "Liberty Aminos CMS"
 - [x] Create `.env.example` for `la-site/`
-- [ ] Push initial commit to `claude/determined-cray-rf8hc3` and open draft PR
+- [x] Push initial commit to `claude/determined-cray-rf8hc3` and open draft PR
 
 ---
 

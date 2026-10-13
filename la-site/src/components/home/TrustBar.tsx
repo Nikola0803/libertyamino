@@ -1,20 +1,20 @@
 const ITEMS = [
-  { icon: "ri-flask-line", title: "Third-Party", subtitle: "Tested" },
-  { icon: "ri-shield-check-line", title: "Transparency", subtitle: "You Can Trust" },
-  { icon: "ri-node-tree", title: "Premium", subtitle: "Quality" },
-  { icon: "ri-bar-chart-line", title: "Performance", subtitle: "Driven" },
+  { icon: "ri-flask-line", title: "Third-Party Tested", sub: "Independent labs, every batch" },
+  { icon: "ri-file-list-3-line", title: "COA Every Batch", sub: "Batch-level documentation" },
+  { icon: "ri-map-pin-line", title: "US Fulfilled", sub: "Shipped from the United States" },
+  { icon: "ri-shield-check-line", title: "RUO · 21+", sub: "Research use only purchasers" },
 ];
 
 export function TrustBar() {
   return (
-    <section className="border-b border-charcoal bg-charcoal">
-      <div className="container-altr grid grid-cols-2 gap-y-8 py-10 md:grid-cols-4 md:gap-0">
+    <section className="la-trust-bar" aria-label="Liberty Aminos trust standards">
+      <div className="la-trust-bar-inner">
         {ITEMS.map((item) => (
-          <div key={item.title} className="flex items-center gap-4 px-4">
-            <i className={`${item.icon} text-2xl text-copper`} aria-hidden />
+          <div key={item.title} className="la-trust-item">
+            <i className={item.icon} aria-hidden />
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-white">{item.title}</p>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-white/50">{item.subtitle}</p>
+              <p>{item.title}</p>
+              <small>{item.sub}</small>
             </div>
           </div>
         ))}
