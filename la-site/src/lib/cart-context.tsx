@@ -28,7 +28,7 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const CART_STORAGE_KEY = "evlv_cart_v1";
+const CART_STORAGE_KEY = "la_cart_v1";
 
 function loadStoredLines(): CartLine[] {
   if (typeof window === "undefined") return [];

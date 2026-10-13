@@ -89,7 +89,7 @@ export function AffiliateForm({ onApplied }: { onApplied?: () => void }) {
     return (
       <div className="rounded-2xl border border-white/15 bg-white p-8 text-center text-[#102d28] md:p-10">
         <i className="ri-checkbox-circle-fill text-3xl text-[#356f60]" />
-        <p className="mt-4 font-display text-2xl font-semibold">Application received</p>
+        <p className="mt-4 font-sans text-2xl font-semibold">Application received</p>
         <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#52645f]">
           Our partnerships team will review your submission. If there is a strong fit, we&apos;ll contact you directly with the next step.
         </p>
@@ -101,7 +101,7 @@ export function AffiliateForm({ onApplied }: { onApplied?: () => void }) {
     <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-white/14 bg-white p-6 text-[#102d28] shadow-[0_24px_80px_rgba(0,0,0,.16)] md:p-9">
       <div className="border-b border-[#dce5e1] pb-6">
         <p className="text-[10px] font-bold uppercase tracking-[.16em] text-[#64897f]">Partner application</p>
-        <h3 className="mt-2 font-display text-2xl font-semibold tracking-[-.025em]">Start the conversation.</h3>
+        <h3 className="mt-2 font-sans text-2xl font-semibold tracking-[-.025em]">Start the conversation.</h3>
         <p className="mt-2 text-sm leading-6 text-[#60706b]">Share your primary channel and the best way for our team to reach you.</p>
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

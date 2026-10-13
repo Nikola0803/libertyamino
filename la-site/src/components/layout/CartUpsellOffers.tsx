@@ -4,7 +4,7 @@
  * Inline checkout upsells, styled after a competitor reference the founder
  * liked: offers embedded directly in the order summary (a checkbox "add this
  * deal" card + a small "Researchers Also Add" row), not a popup modal.
- * Real EVLV pricing throughout - discounts are applied to actual product.price,
+ * Real Liberty Aminos pricing throughout - discounts are applied to actual product.price,
  * never fabricated "was $X" numbers.
  */
 
@@ -36,16 +36,16 @@ export function ShippingProgressBar() {
   return (
     <div
       className={`mb-5 rounded-lg border p-4 shadow-sm ${
-        unlocked ? "border-sage-deep/40 bg-sage-deep/[0.07]" : "border-copper/30 bg-white"
+        unlocked ? "border-sage-deep/40 bg-navy/[0.07]" : "border-copper/30 bg-white"
       }`}
     >
-      <p className="flex items-center gap-1.5 text-xs font-semibold text-charcoal">
-        <i className={`text-sm ${unlocked ? "ri-checkbox-circle-fill text-sage-deep" : "ri-truck-line text-copper"}`} />
+      <p className="flex items-center gap-1.5 text-xs font-semibold text-ink">
+        <i className={`text-sm ${unlocked ? "ri-checkbox-circle-fill text-navy" : "ri-truck-line text-navy"}`} />
         {unlocked ? "You've unlocked free shipping!" : `Spend ${formatPrice(remaining)} more for free shipping!`}
       </p>
-      <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-charcoal/10">
+      <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-navy/10">
         <div
-          className={`h-full rounded-full transition-all duration-500 ${unlocked ? "bg-sage-deep" : "bg-copper"}`}
+          className={`h-full rounded-full transition-all duration-500 ${unlocked ? "bg-navy" : "bg-navy"}`}
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -74,17 +74,17 @@ export function BacWaterOffer({ products = [] }: { products?: Product[] }) {
   if (alreadyInCart || !needsIt || !product) return null;
 
   return (
-    <div className="mt-5 flex items-start gap-3 rounded-lg border border-copper/40 bg-copper/5 p-4">
-      <i className="ri-flask-line mt-0.5 shrink-0 text-lg text-copper" />
+    <div className="mt-5 flex items-start gap-3 rounded-lg border border-copper/40 bg-navy/5 p-4">
+      <i className="ri-flask-line mt-0.5 shrink-0 text-lg text-navy" />
       <div className="flex-1">
-        <p className="text-sm font-semibold text-charcoal">Need a laboratory diluent?</p>
-        <p className="mt-1 text-xs leading-relaxed text-charcoal/60">
+        <p className="text-sm font-semibold text-ink">Need a laboratory diluent?</p>
+        <p className="mt-1 text-xs leading-relaxed text-muted">
           This product listing includes reconstitution information. Bacteriostatic Water is available separately for appropriate laboratory workflows.
         </p>
         <button
           type="button"
           onClick={() => addToCart(product, 1, product.price, "1 PCS")}
-          className="mt-2.5 inline-block rounded-md bg-copper px-3.5 py-2 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+          className="mt-2.5 inline-block rounded-md bg-navy px-3.5 py-2 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
         >
           Add BAC Water · {formatPrice(product.price)}
         </button>
@@ -115,19 +115,19 @@ export function FeaturedOfferCard() {
   }
 
   return (
-    <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-lg border border-copper/40 bg-copper/5 p-4">
+    <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-lg border border-copper/40 bg-navy/5 p-4">
       <input type="checkbox" checked={checked} onChange={toggle} className="mt-1 h-4 w-4 shrink-0 accent-copper" />
-      <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
+      <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-off-white">
         <Image src={getProductImage(product)} alt={product.name} width={90} height={112} className="h-full w-full object-cover" />
       </div>
       <div className="flex-1">
-        <p className="text-sm font-medium text-charcoal">
+        <p className="text-sm font-medium text-ink">
           Add {product.name} ({FEATURED_DISCOUNT_PERCENT}% off today only)
         </p>
-        <p className="mt-0.5 text-xs text-charcoal/50">Pairs well with what&apos;s in your cart.</p>
+        <p className="mt-0.5 text-xs text-muted">Pairs well with what&apos;s in your cart.</p>
         <div className="mt-1.5 flex items-baseline gap-2">
-          <span className="text-xs text-charcoal/40 line-through">{formatPrice(product.price)}</span>
-          <span className="text-sm font-semibold text-copper">{formatPrice(discountedPrice)}</span>
+          <span className="text-xs text-muted line-through">{formatPrice(product.price)}</span>
+          <span className="text-sm font-semibold text-navy">{formatPrice(discountedPrice)}</span>
         </div>
       </div>
     </label>
@@ -146,27 +146,27 @@ export function ResearchersAlsoAdd() {
   if (items.length === 0) return null;
 
   return (
-    <div className="mt-6 border-t border-stone pt-5">
-      <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Researchers Also Add</p>
+    <div className="mt-6 border-t border-border-subtle pt-5">
+      <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-muted">Researchers Also Add</p>
       <div className="space-y-3">
         {items.map((p) => {
           const discountedPrice = p.price * (1 - ALSO_ADD_DISCOUNT_PERCENT / 100);
           return (
             <div key={p.id} className="flex items-center gap-3">
-              <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
+              <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-off-white">
                 <Image src={getProductImage(p)} alt={p.name} width={90} height={112} className="h-full w-full object-cover" />
               </div>
               <div className="flex-1">
-                <p className="text-xs font-medium text-charcoal">{p.name}</p>
+                <p className="text-xs font-medium text-ink">{p.name}</p>
                 <div className="mt-0.5 flex items-baseline gap-1.5">
-                  <span className="text-[11px] text-charcoal/40 line-through">{formatPrice(p.price)}</span>
-                  <span className="text-xs font-semibold text-charcoal">{formatPrice(discountedPrice)}</span>
+                  <span className="text-[11px] text-muted line-through">{formatPrice(p.price)}</span>
+                  <span className="text-xs font-semibold text-ink">{formatPrice(discountedPrice)}</span>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => addToCart(p, 1, discountedPrice, ALSO_ADD_PACK_LABEL)}
-                className="rounded-md bg-sage-deep px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-ivory transition hover:bg-sage-light"
+                className="rounded-md bg-navy px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-ivory transition hover:bg-sage-light"
               >
                 Add {ALSO_ADD_DISCOUNT_PERCENT}% Off
               </button>

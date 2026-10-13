@@ -41,7 +41,7 @@ export function WelcomeOffer() {
       <div className="cp-welcome-offer-copy">
         <small>New researcher?</small>
         <h2 id="welcome-offer-heading">10% off your first order</h2>
-        <p>Join the EVLV research list for occasional batch and product updates. We&apos;ll create your personal, single-use checkout code instantly.</p>
+        <p>Join the Liberty Aminos research list for occasional batch and product updates. We&apos;ll create your personal, single-use checkout code instantly.</p>
       </div>
 
       <div className="cp-welcome-offer-action">
@@ -71,7 +71,7 @@ export function WelcomeOffer() {
             {error && <p className="cp-welcome-offer-error" role="alert">{error}</p>}
           </form>
         )}
-        <em>By submitting, you agree to receive EVLV research emails. Unsubscribe anytime. One welcome reward per account; total discounts are capped at 30%.</em>
+        <em>By submitting, you agree to receive Liberty Aminos research emails. Unsubscribe anytime. One welcome reward per account; total discounts are capped at 30%.</em>
       </div>
     </section>
   );

@@ -258,7 +258,7 @@ body {
  * `outline-none`'s other utility behavior.
  */
 :focus-visible {
-  outline: 2px solid var(--color-copper);
+  outline: 2px solid var(--color-navy);
   outline-offset: 2px;
 }
 

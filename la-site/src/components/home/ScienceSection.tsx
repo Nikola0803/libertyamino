@@ -6,17 +6,17 @@ import { Reveal } from "@/components/ui/Reveal";
 export function ScienceSection() {
   const articles = getJournalArticles().slice(0, 3);
   return (
-    <section className="bg-ivory pb-20 pt-20 md:pb-32 md:pt-32">
+    <section className="bg-surface pb-20 pt-20 md:pb-32 md:pt-32">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <Reveal className="mb-16 max-w-2xl md:mb-24">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">07 / The EVLV Research Journal</p>
-          <h2 className="font-display text-4xl font-semibold leading-tight text-charcoal md:text-5xl">
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">07 / The Liberty Aminos Research Journal</p>
+          <h2 className="font-sans text-4xl font-semibold leading-tight text-ink md:text-5xl">
             Research deserves
             <br />
             better standards.
           </h2>
           <p className="mt-5 text-base leading-relaxed text-soft-gray md:text-lg">
-            Explore how EVLV approaches testing, documentation, handling and transparency across every research
+            Explore how Liberty Aminos approaches testing, documentation, handling and transparency across every research
             compound.
           </p>
         </Reveal>
@@ -34,12 +34,12 @@ export function ScienceSection() {
                   className="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-[1.04]"
                 />
               </div>
-              <p className="mt-6 flex items-baseline gap-2 text-[11px] font-semibold uppercase tracking-wider text-copper">
+              <p className="mt-6 flex items-baseline gap-2 text-[11px] font-semibold uppercase tracking-wider text-navy">
                 <span>{String(i + 1).padStart(2, "0")} /</span> {article.label}
               </p>
-              <h3 className="mt-2 font-display text-xl font-medium text-charcoal">{article.title}</h3>
+              <h3 className="mt-2 font-sans text-xl font-medium text-ink">{article.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-soft-gray">{article.excerpt}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-sage-deep">
+              <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-navy">
                 Read Article <i className="ri-arrow-right-line transition group-hover:translate-x-0.5" />
               </span>
             </Link>
@@ -49,7 +49,7 @@ export function ScienceSection() {
         <div className="mt-12 text-center">
           <Link
             href="/journal"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-sage-deep transition hover:text-charcoal"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-navy transition hover:text-ink"
           >
             View All Journal Articles <i className="ri-arrow-right-line" />
           </Link>

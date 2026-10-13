@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, R
 
 export type Currency = "USD" | "CAD";
 
-const STORAGE_KEY = "evlv_currency";
+const STORAGE_KEY = "la_currency";
 
 /**
  * Static approximate USD->CAD rate. There's no live FX feed wired up yet --

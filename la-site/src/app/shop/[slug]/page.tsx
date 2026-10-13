@@ -8,7 +8,7 @@ import { ProductClient } from "./ProductClient";
 import { getProductImage } from "@/lib/product-images";
 import { ProductCard } from "@/components/product/ProductCard";
 
-const SITE_URL = "https://evlvpeptides.com";
+const SITE_URL = "https://libertyaminos.com";
 
 export function generateStaticParams() {
   return getProducts().map((product) => ({ slug: product.slug }));
@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     description: `${product.shortDescription} Research use only; not for human or veterinary use.`,
     image: [absoluteImage],
     category: product.categoryLabel,
-    brand: { "@type": "Brand", name: "EVLV" },
+    brand: { "@type": "Brand", name: "Liberty Aminos" },
     manufacturer: { "@id": `${SITE_URL}/#organization` },
     audience: { "@type": "BusinessAudience", audienceType: "Qualified laboratory researchers" },
     offers: {
@@ -88,9 +88,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://evlvpeptides.com" },
-      { "@type": "ListItem", position: 2, name: "Shop", item: "https://evlvpeptides.com/shop" },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://evlvpeptides.com/shop/${product.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://libertyaminos.com" },
+      { "@type": "ListItem", position: 2, name: "Shop", item: "https://libertyaminos.com/shop" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://libertyaminos.com/shop/${product.slug}` },
     ],
   };
 
@@ -99,12 +99,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c") }} />
       <div className="mx-auto max-w-[1400px] px-4 pb-4 pt-8 md:px-8 md:pt-10">
-        <nav className="flex flex-wrap items-center gap-2 text-xs text-charcoal/50" aria-label="Breadcrumb">
-          <Link href="/" className="transition hover:text-charcoal">Home</Link>
+        <nav className="flex flex-wrap items-center gap-2 text-xs text-muted" aria-label="Breadcrumb">
+          <Link href="/" className="transition hover:text-ink">Home</Link>
           <i className="ri-arrow-right-s-line" />
-          <Link href="/shop" className="transition hover:text-charcoal">Shop</Link>
+          <Link href="/shop" className="transition hover:text-ink">Shop</Link>
           <i className="ri-arrow-right-s-line" />
-          <span className="font-medium text-charcoal">{product.name}</span>
+          <span className="font-medium text-ink">{product.name}</span>
         </nav>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 pb-5 md:px-8">
@@ -115,7 +115,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <small className="cp-pdp-kicker">Product information</small>
           <h2 id="product-description-heading">Product description</h2>
           <p>{product.description}</p>
-          <p>EVLV fulfills research products from the United States and publishes product-specific batch documentation when a matching laboratory report is available. Testing methods and results are specific to the product and batch identified in each report.</p>
+          <p>Liberty Aminos fulfills research products from the United States and publishes product-specific batch documentation when a matching laboratory report is available.</p>
           <p>This product is supplied in the format shown on this page: {productForm.toLowerCase()}.</p>
           <p><strong>For laboratory research use only. Not for human or veterinary use.</strong></p>
         </div>

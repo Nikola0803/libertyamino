@@ -32,10 +32,10 @@ const TICKER = [
 ] as const;
 
 const FAQ = [
-  ["Are EVLV products intended for human use?", "No. Every product sold by EVLV is supplied strictly for laboratory and analytical research. Products are not for human or veterinary consumption."],
-  ["Who can purchase research products from EVLV?", "Purchasers must be at least 21 years old, understand safe laboratory handling requirements, and have a legitimate research purpose."],
+  ["Are Liberty Aminos products intended for human use?", "No. Every product sold by Liberty Aminos is supplied strictly for laboratory and analytical research. Products are not for human or veterinary consumption."],
+  ["Who can purchase research products from Liberty Aminos?", "Purchasers must be at least 21 years old, understand safe laboratory handling requirements, and have a legitimate research purpose."],
   ["How can I verify the batch I receive?", "Use the lot number on your vial or carton in our COA Library to open the corresponding Certificate of Analysis and testing documentation."],
-  ["How does EVLV verify purity and identity?", "Available batches are supported by independent analytical testing, including HPLC purity reporting and identity documentation where applicable."],
+  ["How does Liberty Aminos verify purity and identity?", "Available batches are supported by independent analytical testing, including HPLC purity reporting and identity documentation where applicable."],
   ["When will my research order dispatch?", "In-stock orders placed before 2 PM ET are prioritized for same-day processing. Tracking is provided when the shipment is accepted by the carrier."],
   ["Can I speak with someone before ordering?", "Yes. Our U.S.-based support team can help with documentation, order status, wholesale inquiries, and general product information without providing medical advice."],
 ] as const;
@@ -49,23 +49,23 @@ export default async function Home() {
         <div className="cp-hero-copy">
           <VerifiedPeptideReviewsBadge />
           <h1>Premium Peptides<br /><span>&amp; BioRegulators</span></h1>
-          <p>EVLV is built for researchers who expect precise documentation, consistent quality, and premium presentation.</p>
+          <p>Liberty Aminos is built for researchers who expect precise documentation, consistent quality, and premium presentation.</p>
           <Link className="cp-primary" href="/shop?category=peptides">Shop All Peptides</Link>
         </div>
-        <div className="cp-hero-image" aria-label="EVLV premium peptide vials and matching cartons" />
+        <div className="cp-hero-image" aria-label="Liberty Aminos premium research vials and matching cartons" />
       </section>
 
-      <section className="cp-ticker" aria-label="EVLV trust standards"><div className="cp-ticker-track">{[0,1].map(group => <div className="cp-ticker-group" key={group}>{TICKER.map(([item,icon]) => <span key={item}><i style={{backgroundPosition:`${icon * 25}% center`}} /><b>{item}</b></span>)}</div>)}</div></section>
+      <section className="cp-ticker" aria-label="Liberty Aminos trust standards"><div className="cp-ticker-track">{[0,1].map(group => <div className="cp-ticker-group" key={group}>{TICKER.map(([item,icon]) => <span key={item}><i style={{backgroundPosition:`${icon * 25}% center`}} /><b>{item}</b></span>)}</div>)}</div></section>
 
       <section className="cp-categories cp-wrap">{CATEGORIES.map(card => <Link key={card.title} href={card.href} className="cp-category" style={{backgroundImage:`url('/images/certified/${card.image}')`}}><span><b>{card.title}</b><small>{card.sub}</small></span></Link>)}</section>
 
       <section className="cp-section cp-wrap" id="products"><header className="cp-section-head"><div><small>Transparent documentation</small><h2>Our Featured Collection</h2></div><p>Research-ready products with exact COA availability clearly identified.</p></header><div className="cp-product-grid">{products.map(product => <ProductCard key={product.id} product={product} coaVerified={Boolean(coaMap[product.slug])} />)}</div><div className="cp-center"><Link className="cp-primary" href="/shop">Discover All Products</Link></div></section>
 
-      <section className="cp-quality"><div className="cp-wrap"><div><small>Quality assurance</small><h2>Documented Products.<br />Transparent Results.</h2><p>Exact product and batch reports are published when available, with unmatched documentation clearly distinguished.</p><div className="cp-quality-links"><Link href="/coas">View COA Reports</Link><Link href="/sourcing">Our testing standards</Link><Link href="/research-peptides-usa">Research peptides USA guide</Link></div></div><Image src="/images/certified/evlv-quality-transparency-v2.png" alt="EVLV GLP3-R research vial with transparent label detail" width={1536} height={1024} /></div></section>
+      <section className="cp-quality"><div className="cp-wrap"><div><small>Quality assurance</small><h2>Documented Products.<br />Transparent Results.</h2><p>Exact product and batch reports are published when available, with unmatched documentation clearly distinguished.</p><div className="cp-quality-links"><Link href="/coas">View COA Reports</Link><Link href="/sourcing">Our testing standards</Link><Link href="/research-peptides-usa">Research peptides USA guide</Link></div></div><Image src="/images/certified/la-quality-transparency.png" alt="Liberty Aminos research vial with transparent label detail" width={1536} height={1024} /></div></section>
 
       <section className="cp-section cp-proof cp-wrap"><header className="cp-proof-title"><h2>Driven by science, we deliver<br /><span>trusted results</span></h2></header><div className="cp-proof-grid"><article className="cp-proof-main"><small>DOCUMENTATION-FIRST QUALITY</small><h3>Published reports</h3><div><b>EXACT MATCHES, CLEARLY LABELED</b><p>Product, batch, purity, identity, and content details where reported.</p><Link href="/coas">View reports →</Link></div></article><article className="cp-proof-review"><small>VERIFIED CUSTOMER REVIEWS</small><h3>Top Rated Peptides Online</h3><p>Read what researchers say.</p></article><article className="cp-proof-ship"><small>NEXT-DAY DISPATCH</small><h3>Shipped Priority Fast</h3></article><article className="cp-proof-science"><small>PREMIUM QUALITY</small><h3>Science-Driven Innovation</h3><p>Precision-led research products with transparent batch documentation where available.</p><Link href="/sourcing">Explore testing standards →</Link></article></div></section>
 
-      <section className="cp-section cp-manufacturing cp-wrap"><Image src="/images/certified/evlv-manufacturing-lab.png" alt="EVLV laboratory quality process" width={1000} height={1000} /><div><small>PRECISION AT EVERY STEP</small><h2>Documentation-First Quality</h2><p>Our catalog emphasizes identifiable products, published reports, and traceable batch records rather than unsupported blanket claims.</p><Link className="cp-primary" href="/about">Read More About Us</Link></div></section>
+      <section className="cp-section cp-manufacturing cp-wrap"><Image src="/images/certified/la-manufacturing-lab.png" alt="Liberty Aminos laboratory quality process" width={1000} height={1000} /><div><small>PRECISION AT EVERY STEP</small><h2>Documentation-First Quality</h2><p>Our catalog emphasizes identifiable products, published reports, and traceable batch records rather than unsupported blanket claims.</p><Link className="cp-primary" href="/about">Read More About Us</Link></div></section>
 
       <section className="cp-section cp-why"><div className="cp-wrap"><h2>Why Choose Us?</h2><div>{WHY.map(([title,copy,image]) => <article key={title}><Image src={`/images/certified/${image}`} alt="" width={300} height={300} /><h3>{title}</h3><p>{copy}</p></article>)}</div></div></section>
 

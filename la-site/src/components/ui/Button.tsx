@@ -8,9 +8,9 @@ const base =
   "inline-flex items-center justify-center gap-2 rounded-md font-medium uppercase tracking-wide transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-copper text-charcoal hover:bg-copper-light",
-  secondary: "border border-charcoal text-charcoal hover:bg-sage-deep hover:text-ivory hover:border-sage-deep",
-  dark: "bg-charcoal text-ivory hover:bg-sage-deep",
+  primary: "bg-navy text-ink hover:bg-navy-light",
+  secondary: "border border-charcoal text-ink hover:bg-navy hover:text-ivory hover:border-sage-deep",
+  dark: "bg-navy text-ivory hover:bg-navy",
 };
 
 const sizes: Record<Size, string> = {

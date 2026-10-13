@@ -2,8 +2,8 @@
  * "Find your protocol" quiz content: goals -> a follow-up subgoal question
  * per selected goal -> tiered product recommendations. Ported from a
  * reference project's goals/subgoals/tiers structure, remapped entirely to
- * EVLV's real catalog (src/lib/products.ts) - every product/copy pairing
- * here reflects what EVLV actually carries, not the reference's catalog.
+ * Liberty Aminos' real catalog (src/lib/products.ts) - every product/copy pairing
+ * here reflects what Liberty Aminos actually carries, not the reference's catalog.
  * RUO framing throughout: "studied for / researched in the context of"
  * language only, no dosing advice, no therapeutic claims.
  */
@@ -176,7 +176,7 @@ export const QUIZ_LABELS = {
   startHere: "Start Here",
   alsoWorthLook: "Also Worth A Look",
   resultsHeader: "Based on what you told us",
-  resultsSubheader: "A short, research-first starting point, not a recommendation. Everything at EVLV is for research use only.",
+  resultsSubheader: "A short, research-first starting point, not a recommendation. Everything at Liberty Aminos is for research use only.",
   footer: "These are starting points for your own research, chosen from what you selected. Nothing here is medical or dosing advice.",
   noMatch: "We don't carry a direct match for this focus yet. Explore the full catalogue.",
 };

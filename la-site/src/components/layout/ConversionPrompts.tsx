@@ -7,9 +7,9 @@ import { setStoredCouponCode } from "@/lib/referral";
 
 type PromptMode = "newsletter" | "availability" | null;
 
-const NEWSLETTER_KEY = "evlv_newsletter_exit_shown_v2";
-const AVAILABILITY_KEY = "evlv_glp_availability_shown_v2";
-const CAMPAIGN_SESSION_KEY = "evlv_campaign_entry";
+const NEWSLETTER_KEY = "la_newsletter_exit_shown_v2";
+const AVAILABILITY_KEY = "la_glp_availability_shown_v2";
+const CAMPAIGN_SESSION_KEY = "la_campaign_entry";
 const GLP_PROMO_CODE = process.env.NEXT_PUBLIC_GLP_PROMO_CODE?.trim() ?? "";
 const GLP_PROMO_LABEL = process.env.NEXT_PUBLIC_GLP_PROMO_LABEL?.trim() ?? "";
 const EXIT_INTENT_DELAY = 10000;

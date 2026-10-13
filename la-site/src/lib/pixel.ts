@@ -1,26 +1,39 @@
 "use client";
 
-// Thin wrapper around the CRM tracking pixel's window.cc(...) global (see
-// public/pixel.js server-side and layout.tsx's embed) -- safe to call even
-// before the async pixel script has loaded (no-ops silently) or when the
-// pixel isn't configured at all.
+/**
+ * Meta Pixel event tracking for Liberty Aminos.
+ *
+ * Fires browser-side pixel events: PageView, ViewContent, AddToCart,
+ * InitiateCheckout. Purchase fires server-side from WooCommerce when an
+ * order is marked paid — this file does NOT fire Purchase.
+ *
+ * NEXT_PUBLIC_META_PIXEL_ID must be set for events to fire.
+ */
+
 declare global {
   interface Window {
-    cc?: (action: string, event: string, extra?: Record<string, unknown>) => void;
-    gtag?: (...args: unknown[]) => void;
+    fbq?: (action: string, event: string, params?: Record<string, unknown>) => void;
+    _fbq?: unknown;
   }
 }
 
-export function trackEvent(event: string, extra?: Record<string, unknown>) {
+export function trackEvent(event: string, params?: Record<string, unknown>) {
   if (typeof window === "undefined") return;
-  window.cc?.("track", event, extra);
+  window.fbq?.("track", event, params);
+}
 
-  // Never forward identify/PII calls to Google Analytics. Commerce events
-  // are mirrored to GA4 so email traffic can be measured through purchase.
-  if (event === "identify" || !window.gtag) return;
-  const { valueCents, properties: _properties, ...rest } = extra ?? {};
-  window.gtag("event", event, {
-    ...rest,
-    ...(typeof valueCents === "number" ? { value: valueCents / 100 } : {}),
-  });
+export function trackPageView() {
+  trackEvent("PageView");
+}
+
+export function trackViewContent(params: { content_ids: string[]; content_type: string; value?: number; currency?: string }) {
+  trackEvent("ViewContent", params);
+}
+
+export function trackAddToCart(params: { content_ids: string[]; content_type: string; value: number; currency: string }) {
+  trackEvent("AddToCart", params);
+}
+
+export function trackInitiateCheckout(params: { content_ids: string[]; num_items: number; value: number; currency: string }) {
+  trackEvent("InitiateCheckout", params);
 }

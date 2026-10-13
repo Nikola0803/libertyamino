@@ -2,24 +2,44 @@ import Link from "next/link";
 import Image from "next/image";
 
 /**
- * Real EVLV wordmark (geometric cut-out letterforms) - two prepared
- * variants, not a recolorable font. "ivory" = white logo, for dark
- * backgrounds (header, footer). "charcoal" = black logo, for light
- * backgrounds. Do not recreate this as styled text.
+ * Liberty Aminos horizontal lockup logo.
+ * Real SVG/PNG asset will be supplied by Jerod. Until then a text placeholder
+ * is shown. Never recreate the logo as tracked-out text.
+ *
+ * tone="ivory" = white logo for dark backgrounds (header, footer).
+ * tone="charcoal" = dark logo for light backgrounds.
  */
 export function Logo({
   tone = "ivory",
   className = "",
-  imgClassName = "h-6 w-auto md:h-7",
+  imgClassName = "h-7 w-auto md:h-8",
 }: {
   tone?: "ivory" | "charcoal";
   className?: string;
   imgClassName?: string;
 }) {
-  const src = tone === "ivory" ? "/logo/evlv-logo-light.png" : "/logo/evlv-logo-dark.png";
+  const src = `/logo/la-logo-${tone === "ivory" ? "light" : "dark"}.png`;
   return (
     <Link href="/" className={`inline-flex shrink-0 items-center ${className}`}>
-      <Image src={src} alt="EVLV" width={2172} height={724} className={imgClassName} priority />
+      {/* Replace this fallback once the real logo asset is supplied */}
+      <span
+        className={imgClassName}
+        style={{
+          fontWeight: 700,
+          fontSize: "1.125rem",
+          letterSpacing: "0.05em",
+          color: tone === "ivory" ? "#fff" : "var(--color-navy)",
+          display: "inline-flex",
+          alignItems: "center",
+        }}
+        aria-label="Liberty Aminos"
+      >
+        LIBERTY AMINOS
+      </span>
+      {/* Uncomment once logo asset is provided:
+      <Image src={src} alt="Liberty Aminos" width={2400} height={600} className={imgClassName} priority />
+      */}
+      <span className="sr-only">Liberty Aminos</span>
     </Link>
   );
 }

@@ -13,7 +13,7 @@ export interface Address {
   isDefault: boolean;
 }
 
-const STORAGE_KEY = "evlv_addresses";
+const STORAGE_KEY = "la_addresses";
 
 function readAll(): Address[] {
   if (typeof window === "undefined") return [];

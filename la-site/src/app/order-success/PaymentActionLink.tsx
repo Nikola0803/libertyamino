@@ -25,7 +25,7 @@ export function PaymentActionLink({
         order_number: orderNumber,
         payment_method: gateway,
       })}
-      className="mt-4 inline-block w-full rounded-md bg-copper px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal transition hover:bg-copper-light"
+      className="mt-4 inline-block w-full rounded-md bg-navy px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-ink transition hover:bg-navy-light"
     >
       {children}
     </a>

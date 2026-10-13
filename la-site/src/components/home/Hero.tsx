@@ -2,9 +2,9 @@ import { ButtonLink } from "@/components/ui/Button";
 
 export function Hero() {
   return (
-    <section className="relative -mt-[90px] flex min-h-[80vh] items-center overflow-hidden bg-charcoal md:min-h-[88vh] md:-mt-[100px]">
-      {/* Mobile: real EVLV footage (portrait cut), poster fallback is the static portrait shot.
-          Desktop: real EVLV footage — a 21:9 cut on ultra-wide viewports, the standard 16:9 cut otherwise. */}
+    <section className="relative -mt-[90px] flex min-h-[80vh] items-center overflow-hidden bg-navy md:min-h-[88vh] md:-mt-[100px]">
+      {/* Mobile: real Liberty Aminos footage (portrait cut), poster fallback is the static portrait shot.
+          Desktop: real Liberty Aminos footage — a 21:9 cut on ultra-wide viewports, the standard 16:9 cut otherwise. */}
       <video
         autoPlay
         loop
@@ -24,11 +24,11 @@ export function Hero() {
         poster="/images/hero-vial.png"
       >
         <source src="/videos/hero-21by9.mp4" media="(min-aspect-ratio: 21/9)" type="video/mp4" />
-        <source src="/videos/hero-evlv.mp4" type="video/mp4" />
+        <source src="/videos/hero-la.mp4" type="video/mp4" />
       </video>
 
       {/* Light dark-wash for text legibility only — the footage itself is already on-brand, no color correction needed */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-charcoal/25" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-navy/25" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -44,12 +44,12 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 pb-32 pt-[150px] md:px-8 md:pb-28 md:pt-[170px]">
         <div className="max-w-xl">
-          <div className="mb-6 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-copper">
-            <span className="h-px w-8 bg-copper/60" />
+          <div className="mb-6 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-navy">
+            <span className="h-px w-8 bg-navy/60" />
             Precision. Purity. Potential.
           </div>
 
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
+          <h1 className="font-sans text-4xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
             <span className="text-white/40">Evolve.</span>
             <br />
             <span className="text-white">Become your ultimate.</span>
@@ -71,7 +71,7 @@ export function Hero() {
           <div className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-2">
             {["Transparent Purity Data", "Exact COAs Labeled", "Research Use Only"].map((label) => (
               <span key={label} className="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white/70">
-                <i className="ri-check-line text-sm text-copper" />
+                <i className="ri-check-line text-sm text-navy" />
                 {label}
               </span>
             ))}
@@ -79,8 +79,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-4 border-l border-copper/60 bg-charcoal/70 px-5 py-3 text-white backdrop-blur-sm md:bottom-8 md:left-8">
-        <div className="text-[10px] uppercase tracking-[0.2em] text-copper">Independently Verified</div>
+      <div className="absolute bottom-6 left-4 border-l border-copper/60 bg-navy/70 px-5 py-3 text-white backdrop-blur-sm md:bottom-8 md:left-8">
+        <div className="text-[10px] uppercase tracking-[0.2em] text-navy">Independently Verified</div>
         <div className="text-base font-semibold md:text-lg">99.2% Avg. Purity</div>
       </div>
 
@@ -92,7 +92,7 @@ export function Hero() {
 function StampBadge({ className = "" }: { className?: string }) {
   const text = "EVOLVE. • BECOME YOUR ULTIMATE. • ";
   return (
-    <div className={`flex items-center justify-center rounded-full border border-white/40 bg-charcoal/50 backdrop-blur-sm ${className}`}>
+    <div className={`flex items-center justify-center rounded-full border border-white/40 bg-navy/50 backdrop-blur-sm ${className}`}>
       <svg viewBox="0 0 100 100" className="hero-spin absolute inset-0 h-full w-full">
         <defs>
           <path id="stamp-circle" d="M 50,50 m -34,0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0" />

@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: privateRoutes,
       },
     ],
-    sitemap: "https://evlvpeptides.com/sitemap.xml",
-    host: "https://evlvpeptides.com",
+    sitemap: "https://libertyaminos.com/sitemap.xml",
+    host: "https://libertyaminos.com",
   };
 }

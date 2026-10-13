@@ -9,7 +9,7 @@ import type { Product } from "@/lib/types";
 import { getProductImage } from "@/lib/product-images";
 
 function openQuiz() {
-  window.dispatchEvent(new Event("evlv:open-quiz"));
+  window.dispatchEvent(new Event("la:open-quiz"));
 }
 
 /**
@@ -43,11 +43,11 @@ export function ShopMegaMenu({ products }: { products?: Product[] }) {
       </Link>
 
       <div className="invisible absolute left-0 right-0 top-full mx-auto w-[min(94vw,1040px)] pt-4 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100">
-        <div className="overflow-hidden rounded-lg bg-charcoal shadow-2xl shadow-black/40">
+        <div className="overflow-hidden rounded-lg bg-navy shadow-2xl shadow-black/40">
           <div className="flex">
             {popular.length > 0 && (
               <div className="w-[220px] shrink-0 bg-white/[0.035] p-7">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-copper">Popular Right Now</p>
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.15em] text-navy">Popular Right Now</p>
                 <div className="flex flex-col gap-3">
                   {popular.map((p) => (
                     <PopularCard key={p.slug} product={p} />
@@ -61,7 +61,7 @@ export function ShopMegaMenu({ products }: { products?: Product[] }) {
                 <p className="text-xs text-white/50">Every listing is independently HPLC-verified and COA-backed.</p>
                 <Link
                   href="/shop"
-                  className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md bg-copper px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+                  className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md bg-navy px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
                 >
                   Shop All <i className="ri-arrow-right-line" />
                 </Link>
@@ -97,7 +97,7 @@ export function ShopMegaMenu({ products }: { products?: Product[] }) {
                 <Link href="/journal" className="flex items-center gap-1 text-xs font-medium text-white/50 transition hover:text-white">
                   Research Journal <i className="ri-arrow-right-line" />
                 </Link>
-                <button type="button" onClick={openQuiz} className="flex items-center gap-1 text-xs font-medium text-copper transition hover:text-copper-light">
+                <button type="button" onClick={openQuiz} className="flex items-center gap-1 text-xs font-medium text-navy transition hover:text-navy-light">
                   Take the Quiz <i className="ri-arrow-right-line" />
                 </button>
               </div>
@@ -130,7 +130,7 @@ export function PopularCard({ product }: { product: Product }) {
       </div>
       <div className="min-w-0">
         <p className="line-clamp-2 text-[11px] font-medium leading-tight text-white/80">{product.name}</p>
-        <p className="mt-1 text-[11px] font-semibold text-copper">{formatPrice(product.price)}</p>
+        <p className="mt-1 text-[11px] font-semibold text-navy">{formatPrice(product.price)}</p>
       </div>
     </Link>
   );

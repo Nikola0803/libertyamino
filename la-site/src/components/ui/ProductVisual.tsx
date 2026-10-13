@@ -1,7 +1,7 @@
 /**
  * Branded vial render used until real product photography is supplied.
- * Mirrors the actual EVLV label system (wordmark, dot rule, name, dosage,
- * RESEARCH USE ONLY, sage band with EVLVPEPTIDES.COM) so the catalogue reads
+ * Mirrors the actual Liberty Aminos label system (wordmark, dot rule, name, dosage,
+ * RESEARCH USE ONLY, sage band with libertyaminos.com) so the catalogue reads
  * as one consistent photography campaign even for SKUs without a real photo.
  */
 export function ProductVisual({
@@ -16,7 +16,7 @@ export function ProductVisual({
   floating?: boolean;
 }) {
   return (
-    <div className={`relative flex items-center justify-center overflow-hidden ${floating ? "" : "bg-ivory-soft"} ${className}`}>
+    <div className={`relative flex items-center justify-center overflow-hidden ${floating ? "" : "bg-off-white"} ${className}`}>
       <svg
         viewBox="0 0 200 320"
         className="h-[80%] w-auto"
@@ -52,14 +52,14 @@ export function ProductVisual({
         <line x1="64" y1="204" x2="136" y2="204" stroke="#b8875a" strokeWidth="1" opacity="0.6" />
         <circle cx="100" cy="204" r="1.6" fill="#b8875a" />
 
-        {/* wordmark - real EVLV logo, not recreated as text */}
-        <image href="/logo/evlv-logo-light.png" x="76" y="165" width="48" height="16" preserveAspectRatio="xMidYMid meet" />
+        {/* wordmark - real Liberty Aminos logo, not recreated as text */}
+        <image href="/logo/la-logo-light.png" x="76" y="165" width="48" height="16" preserveAspectRatio="xMidYMid meet" />
 
         {/* product name */}
         <foreignObject x="68" y="212" width="64" height="34">
           <div
             style={{
-              fontFamily: "var(--font-display), sans-serif",
+              fontFamily: "var(--font-sans), sans-serif",
               fontWeight: 600,
               fontSize: "8.5px",
               lineHeight: 1.15,
@@ -85,7 +85,7 @@ export function ProductVisual({
         {/* band */}
         <rect x="64" y="270" width="72" height="16" fill="#b8875a" />
         <text x="100" y="280.5" textAnchor="middle" fontFamily="var(--font-body), sans-serif" fontSize="5" letterSpacing="0.4" fill="#0e1113">
-          EVLVPEPTIDES.COM
+          libertyaminos.com
         </text>
       </svg>
     </div>

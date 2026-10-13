@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Returns Policy | EVLV",
-  description: "EVLV's policy on returns, refunds and quality concerns.",
+  title: "Returns Policy | Liberty Aminos",
+  description: "Liberty Aminos's policy on returns, refunds and quality concerns.",
 };
 
 const SECTIONS = [
@@ -28,25 +28,25 @@ const SECTIONS = [
 export default function ReturnsPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-shipping -mt-[90px] bg-charcoal pb-20 pt-[150px] text-center text-white md:-mt-[100px] md:pb-32 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-shipping -mt-[90px] bg-navy pb-20 pt-[150px] text-center text-white md:-mt-[100px] md:pb-32 md:pt-[170px]">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Returns Policy</p>
-          <h1 className="font-display text-4xl font-semibold md:text-5xl">All sales are final, and here&apos;s why.</h1>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Returns Policy</p>
+          <h1 className="font-sans text-4xl font-semibold md:text-5xl">All sales are final, and here&apos;s why.</h1>
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-28">
+      <section className="bg-surface py-16 md:py-28">
         <div className="mx-auto max-w-[800px] space-y-10 px-4 md:px-8">
           {SECTIONS.map((s) => (
             <div key={s.title}>
-              <h2 className="font-display text-xl font-medium text-charcoal">{s.title}</h2>
+              <h2 className="font-sans text-xl font-medium text-ink">{s.title}</h2>
               <p className="mt-3 text-base leading-relaxed text-soft-gray">{s.body}</p>
             </div>
           ))}
 
-          <div className="rounded-lg border border-stone bg-ivory-soft p-8 text-center">
-            <h3 className="mb-2 font-display text-xl font-semibold text-charcoal">Have a quality concern?</h3>
-            <p className="mb-4 text-sm text-charcoal/50">Reach out and we&apos;ll work with you directly.</p>
+          <div className="rounded-lg border border-border-subtle bg-off-white p-8 text-center">
+            <h3 className="mb-2 font-sans text-xl font-semibold text-ink">Have a quality concern?</h3>
+            <p className="mb-4 text-sm text-muted">Reach out and we&apos;ll work with you directly.</p>
             <ButtonLink href="/contact">
               Contact Us <i className="ri-arrow-right-line" />
             </ButtonLink>

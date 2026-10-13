@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getCatalogProducts } from "@/lib/catalog";
 import { getJournalArticles } from "@/lib/journal-data";
 
-const BASE_URL = "https://evlvpeptides.com";
+const BASE_URL = "https://libertyaminos.com";
 
 const STATIC_ROUTES = [
   { path: "/", priority: 1, changeFrequency: "daily" as const },

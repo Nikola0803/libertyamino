@@ -34,7 +34,7 @@ const DEAL_DESCRIPTIONS: Record<string, string> = {
 
 const GIVEAWAY_STATUS: GiveawayStatus | null = {
   enabled: true,
-  prizeLabel: "a $25 EVLV Store Credit",
+  prizeLabel: "a $25 Liberty Aminos Store Credit",
   minOrderCents: 5000,
   // Legal note: most US states treat "pay to enter, chance, prize" as an
   // unlicensed lottery unless a free alternate method of entry (AMOE)
@@ -60,12 +60,12 @@ const GIVEAWAY_STATUS: GiveawayStatus | null = {
 // isn't configured, same as before.
 export async function getDealOfTheDay(): Promise<DealOfTheDay | null> {
   if (!crmConfigured()) return null;
-  const { ok, data } = await crmGet("/api/store/deal-of-the-day", { revalidate: 60 });
+  const { ok, data } = await crmGet<{ slug: string; name: string; imageUrl?: string; dealPriceCents: number; regularPriceCents: number; endsAt: string }>("/api/store/deal-of-the-day", { revalidate: 60 });
   if (!ok || !data || typeof data.slug !== "string") return null;
 
   // The CRM's own product record can carry a supplier/dropship codename
   // (e.g. "GP-3 30MG" for what the storefront must only ever call
-  // "EVLV-3 30MG" -- see the PHOTO_LOCKED_SLUGS note in product-feed.ts
+  // "GLP3-R 30MG" -- see the PHOTO_LOCKED_SLUGS note in product-feed.ts
   // for the same GP-1/2/3 supplier-listing situation). mergeProducts()
   // already protects the shop grid/product pages by never letting the
   // live feed's name overwrite the static catalog's compliant one, but
@@ -126,7 +126,7 @@ export async function getDealRowHtml(opts?: { solo?: boolean }): Promise<string>
   const regularPrice = formatDollars(deal.regularPriceCents);
   const percentOff = Math.round((1 - deal.dealPriceCents / deal.regularPriceCents) * 100);
   const img = deal.imageUrl
-    ? `<img decoding="async" width="1022" height="2336" sizes="100vw" src="${escapeHtml(deal.imageUrl)}" alt="EVLV ${name} deal of the day">`
+    ? `<img decoding="async" width="1022" height="2336" sizes="100vw" src="${escapeHtml(deal.imageUrl)}" alt="Liberty Aminos ${name} deal of the day">`
     : "";
   const desc = deal.description
     ? `<p class="deal-desc">${escapeHtml(deal.description)}</p>`

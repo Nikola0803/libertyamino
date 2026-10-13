@@ -1,40 +1,53 @@
 import { NextResponse } from "next/server";
-import { crmConfigured, crmFetch } from "@/lib/crm-proxy";
+import { storePost, fetchStoreNonce, isWooCommerceConfigured } from "@/lib/woocommerce";
 
 export const runtime = "nodejs";
 
-// POST /api/checkout - proxies to the CRM's /api/store/checkout, which
-// places a real order in the same database the CRM dashboard reads from.
-// Body must match peptides-crm-app's CheckoutInput shape (lib/order-engine.ts):
-// { items: [{slug, quantity}], paymentMethod, paymentMemo, billing: {...}, customerNote? }
+/**
+ * POST /api/checkout
+ *
+ * Proxies checkout to the WooCommerce Store API (/wc/store/v1/checkout).
+ * Orders are created as real WC line items on-hold; the WP plugin
+ * auto-cancels unpaid orders after 2 hours and releases reserved stock.
+ *
+ * Expected body:
+ * {
+ *   billing_address: { first_name, last_name, address_1, city, state, postcode, country, email, phone },
+ *   payment_method: "cashapp" | "zelle" | "venmo" | "btc" | "usdc" | "usdt",
+ *   coupon_code?: string,
+ *   customer_note?: string,
+ * }
+ *
+ * The cart must already be populated via the Store API before calling this.
+ */
 export async function POST(req: Request) {
-  if (!crmConfigured()) {
-    return NextResponse.json({ error: "Checkout isn't connected to the CRM yet." }, { status: 503 });
+  if (!isWooCommerceConfigured()) {
+    return NextResponse.json({ error: "Checkout is not configured yet. Set NEXT_PUBLIC_WC_URL, WC_CONSUMER_KEY, WC_CONSUMER_SECRET." }, { status: 503 });
   }
-  const body = (await req.json().catch(() => ({}))) as Record<string, unknown>;
-  const items = Array.isArray(body.items) ? body.items : [];
-  const discountCode = typeof body.discountCode === "string" ? body.discountCode : undefined;
-  const customerEmail = typeof body.customerEmail === "string" ? body.customerEmail : undefined;
 
-  // Fail closed above the tier ceiling returned by the CRM: 30% retail,
-  // 40% for an approved wholesale partner. Default to retail if an older
-  // CRM deployment does not yet return the tier value.
-  const preview = await crmFetch("/api/store/coupons/validate", { items, code: discountCode, customerEmail });
-  if (preview.ok) {
-    const result = preview.data as Record<string, unknown>;
-    const subtotalCents = typeof result.subtotalCents === "number" ? result.subtotalCents : 0;
-    const discountCents = typeof result.discountCents === "number" ? result.discountCents : 0;
-    const maximumDiscountPercent = result.maximumDiscountPercent === 40 ? 40 : 30;
-    if (subtotalCents > 0 && discountCents > Math.floor(subtotalCents * (maximumDiscountPercent / 100))) {
-      return NextResponse.json({ error: `This promotion exceeds EVLV's ${maximumDiscountPercent}% maximum discount and cannot be applied.` }, { status: 422 });
-    }
+  const body = (await req.json().catch(() => ({}))) as Record<string, unknown>;
+
+  const nonce = await fetchStoreNonce();
+  if (!nonce) {
+    return NextResponse.json({ error: "Could not initialize checkout session. Please try again." }, { status: 502 });
   }
-  // The CRM sits behind this server, so it can only ever see this
-  // server's own IP unless we forward the real one -- used for fraud
-  // review (see Order.ipAddress in the CRM), not for anything that blocks
-  // checkout.
-  const ipAddress = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || req.headers.get("x-real-ip") || undefined;
-  const userAgent = req.headers.get("user-agent") || undefined;
-  const { ok, status, data } = await crmFetch("/api/store/checkout", { ...body, ipAddress, userAgent });
+
+  const { ok, status, data } = await storePost(
+    "/checkout",
+    {
+      billing_address: body.billing_address,
+      shipping_address: body.shipping_address ?? body.billing_address,
+      payment_method: body.payment_method ?? "cod",
+      additional_fields: {
+        payment_method_la: body.payment_method,
+      },
+      customer_note: body.customer_note ?? "",
+      coupon_lines: body.coupon_code
+        ? [{ code: body.coupon_code }]
+        : undefined,
+    },
+    nonce,
+  );
+
   return NextResponse.json(data, { status: ok ? 200 : status });
 }

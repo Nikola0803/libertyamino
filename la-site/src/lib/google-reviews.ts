@@ -5,7 +5,7 @@ import "server-only";
  * Trustpilot. Needs GOOGLE_PLACES_API_KEY (a Places API key from Google
  * Cloud Console, restricted to the Places API) and GOOGLE_PLACE_ID (find
  * yours at https://developers.google.com/maps/documentation/places/web-service/place-id
- * -- search for the EVLV business listing). Server-only: the key isn't
+ * -- search for the Liberty Aminos business listing). Server-only: the key isn't
  * prefixed with NEXT_PUBLIC_ so it never reaches the browser. Returns null
  * until both are set, or on any API error, rather than showing broken/fake
  * reviews.
