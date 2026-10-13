@@ -1508,3 +1508,399 @@ main:not(:has(.cp-home)):not(:has(.cp-shop)):not(:has(.cp-pdp-page)) .bg-ivory-s
     font-size: 12px; font-weight: 700;
   }
 }
+
+/* ============================================================
+   COA Library & per-lot page
+   ============================================================ */
+
+/* Hero */
+.la-coa-hero {
+  background: var(--color-navy);
+  padding: 72px 0 56px;
+  color: #fff;
+}
+.la-coa-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.la-coa-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+.la-coa-hero h1 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+.la-coa-hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,.75);
+  max-width: 600px;
+  margin: 0;
+}
+.la-coa-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  width: 100%;
+}
+.la-coa-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.la-coa-stats b {
+  font-size: 28px;
+  font-weight: 700;
+}
+.la-coa-stats span {
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+/* Body / search */
+.la-coa-body {
+  padding-block: 48px 80px;
+}
+.la-coa-search-box {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  background: var(--color-off-white);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.la-coa-search-input {
+  position: relative;
+}
+.la-coa-search-input i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+.la-coa-search-input input {
+  width: 100%;
+  height: 52px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-subtle);
+  background: #fff;
+  padding: 0 16px 0 48px;
+  font-size: 14px;
+  color: var(--color-ink);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color .15s;
+}
+.la-coa-search-input input::placeholder {
+  color: var(--color-muted);
+  opacity: .7;
+}
+.la-coa-search-input input:focus {
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px rgba(14,33,83,.08);
+}
+.la-coa-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.la-coa-filters button {
+  border: 1px solid var(--color-border-subtle);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.la-coa-filters button:hover {
+  border-color: var(--color-navy);
+  color: var(--color-navy);
+}
+.la-coa-filters button.active {
+  border-color: var(--color-navy);
+  background: var(--color-navy);
+  color: #fff;
+}
+
+/* List header */
+.la-coa-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 36px 0 20px;
+}
+.la-coa-list-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+}
+.la-coa-list-header span {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* Empty state */
+.la-coa-empty {
+  text-align: center;
+  padding: 64px 24px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  background: var(--color-off-white);
+}
+.la-coa-empty i {
+  font-size: 32px;
+  color: var(--color-muted);
+  opacity: .4;
+  display: block;
+  margin-bottom: 12px;
+}
+.la-coa-empty p {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+/* Card grid */
+.la-coa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.la-coa-card {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+.la-coa-card:hover {
+  border-color: var(--color-navy);
+  box-shadow: 0 12px 32px rgba(14,33,83,.1);
+  transform: translateY(-2px);
+}
+.la-coa-card-img {
+  position: relative;
+  background: var(--color-off-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.la-coa-card-img img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+  transition: transform .3s;
+}
+.la-coa-card:hover .la-coa-card-img img {
+  transform: scale(1.04);
+}
+.la-coa-card-img > span {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255,255,255,.9);
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+.la-coa-card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  min-width: 0;
+}
+.la-coa-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.la-coa-card-head > div {
+  min-width: 0;
+}
+.la-coa-card-head i {
+  font-size: 18px;
+  color: var(--color-navy);
+  flex-shrink: 0;
+  transition: transform .15s;
+}
+.la-coa-card:hover .la-coa-card-head i {
+  transform: translate(2px, -2px);
+}
+.la-coa-compound {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.la-coa-card-body h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.3;
+}
+.la-coa-card-dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 12px;
+  font-size: 11px;
+}
+.la-coa-card-dl dt {
+  color: var(--color-muted);
+  margin-bottom: 2px;
+}
+.la-coa-card-dl dd {
+  font-weight: 600;
+  color: var(--color-ink);
+  opacity: .75;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.la-coa-purity {
+  color: var(--color-navy) !important;
+  opacity: 1 !important;
+}
+.la-coa-card-cta {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Per-lot page */
+.la-lot-page { padding-bottom: 80px; }
+.la-lot-inner {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 56px;
+  align-items: start;
+  padding-top: 40px;
+}
+.la-lot-img {
+  position: sticky;
+  top: 24px;
+  background: var(--color-off-white);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.la-lot-img img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+}
+.la-lot-detail { padding-top: 8px; }
+.la-lot-detail h1 { font-size: 32px; font-weight: 700; margin: 8px 0 24px; }
+.la-lot-dl {
+  display: grid;
+  gap: 0;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.la-lot-dl > div {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.la-lot-dl > div:last-child { border-bottom: 0; }
+.la-lot-dl dt { font-size: 12px; font-weight: 600; color: var(--color-muted); }
+.la-lot-dl dd {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin: 0;
+}
+.la-lot-dl code {
+  font-family: ui-monospace, "Cascadia Code", monospace;
+  font-size: 13px;
+  background: var(--color-off-white);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.la-lot-purity {
+  color: var(--color-navy);
+  font-weight: 700 !important;
+}
+.la-lot-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.la-lot-ruo {
+  font-size: 12px;
+  color: var(--color-muted);
+  line-height: 1.6;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  background: var(--color-off-white);
+}
+
+/* COA responsive */
+@media (max-width: 900px) {
+  .la-coa-hero h1 { font-size: 30px; }
+  .la-coa-grid { grid-template-columns: 1fr; }
+  .la-lot-inner { grid-template-columns: 1fr; gap: 24px; }
+  .la-lot-img { position: static; padding: 32px; }
+}
+
+@media (max-width: 620px) {
+  .la-coa-hero { padding: 48px 0 40px; }
+  .la-coa-stats { gap: 20px; }
+  .la-coa-stats b { font-size: 22px; }
+  .la-coa-card { grid-template-columns: 100px 1fr; }
+  .la-coa-card-img { padding: 10px; }
+  .la-coa-card-img img { height: 110px; }
+  .la-lot-dl > div { grid-template-columns: 120px 1fr; }
+}
