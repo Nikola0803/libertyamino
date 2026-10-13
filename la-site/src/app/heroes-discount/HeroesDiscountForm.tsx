@@ -3,14 +3,25 @@
 import { FormEvent, useState } from "react";
 
 interface FormState {
-  name: string;
-  email: string;
-  branch: string;
   status: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  branchDepartment: string;
+  serviceBadgeNumber: string;
+  note: string;
 }
 
-const STATUS_OPTIONS = ["Active Duty", "Veteran", "Reservist / National Guard", "First Responder (Police/Fire/EMS)"];
-const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB
+const STATUS_OPTIONS = [
+  "Active Military",
+  "Veteran",
+  "First Responder",
+  "Law Enforcement",
+  "EMS / Paramedic",
+  "Fire Service",
+];
+
+const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5MB
 
 function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -22,8 +33,17 @@ function readFileAsDataUrl(file: File): Promise<string> {
 }
 
 export function HeroesDiscountForm() {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", branch: "", status: "" });
-  const [proofFile, setProofFile] = useState<File | null>(null);
+  const [form, setForm] = useState<FormState>({
+    status: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    branchDepartment: "",
+    serviceBadgeNumber: "",
+    note: "",
+  });
+  const [credentialFile, setCredentialFile] = useState<File | null>(null);
+  const [certified, setCertified] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
@@ -36,39 +56,49 @@ export function HeroesDiscountForm() {
     const file = e.target.files?.[0] ?? null;
     setError("");
     if (file && file.size > MAX_FILE_BYTES) {
-      setError("File is too large - please upload something under 8MB.");
+      setError("File is too large — please upload something under 5MB.");
       e.target.value = "";
-      setProofFile(null);
+      setCredentialFile(null);
       return;
     }
-    setProofFile(file);
+    setCredentialFile(file);
   }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("");
-    if (!proofFile) {
-      setError("Please attach proof of service (ID, discharge paperwork, or a badge/department photo).");
+    if (!credentialFile) {
+      setError("Please attach a credential (ID, DD-214, badge photo, or department ID).");
+      return;
+    }
+    if (!certified) {
+      setError("Please check the certification box before submitting.");
       return;
     }
     setSubmitting(true);
     try {
-      const proofDataUrl = await readFileAsDataUrl(proofFile);
+      const credentialDataUrl = await readFileAsDataUrl(credentialFile);
       const res = await fetch("/api/heroes-discount/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...form,
-          proofFileName: proofFile.name,
-          proofFileType: proofFile.type,
-          proofFileDataUrl: proofDataUrl,
+          status: form.status,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          email: form.email,
+          branchDepartment: form.branchDepartment || undefined,
+          serviceBadgeNumber: form.serviceBadgeNumber || undefined,
+          note: form.note || undefined,
+          credentialFileName: credentialFile.name,
+          credentialFileType: credentialFile.type,
+          credentialFileDataUrl: credentialDataUrl,
         }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         throw new Error(
           res.status === 503
-            ? "This program isn't accepting requests yet - check back soon."
+            ? "This program isn't accepting requests yet — check back soon."
             : data?.error || "Something went wrong submitting your request."
         );
       }
@@ -82,92 +112,185 @@ export function HeroesDiscountForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-checkbox-circle-fill text-2xl text-sage-deep" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Request received</p>
-        <p className="mt-2 text-sm text-charcoal/60">
-          We verify each request by hand. If approved, your one-time 20% code will be emailed to you within a couple
-          of business days.
+      <div
+        className="rounded-lg p-8 text-center"
+        style={{ border: "1px solid var(--border-subtle)", background: "white" }}
+      >
+        <i className="ri-checkbox-circle-fill text-2xl" style={{ color: "var(--navy)" }} />
+        <p className="mt-3 font-display text-lg font-semibold" style={{ color: "var(--ink)" }}>
+          Application received
+        </p>
+        <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>
+          We verify each application by hand. If approved, your 15% lifetime discount code will be
+          emailed within ~24 hours.
         </p>
       </div>
     );
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-stone bg-white p-6 md:p-8">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">Full Name</label>
-          <input
-            type="text"
-            required
-            value={form.name}
-            onChange={(e) => set("name", e.target.value)}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
-          />
-        </div>
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">Email</label>
-          <input
-            type="email"
-            required
-            value={form.email}
-            onChange={(e) => set("email", e.target.value)}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
-          />
-        </div>
-      </div>
+  const inputClass =
+    "w-full rounded-md px-4 py-2.5 text-sm outline-none focus:ring-2 transition";
+  const inputStyle = {
+    border: "1px solid var(--border-subtle)",
+    background: "var(--surface)",
+    color: "var(--ink)",
+  };
 
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-4 rounded-lg p-6 md:p-8"
+      style={{ border: "1px solid var(--border-subtle)", background: "white" }}
+    >
+      {/* Status */}
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">Status</label>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Status <span style={{ color: "var(--red)" }}>*</span>
+        </label>
         <select
           required
           value={form.status}
           onChange={(e) => set("status", e.target.value)}
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+          className={inputClass}
+          style={inputStyle}
         >
-          <option value="">Select one</option>
+          <option value="">Select your status</option>
           {STATUS_OPTIONS.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
+            <option key={s} value={s}>{s}</option>
           ))}
         </select>
       </div>
 
+      {/* Name row */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div>
+          <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+            First name <span style={{ color: "var(--red)" }}>*</span>
+          </label>
+          <input
+            type="text"
+            required
+            value={form.firstName}
+            onChange={(e) => set("firstName", e.target.value)}
+            className={inputClass}
+            style={inputStyle}
+          />
+        </div>
+        <div>
+          <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+            Last name <span style={{ color: "var(--red)" }}>*</span>
+          </label>
+          <input
+            type="text"
+            required
+            value={form.lastName}
+            onChange={(e) => set("lastName", e.target.value)}
+            className={inputClass}
+            style={inputStyle}
+          />
+        </div>
+      </div>
+
+      {/* Email */}
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">Branch / Agency</label>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Email <span style={{ color: "var(--red)" }}>*</span>
+        </label>
         <input
-          type="text"
+          type="email"
           required
-          value={form.branch}
-          onChange={(e) => set("branch", e.target.value)}
-          placeholder="e.g. U.S. Army, Chicago PD, County EMS"
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+          value={form.email}
+          onChange={(e) => set("email", e.target.value)}
+          className={inputClass}
+          style={inputStyle}
         />
       </div>
 
+      {/* Branch / Department (optional) */}
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-          Proof of Service <span className="text-copper">*</span>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Branch / Department <span className="font-normal text-xs" style={{ color: "var(--muted)" }}>(optional)</span>
+        </label>
+        <input
+          type="text"
+          value={form.branchDepartment}
+          onChange={(e) => set("branchDepartment", e.target.value)}
+          placeholder="e.g. U.S. Army, Chicago PD, County EMS"
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      {/* Service / Badge number (optional) */}
+      <div>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Service / Badge number <span className="font-normal text-xs" style={{ color: "var(--muted)" }}>(optional)</span>
+        </label>
+        <input
+          type="text"
+          value={form.serviceBadgeNumber}
+          onChange={(e) => set("serviceBadgeNumber", e.target.value)}
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      {/* Credential upload */}
+      <div>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Credential <span style={{ color: "var(--red)" }}>*</span>
         </label>
         <input
           type="file"
           required
-          accept="image/*,.pdf"
+          accept="image/jpeg,image/png,.pdf"
           onChange={handleFileChange}
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none file:mr-3 file:rounded file:border-0 file:bg-copper file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:text-charcoal focus:border-copper"
+          className="w-full rounded-md border px-4 py-2.5 text-sm outline-none file:mr-3 file:rounded file:border-0 file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase"
+          style={{
+            borderColor: "var(--border-subtle)",
+            background: "var(--surface)",
+            color: "var(--ink)",
+          }}
         />
-        <p className="mt-1.5 text-xs text-charcoal/40">
-          Military/veteran ID, DD-214, or a department badge/ID photo. Image or PDF, under 8MB. Used only to verify
-          eligibility.
+        <p className="mt-1.5 text-xs" style={{ color: "var(--muted)" }}>
+          Military/veteran ID, DD-214, department badge or ID photo. JPG, PNG, or PDF — under 5MB.
+          Used only to verify eligibility; deleted after review.
         </p>
       </div>
 
-      <p className="text-xs text-charcoal/50">
-        We may follow up by email to verify eligibility before issuing a code. One code per person, not combinable
-        with other offers.
-      </p>
+      {/* Note (optional) */}
+      <div>
+        <label className="mb-1.5 block text-sm font-semibold" style={{ color: "var(--ink)" }}>
+          Note <span className="font-normal text-xs" style={{ color: "var(--muted)" }}>(optional)</span>
+        </label>
+        <textarea
+          rows={3}
+          value={form.note}
+          onChange={(e) => set("note", e.target.value)}
+          placeholder="Any context that helps with verification"
+          className="w-full rounded-md px-4 py-2.5 text-sm outline-none transition resize-none"
+          style={{
+            border: "1px solid var(--border-subtle)",
+            background: "var(--surface)",
+            color: "var(--ink)",
+          }}
+        />
+      </div>
+
+      {/* Certification checkbox */}
+      <label className="flex items-start gap-2.5 text-xs leading-5" style={{ color: "var(--muted)" }}>
+        <input
+          type="checkbox"
+          checked={certified}
+          onChange={(e) => setCertified(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0"
+        />
+        <span>
+          I certify that I am eligible for this discount and that the information and credential
+          I have provided are accurate. I understand that Liberty Aminos products are for research
+          use only and not for human consumption.
+        </span>
+      </label>
 
       {error && (
         <p className="flex items-center gap-1.5 text-xs font-medium text-red-600">
@@ -179,9 +302,10 @@ export function HeroesDiscountForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="w-full rounded-md py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition disabled:cursor-wait disabled:opacity-60"
+        style={{ background: "var(--navy)" }}
       >
-        {submitting ? "Submitting..." : "Request My Code"}
+        {submitting ? "Submitting…" : "Submit Application"}
       </button>
     </form>
   );

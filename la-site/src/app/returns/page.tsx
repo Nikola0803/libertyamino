@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Returns Policy | EVLV",
-  description: "EVLV's policy on returns, refunds and quality concerns.",
+  title: "Returns Policy | Liberty Aminos",
+  description: "Liberty Aminos's policy on returns, refunds and quality concerns.",
 };
 
 const SECTIONS = [

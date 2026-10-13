@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Shipping Policy | EVLV",
-  description: "How EVLV processes, ships and delivers orders across the US and Canada.",
+  title: "Shipping Policy | Liberty Aminos",
+  description: "How Liberty Aminos processes, ships and delivers orders across the US and Canada.",
 };
 
 export default function ShippingPage() {
@@ -20,7 +20,7 @@ export default function ShippingPage() {
       <section className="bg-ivory py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-4 md:px-8">
           <p className="mb-12 text-base leading-relaxed text-soft-gray">
-            EVLV (&ldquo;EVLV,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) ships orders in a
+            Liberty Aminos (&ldquo;Liberty Aminos,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) ships orders in a
             controlled and responsible manner to maintain product integrity and meet professional expectations. This
             Shipping Policy explains how orders are processed, shipped, and delivered.
           </p>
@@ -30,7 +30,7 @@ export default function ShippingPage() {
               <p>
                 Orders are processed after payment confirmation and order acceptance. Processing times may vary
                 depending on product availability, order volume, and verification requirements. Order confirmation
-                does not guarantee immediate dispatch. EVLV reserves the right to delay or cancel orders if
+                does not guarantee immediate dispatch. Liberty Aminos reserves the right to delay or cancel orders if
                 additional review is required.
               </p>
             </PolicySection>
@@ -46,15 +46,15 @@ export default function ShippingPage() {
             <PolicySection num="3" title="Shipping Timeframes">
               <p>
                 Delivery timeframes are estimates only and are not guaranteed. Actual delivery times may be affected
-                by factors beyond EVLV&rsquo;s control, including carrier delays, weather conditions, or other
-                logistical factors. EVLV is not responsible for delays caused by third-party carriers or external
+                by factors beyond Liberty Aminos&rsquo;s control, including carrier delays, weather conditions, or other
+                logistical factors. Liberty Aminos is not responsible for delays caused by third-party carriers or external
                 circumstances.
               </p>
             </PolicySection>
 
             <PolicySection num="4" title="Shipping Availability">
               <p>
-                Shipping is available within the United States and Canada. EVLV does not currently offer shipping
+                Shipping is available within the United States and Canada. Liberty Aminos does not currently offer shipping
                 outside these regions.
               </p>
             </PolicySection>
@@ -75,14 +75,14 @@ export default function ShippingPage() {
 
             <PolicySection num="7" title="Risk of Loss">
               <p>
-                Risk of loss and responsibility for the shipment transfer to the customer upon dispatch, unless
+                Risk of loss and responsibility for the shipment transfers to the customer upon dispatch, unless
                 otherwise required by applicable law.
               </p>
             </PolicySection>
 
             <PolicySection num="8" title="Incorrect or Incomplete Address">
               <p>
-                Customers are responsible for providing accurate and complete shipping information. EVLV is not
+                Customers are responsible for providing accurate and complete shipping information. Liberty Aminos is not
                 responsible for delivery issues resulting from incorrect or incomplete addresses.
               </p>
             </PolicySection>
@@ -100,7 +100,7 @@ export default function ShippingPage() {
 
             <PolicySection num="10" title="Contact Information">
               <p>
-                EVLV. Questions about an order or shipment can be sent through our{" "}
+                Liberty Aminos. Questions about an order or shipment can be sent through our{" "}
                 <Link href="/contact" className="font-semibold text-copper hover:underline">
                   Contact page
                 </Link>

@@ -7,13 +7,11 @@ import { getCatalogProducts } from "@/lib/catalog";
 import { Footer } from "@/components/layout/Footer";
 import { CartToast } from "@/components/layout/CartToast";
 import { CartDrawer } from "@/components/layout/CartDrawer";
-import { ReferralCapture } from "@/components/layout/ReferralCapture";
 import { AgeGate } from "@/components/layout/AgeGate";
 import { CartProvider } from "@/lib/cart-context";
 import { CurrencyProvider } from "@/lib/currency-context";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { ChunkErrorReload } from "@/components/layout/ChunkErrorReload";
-import { ConversionPrompts } from "@/components/layout/ConversionPrompts";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://libertyaminos.com";
 
@@ -26,11 +24,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Liberty Aminos: Third-Party Tested Research Amino Compounds",
+    default: "Liberty Aminos",
     template: "%s | Liberty Aminos",
   },
   description:
-    "Research-use amino compounds with batch-level COA verification. Third-party tested, US-fulfilled. For research use only — not for human or animal use.",
+    "Third-party tested research amino compounds. Certificate of Analysis for every production lot.",
   keywords: [
     "research amino compounds",
     "research use only",
@@ -45,16 +43,16 @@ export const metadata: Metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Liberty Aminos",
-    title: "Liberty Aminos: Third-Party Tested Research Amino Compounds",
+    title: "Liberty Aminos",
     description:
-      "Research-use amino compounds with batch-level COA verification. Third-party tested, US-fulfilled. Not for human or animal use.",
+      "Third-party tested research amino compounds. Certificate of Analysis for every production lot.",
     images: [{ url: "/images/og-image.png", width: 1200, height: 630, alt: "Liberty Aminos" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Liberty Aminos: Third-Party Tested Research Amino Compounds",
+    title: "Liberty Aminos",
     description:
-      "Research-use amino compounds with batch-level COA verification. Third-party tested, US-fulfilled. Not for human or animal use.",
+      "Third-party tested research amino compounds. Certificate of Analysis for every production lot.",
     images: ["/images/og-image.png"],
   },
   robots: {
@@ -68,9 +66,9 @@ const ORGANIZATION_JSON_LD = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: "Liberty Aminos",
-  url: SITE_URL,
+  url: "https://libertyaminos.com",
   description:
-    "Research-use amino compounds with batch-level COA verification. Third-party tested, US-fulfilled. Not for human or animal use.",
+    "Third-party tested research amino compounds. Certificate of Analysis for every production lot.",
   areaServed: ["US"],
   contactPoint: {
     "@type": "ContactPoint",
@@ -85,7 +83,7 @@ const WEBSITE_JSON_LD = {
   "@type": "WebSite",
   "@id": `${SITE_URL}/#website`,
   name: "Liberty Aminos",
-  url: SITE_URL,
+  url: "https://libertyaminos.com",
   inLanguage: "en-US",
   publisher: { "@id": `${SITE_URL}/#organization` },
   potentialAction: {
@@ -107,19 +105,17 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-white text-ink">
         <ScrollToTop />
         <ChunkErrorReload />
-        <ReferralCapture />
         <CurrencyProvider>
-          <CartProvider>
-            <AgeGate>
-              <AnnouncementBar />
-              <Header products={products} />
-              <main className="flex-1 bg-white pt-[90px] md:pt-[100px]">{children}</main>
-              <Footer />
-              <CartToast />
-              <CartDrawer products={products} />
-              <ConversionPrompts />
-            </AgeGate>
-          </CartProvider>
+        <CartProvider>
+          <AgeGate>
+            <AnnouncementBar />
+            <Header products={products} />
+            <main className="flex-1 bg-white pt-[90px] md:pt-[100px]">{children}</main>
+            <Footer />
+            <CartToast />
+            <CartDrawer products={products} />
+          </AgeGate>
+        </CartProvider>
         </CurrencyProvider>
       </body>
     </html>

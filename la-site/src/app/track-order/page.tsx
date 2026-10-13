@@ -4,7 +4,7 @@ import { TrackOrderForm } from "./TrackOrderForm";
 
 export const metadata: Metadata = {
   title: "Track Your Order",
-  description: "Check the processing and shipping status of an EVLV research order.",
+  description: "Check the processing and shipping status of a Liberty Aminos research order.",
   alternates: { canonical: "/track-order" },
 };
 
@@ -21,7 +21,7 @@ export default function TrackOrderPage() {
       <section className="cp-info-hero cp-info-shipping">
         <div>
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Order support</p>
-          <h1 className="font-display font-semibold text-white">Track your order</h1>
+          <h1 className="font-display font-semibold text-white">Track Your Order</h1>
           <p className="mt-5 text-base leading-relaxed text-white/70">Enter the order ID from your confirmation email together with the billing email used at checkout.</p>
         </div>
       </section>
@@ -32,7 +32,7 @@ export default function TrackOrderPage() {
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-sage-deep">Secure lookup</p>
             <h2 className="font-display text-3xl font-semibold leading-tight text-charcoal md:text-4xl">Find your shipment</h2>
             <p className="mt-5 max-w-lg text-sm leading-7 text-charcoal/60">For privacy, both fields must match the original order. Carrier events may take several hours to appear after dispatch.</p>
-            <div className="mt-7 rounded-xl border-l-4 border-sage-deep bg-sage-mist p-5 text-sm leading-6 text-charcoal/65"><b className="block text-charcoal">Research use only</b>All EVLV products are supplied exclusively for laboratory and analytical research - not for human or veterinary use.</div>
+            <div className="mt-7 rounded-xl border-l-4 border-sage-deep bg-sage-mist p-5 text-sm leading-6 text-charcoal/65"><b className="block text-charcoal">Research use only</b>All Liberty Aminos products are supplied exclusively for laboratory and analytical research - not for human or veterinary use.</div>
           </div>
           <TrackOrderForm />
         </div>

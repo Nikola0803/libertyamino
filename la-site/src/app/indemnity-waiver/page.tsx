@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Indemnity & Liability Waiver | EVLV",
+  title: "Indemnity & Liability Waiver | Liberty Aminos",
   description:
-    "The Indemnity, Liability Waiver & Assumption of Risk Agreement that applies to every EVLV research peptide order.",
+    "The Indemnity, Liability Waiver & Assumption of Risk Agreement that applies to every Liberty Aminos research peptide order.",
   alternates: { canonical: "/indemnity-waiver" },
 };
 
@@ -42,12 +42,12 @@ const RELEASE_ITEMS = [
   "Unauthorized human, veterinary, therapeutic, diagnostic, cosmetic, dietary or clinical use",
   "Improper storage, transportation, preparation or reconstitution",
   "Third-party claims, property damage, personal injury, regulatory action or financial loss",
-  "Any conduct inconsistent with this Agreement or EVLV's policies",
+  "Any conduct inconsistent with this Agreement or Liberty Aminos's policies",
 ];
 
 const INDEMNIFY_ITEMS = [
   "Your purchase, possession, handling, storage, use, misuse, transfer, resale or disposal of products",
-  "Your violation of this Agreement or any EVLV policy",
+  "Your violation of this Agreement or any Liberty Aminos policy",
   "Misrepresentation of eligibility, research intent, identity, account information, shipping information or legal compliance",
   "Any third-party claim related to products you purchased or facilitated",
   "Any regulatory, civil, criminal or administrative action arising from your conduct",
@@ -84,7 +84,7 @@ export default function IndemnityWaiverPage() {
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
             This Indemnity, Liability Waiver &amp; Assumption of Risk Agreement applies to every research peptide,
-            reagent and related research-use-only material purchased through EVLV.
+            reagent and related research-use-only material purchased through Liberty Aminos.
           </p>
           <p className="mt-4 text-xs text-white/40">Effective date: August 2026</p>
         </div>
@@ -97,9 +97,9 @@ export default function IndemnityWaiverPage() {
               <i className="ri-scales-3-line" /> Read before purchasing
             </p>
             <p className="mt-3 text-sm leading-relaxed text-charcoal/70 md:text-base">
-              By browsing EVLV product pages, creating an account, proceeding through checkout, submitting an order,
+              By browsing Liberty Aminos product pages, creating an account, proceeding through checkout, submitting an order,
               or otherwise accepting this Agreement electronically, you confirm that you&apos;ve read, understood,
-              and voluntarily agreed to the terms below. EVLV products are sold strictly for laboratory research -
+              and voluntarily agreed to the terms below. Liberty Aminos products are sold strictly for laboratory research -
               not for human consumption, veterinary use, diagnostic use, therapeutic use, food use, cosmetic use, or
               any other unauthorized application.
             </p>
@@ -120,7 +120,7 @@ export default function IndemnityWaiverPage() {
             <PolicySection id="acknowledgment" num="1" title="Acknowledgment of Research Use Only">
               <p>
                 By purchasing research compounds, peptides, reagents or other research-use-only materials from
-                EVLV, you acknowledge and agree that all products are intended strictly for legitimate laboratory
+                Liberty Aminos, you acknowledge and agree that all products are intended strictly for legitimate laboratory
                 research.
               </p>
               <ul className="mt-5 space-y-2.5">
@@ -153,8 +153,8 @@ export default function IndemnityWaiverPage() {
               <ul className="mt-5 space-y-2.5">
                 {[
                   "You're responsible for knowing and following applicable federal, state, local, institutional and workplace requirements.",
-                  "EVLV may request verification of identity, age, billing or shipping information, or research-use eligibility before accepting or fulfilling an order.",
-                  "EVLV may refuse, cancel or restrict orders where legal compliance, age verification, account integrity, fraud risk or suspected misuse can't reasonably be verified.",
+                  "Liberty Aminos may request verification of identity, age, billing or shipping information, or research-use eligibility before accepting or fulfilling an order.",
+                  "Liberty Aminos may refuse, cancel or restrict orders where legal compliance, age verification, account integrity, fraud risk or suspected misuse can't reasonably be verified.",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
                     <i className="ri-shield-check-line mt-0.5 shrink-0 text-copper" /> {item}
@@ -164,7 +164,7 @@ export default function IndemnityWaiverPage() {
             </PolicySection>
 
             <PolicySection id="prohibited" num="3" title="Prohibited Uses">
-              <p>You agree that products purchased from EVLV will not be used for any unlawful, unsafe or unauthorized purpose, including but not limited to:</p>
+              <p>You agree that products purchased from Liberty Aminos will not be used for any unlawful, unsafe or unauthorized purpose, including but not limited to:</p>
               <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                 {PROHIBITED_USES.map((item) => (
                   <div key={item} className="rounded-md border border-stone bg-ivory-soft px-3 py-2 text-xs font-medium text-charcoal/70">
@@ -181,7 +181,7 @@ export default function IndemnityWaiverPage() {
 
             <PolicySection id="warranties" num="4" title="No Medical Claims & No Warranties">
               <p>
-                EVLV makes no express or implied medical claims about the safety, efficacy, suitability or intended
+                Liberty Aminos makes no express or implied medical claims about the safety, efficacy, suitability or intended
                 use of any product for human or animal applications. We don&apos;t guarantee research outcomes,
                 experimental results, product performance in any specific methodology, or suitability for a
                 particular protocol.
@@ -198,18 +198,18 @@ export default function IndemnityWaiverPage() {
               <p>
                 Research compounds can require specialized knowledge, equipment, protocols, facilities, storage
                 conditions, safety procedures and disposal methods. You voluntarily assume all risks associated
-                with the purchase, possession, storage, handling, use, transfer, disposal or misuse of any EVLV
+                with the purchase, possession, storage, handling, use, transfer, disposal or misuse of any Liberty Aminos
                 product.
               </p>
               <p className="mt-3 text-sm leading-relaxed text-charcoal/60">
                 Shipping duration, temperature exposure, reconstitution variables, laboratory handling methods,
                 storage conditions, diluent quality, research methodology and experimental design are outside
-                EVLV&apos;s control once a product leaves our custody.
+                Liberty AminosLiberty Aminos&apos;sapos;s control once a product leaves our custody.
               </p>
             </PolicySection>
 
             <PolicySection id="release" num="6" title="Release of Liability">
-              <p>To the fullest extent permitted by applicable law, you agree to release EVLV, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from liability arising out of or related to:</p>
+              <p>To the fullest extent permitted by applicable law, you agree to release Liberty Aminos, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from liability arising out of or related to:</p>
               <ul className="mt-5 space-y-2.5">
                 {RELEASE_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
@@ -220,7 +220,7 @@ export default function IndemnityWaiverPage() {
             </PolicySection>
 
             <PolicySection id="indemnification" num="7" title="Indemnification">
-              <p>You agree to indemnify, defend and hold harmless EVLV, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from any claims, liabilities, damages, losses, penalties, fines, regulatory actions, costs or expenses - including reasonable legal fees - arising from or related to:</p>
+              <p>You agree to indemnify, defend and hold harmless Liberty Aminos, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from any claims, liabilities, damages, losses, penalties, fines, regulatory actions, costs or expenses - including reasonable legal fees - arising from or related to:</p>
               <ul className="mt-5 space-y-2.5">
                 {INDEMNIFY_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
@@ -240,7 +240,7 @@ export default function IndemnityWaiverPage() {
                 ))}
               </div>
               <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
-                Failing to maintain appropriate controls, documentation, storage or handling practices releases EVLV
+                Failing to maintain appropriate controls, documentation, storage or handling practices releases Liberty Aminos
                 from any obligation related to product condition, research outcomes, complaint eligibility, refund
                 eligibility, replacement eligibility or support.
               </p>
@@ -248,7 +248,7 @@ export default function IndemnityWaiverPage() {
 
             <PolicySection id="verification" num="9" title="Verification & Account Review">
               <p>
-                EVLV may use age verification, account verification, login safeguards, know-your-customer-style
+                Liberty Aminos may use age verification, account verification, login safeguards, know-your-customer-style
                 review, checkout certifications or other reasonable procedures to support account security,
                 compliance and fraud prevention.
               </p>
@@ -266,7 +266,7 @@ export default function IndemnityWaiverPage() {
             </PolicySection>
 
             <PolicySection id="policies" num="10" title="Related Policies">
-              <p>This Agreement works alongside every other EVLV policy. By placing an order, you agree to the applicable policies then in effect, including:</p>
+              <p>This Agreement works alongside every other Liberty Aminos policy. By placing an order, you agree to the applicable policies then in effect, including:</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {RELATED_POLICIES.map((p) => (
                   <Link
@@ -283,7 +283,7 @@ export default function IndemnityWaiverPage() {
             <PolicySection id="electronic" num="11" title="Electronic Acceptance & Signature">
               <p>
                 By checking an agreement box, creating an account, accessing gated product pages, submitting an
-                order, completing checkout, or otherwise electronically accepting EVLV&apos;s terms, you confirm
+                order, completing checkout, or otherwise electronically accepting Liberty AminosLiberty Aminos&apos;sapos;s terms, you confirm
                 that your electronic acceptance constitutes a valid, binding signature to the fullest extent
                 permitted by applicable law.
               </p>
@@ -305,7 +305,7 @@ export default function IndemnityWaiverPage() {
               </p>
               <ul className="mt-5 space-y-2.5">
                 {[
-                  "This Agreement is governed by the laws applicable in the jurisdiction where EVLV operates, without regard to conflict-of-law principles.",
+                  "This Agreement is governed by the laws applicable in the jurisdiction where Liberty Aminos operates, without regard to conflict-of-law principles.",
                   "If any provision is found invalid or unenforceable, the remaining provisions remain in full force and effect.",
                   "A printed or electronic copy of this Agreement and your acceptance of it may be used in legal, regulatory, payment or dispute proceedings.",
                 ].map((item) => (
@@ -320,7 +320,7 @@ export default function IndemnityWaiverPage() {
           <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
             <h3 className="font-display text-xl font-semibold md:text-2xl">Final acknowledgment</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
-              By proceeding with a purchase from EVLV, you confirm that you&apos;ve read, understood and voluntarily
+              By proceeding with a purchase from Liberty Aminos, you confirm that you&apos;ve read, understood and voluntarily
               agreed to this Agreement - and that products are strictly for laboratory research use, not for human
               or veterinary use, and will be handled only in compliance with applicable laws, safety standards, and
               research-use restrictions.

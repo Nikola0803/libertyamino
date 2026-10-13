@@ -4,8 +4,8 @@ import { CoasClient } from "./CoasClient";
 import { getCoaEntries } from "@/lib/coa-data";
 
 export const metadata: Metadata = {
-  title: "Certificates of Analysis",
-  description: "Independent batch verification reports (Certificates of Analysis) for every EVLV research peptide, searchable by batch code.",
+  title: "COA Library | Liberty Aminos",
+  description: "Every batch independently tested. Certificates of Analysis for every Liberty Aminos research compound, searchable by lot number.",
   alternates: { canonical: "/coas" },
 };
 

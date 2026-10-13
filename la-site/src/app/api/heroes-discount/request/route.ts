@@ -1,27 +1,29 @@
 import { NextResponse } from "next/server";
-import { crmConfigured, crmFetch } from "@/lib/crm-proxy";
 
 export const runtime = "nodejs";
 
 // POST /api/heroes-discount/request { name, email, status, branch, proofFileName,
-// proofFileType, proofFileDataUrl } - proxies to the CRM's
-// /api/store/heroes-discount/request. Manually reviewed, like the affiliate
-// program: reviewer checks the attached proof of service (ID/DD-214/badge
-// photo, sent as a data URL) before approving. On approval the CRM issues a
-// personal, single-use 20%-off Coupon (PERCENT, amount: 20) and emails the
-// code - reuses the same Coupon model checkout already validates against,
-// no new discount mechanism needed. Non-stackable is inherent: checkout
-// only ever reads one couponCode field, so this can never combine with
-// another code. Doesn't exist on the CRM yet - needs a Coupon row created
-// per approved request, storage for the proof-of-service upload (the data
-// URL is a few MB at most given the 8MB client-side cap; store it as a
-// file/blob, not inline in a row), plus the same "no transactional email"
-// gap flagged in REFERRAL-PROGRAM.md / AFFILIATE-PORTAL.md.
+// proofFileType, proofFileDataUrl } — submits to the Liberty Aminos WP backend
+// POST ${NEXT_PUBLIC_WC_URL}/wp-json/la/v1/heroes
+// If the WP URL is not configured, the request is logged and a 200 placeholder
+// is returned so the storefront does not break during development.
 export async function POST(req: Request) {
-  if (!crmConfigured()) {
-    return NextResponse.json({ error: "This program isn't connected yet." }, { status: 503 });
+  const wcUrl = process.env.NEXT_PUBLIC_WC_URL;
+  if (!wcUrl) {
+    console.warn("[heroes-discount] NEXT_PUBLIC_WC_URL is not set — skipping WP submission (placeholder).");
+    return NextResponse.json({ ok: true, placeholder: true }, { status: 200 });
   }
-  const body = await req.json().catch(() => ({}));
-  const { ok, status, data } = await crmFetch("/api/store/heroes-discount/request", body);
-  return NextResponse.json(data, { status: ok ? 200 : status });
+  try {
+    const body = await req.json().catch(() => ({}));
+    const upstream = await fetch(`${wcUrl}/wp-json/la/v1/heroes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    const data = await upstream.json().catch(() => ({}));
+    return NextResponse.json(data, { status: upstream.ok ? 200 : upstream.status });
+  } catch (err) {
+    console.error("[heroes-discount] Upstream error:", err);
+    return NextResponse.json({ error: "Could not submit application. Please try again." }, { status: 502 });
+  }
 }

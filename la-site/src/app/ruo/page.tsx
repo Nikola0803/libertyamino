@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Accordion } from "@/components/ui/Accordion";
 
 export const metadata: Metadata = {
-  title: "Research Use Only Policy | EVLV",
+  title: "Research Use Policy | Liberty Aminos",
   description:
-    "EVLV's Research Use Only policy: what we can and cannot discuss, purchaser responsibilities, regulatory context and how prohibited inquiries are handled.",
+    "Liberty Aminos' Research Use Policy: what we can and cannot discuss, purchaser responsibilities, regulatory context and how prohibited inquiries are handled.",
   alternates: { canonical: "/ruo" },
 };
 
@@ -85,14 +85,14 @@ const RESPONSIBILITIES = [
 
 const ENFORCEMENT_STEPS = [
   "We decline to answer the prohibited part of the inquiry.",
-  "We may restate that EVLV products are supplied for research use only.",
+  "We may restate that Liberty Aminos products are supplied for research use only.",
   "Where possible, we help with a separate, permissible question about the order, label, batch documentation or testing.",
   "Repeated or concerning inquiries may be logged and referred for compliance review.",
 ];
 
 const RUO_FAQ = [
   {
-    question: "Can EVLV calculate a dose or convert milligrams into units for me?",
+    question: "Can Liberty Aminos calculate a dose or convert milligrams into units for me?",
     answer:
       "No. We can't perform, verify or discuss any calculation aimed at determining an amount for human or veterinary administration, regardless of how the question is framed.",
   },
@@ -107,7 +107,7 @@ const RUO_FAQ = [
       "No. We don't review, approve, correct or validate third-party dosing, administration, stacking, cycling or human-use protocols, sourced from anywhere.",
   },
   {
-    question: "If EVLV links to a published study, does that mean the product is recommended for that use?",
+    question: "If Liberty Aminos links to a published study, does that mean the product is recommended for that use?",
     answer:
       "No. Scientific references are shared for general research context only. They aren't a recommendation, instruction or claim about safety or suitability for personal use.",
   },
@@ -130,10 +130,10 @@ export default function RuoPolicyPage() {
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal · Compliance</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">
-            Research Use Only Policy
+            Research Use Policy
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            What EVLV supplies, what our team can and can&apos;t discuss with you, and what that means before you
+            What Liberty Aminos supplies, what our team can and can&apos;t discuss with you, and what that means before you
             reach out.
           </p>
           <p className="mt-4 text-xs text-white/40">Effective date: August 2026 · Applies to our website, email, chat and phone support</p>
@@ -171,7 +171,7 @@ export default function RuoPolicyPage() {
           <div className="space-y-14">
             <PolicySection num="1" title="Purpose & Scope">
               <p>
-                This policy sets the boundaries of what EVLV, our staff, contractors and representatives can discuss
+                This policy sets the boundaries of what Liberty Aminos, our staff, contractors and representatives can discuss
                 about the products listed on this website. It covers every channel we use to talk to you - product
                 pages, articles, Certificates of Analysis, email, live chat, phone, text, support tickets and social
                 media - and it applies whether a request is framed as hypothetical, personal, professional,
@@ -181,7 +181,7 @@ export default function RuoPolicyPage() {
 
             <PolicySection num="2" title="What Research Use Only Means for Our Products">
               <p>
-                Unless a product is expressly labeled otherwise, everything EVLV sells is intended exclusively for
+                Unless a product is expressly labeled otherwise, everything Liberty Aminos sells is intended exclusively for
                 qualified laboratory, analytical and non-clinical research. Our products are not sold as drugs,
                 foods, supplements, cosmetics or medical devices, and none of them are intended to diagnose, treat,
                 cure or prevent any condition. Specifically, our products are not for:
@@ -258,7 +258,7 @@ export default function RuoPolicyPage() {
 
             <PolicySection num="7" title="Purchaser Responsibilities">
               <p>
-                By creating an account or purchasing from EVLV, you confirm that you&apos;re obtaining products for
+                By creating an account or purchasing from Liberty Aminos, you confirm that you&apos;re obtaining products for
                 lawful research purposes and that you have the knowledge, facilities, training and authority to
                 receive and handle them appropriately. You&apos;re independently responsible for:
               </p>
@@ -270,7 +270,7 @@ export default function RuoPolicyPage() {
                 ))}
               </ul>
               <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
-                EVLV doesn&apos;t determine whether your proposed research satisfies federal, state, local,
+                Liberty Aminos doesn&apos;t determine whether your proposed research satisfies federal, state, local,
                 institutional or international requirements - that determination is yours to make.
               </p>
             </PolicySection>
@@ -283,13 +283,13 @@ export default function RuoPolicyPage() {
                 services, poison control, or a veterinarian right away.
               </p>
               <p className="mt-3 text-sm font-semibold text-charcoal">
-                Contacting EVLV is never a substitute for contacting qualified medical or emergency personnel.
+                Contacting Liberty Aminos is never a substitute for contacting qualified medical or emergency personnel.
               </p>
             </PolicySection>
 
             <PolicySection num="9" title="Regulatory Context">
               <p>
-                EVLV operates as a supplier of materials for lawful laboratory research and analytical use.
+                Liberty Aminos operates as a supplier of materials for lawful laboratory research and analytical use.
                 Requirements vary by product, labeling, intended use, and jurisdiction - the references below are
                 general context, not a claim that any single rule covers every product, transaction or customer.
               </p>
@@ -335,7 +335,7 @@ export default function RuoPolicyPage() {
           <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
             <h3 className="font-display text-xl font-semibold md:text-2xl">Research with responsibility</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
-              By purchasing from EVLV, you acknowledge our products are supplied exclusively for lawful research and
+              By purchasing from Liberty Aminos, you acknowledge our products are supplied exclusively for lawful research and
               that our team can&apos;t provide guidance for human or veterinary use.
             </p>
             <Link

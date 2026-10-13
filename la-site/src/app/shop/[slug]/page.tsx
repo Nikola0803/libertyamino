@@ -8,7 +8,7 @@ import { ProductClient } from "./ProductClient";
 import { getProductImage } from "@/lib/product-images";
 import { ProductCard } from "@/components/product/ProductCard";
 
-const SITE_URL = "https://evlvpeptides.com";
+const SITE_URL = "https://libertyaminos.com";
 
 export function generateStaticParams() {
   return getProducts().map((product) => ({ slug: product.slug }));
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = await resolveProduct(slug);
   if (!product) return {};
-  const productType = product.category === "peptides" ? "Research Peptide" : "Research Product";
+  const productType = "Research Compound";
   const title = `${product.name} ${productType} | COA & Purity`;
   return {
     title,
@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     description: `${product.shortDescription} Research use only; not for human or veterinary use.`,
     image: [absoluteImage],
     category: product.categoryLabel,
-    brand: { "@type": "Brand", name: "EVLV" },
+    brand: { "@type": "Brand", name: "Liberty Aminos" },
     manufacturer: { "@id": `${SITE_URL}/#organization` },
     audience: { "@type": "BusinessAudience", audienceType: "Qualified laboratory researchers" },
     offers: {
@@ -88,9 +88,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://evlvpeptides.com" },
-      { "@type": "ListItem", position: 2, name: "Shop", item: "https://evlvpeptides.com/shop" },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://evlvpeptides.com/shop/${product.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://libertyaminos.com" },
+      { "@type": "ListItem", position: 2, name: "Shop", item: "https://libertyaminos.com/shop" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://libertyaminos.com/shop/${product.slug}` },
     ],
   };
 
@@ -115,7 +115,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <small className="cp-pdp-kicker">Product information</small>
           <h2 id="product-description-heading">Product description</h2>
           <p>{product.description}</p>
-          <p>EVLV fulfills research products from the United States and publishes product-specific batch documentation when a matching laboratory report is available. Testing methods and results are specific to the product and batch identified in each report.</p>
+          <p>Liberty Aminos fulfills research products from the United States and publishes product-specific batch documentation when a matching laboratory report is available. Testing methods and results are specific to the product and batch identified in each report.</p>
           <p>This product is supplied in the format shown on this page: {productForm.toLowerCase()}.</p>
           <p><strong>For laboratory research use only. Not for human or veterinary use.</strong></p>
         </div>

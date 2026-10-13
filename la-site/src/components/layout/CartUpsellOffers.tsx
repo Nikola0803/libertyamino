@@ -15,7 +15,7 @@ import { getProductBySlug, getProducts } from "@/lib/products";
 import type { Product } from "@/lib/types";
 import { getProductImage } from "@/lib/product-images";
 
-const BAC_WATER_SLUG = "bacteriostatic-water-30ml";
+const BAC_WATER_SLUG = "bac-water";
 const FEATURED_SLUG = "bpc-157-10mg";
 const FEATURED_DISCOUNT_PERCENT = 25;
 const FEATURED_PACK_LABEL = `1 PCS (${FEATURED_DISCOUNT_PERCENT}% Off Offer)`;
@@ -74,21 +74,15 @@ export function BacWaterOffer({ products = [] }: { products?: Product[] }) {
   if (alreadyInCart || !needsIt || !product) return null;
 
   return (
-    <div className="mt-5 flex items-start gap-3 rounded-lg border border-copper/40 bg-copper/5 p-4">
-      <i className="ri-flask-line mt-0.5 shrink-0 text-lg text-copper" />
-      <div className="flex-1">
-        <p className="text-sm font-semibold text-charcoal">Need a laboratory diluent?</p>
-        <p className="mt-1 text-xs leading-relaxed text-charcoal/60">
-          This product listing includes reconstitution information. Bacteriostatic Water is available separately for appropriate laboratory workflows.
-        </p>
-        <button
-          type="button"
-          onClick={() => addToCart(product, 1, product.price, "1 PCS")}
-          className="mt-2.5 inline-block rounded-md bg-copper px-3.5 py-2 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
-        >
-          Add BAC Water · {formatPrice(product.price)}
-        </button>
-      </div>
+    <div className="mt-5 flex items-center justify-between gap-3 rounded-lg border border-stone bg-ivory-soft p-4">
+      <p className="text-sm font-medium text-charcoal">Add Bacteriostatic Water — {formatPrice(product.price)}</p>
+      <button
+        type="button"
+        onClick={() => addToCart(product, 1, product.price, "1 PCS")}
+        className="shrink-0 rounded-md border border-charcoal px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+      >
+        Add
+      </button>
     </div>
   );
 }

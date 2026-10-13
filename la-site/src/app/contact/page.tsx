@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us | EVLV",
-  description: "Get in touch with the EVLV support team.",
+  title: "Contact Us | Liberty Aminos",
+  description: "Get in touch with the Liberty Aminos support team.",
 };
 
 export default function ContactPage() {
@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-[1400px] px-4 md:px-8">
           <h1 className="mb-4 font-display text-4xl font-semibold md:text-5xl lg:text-6xl">Contact Us</h1>
           <p className="mx-auto max-w-xl text-base leading-relaxed text-white/70 md:text-lg">
-            Have a question about an order, product, or need assistance? We typically respond within minutes.
+            Have a question about an order, a product, or a COA? We respond within 1 business day.
           </p>
         </div>
       </section>
@@ -24,30 +24,24 @@ export default function ContactPage() {
             <div>
               <h3 className="mb-4 font-display text-xl font-semibold text-charcoal">Get in touch</h3>
               <p className="text-sm leading-relaxed text-charcoal/60">
-                Our support team is available to help with orders, product questions, and anything else you need.
+                Our support team is available to help with orders, product questions, COA requests, and anything else you need.
               </p>
             </div>
 
             <div className="space-y-4">
               <ContactRow icon="ri-mail-line" label="Email">
-                <a href="mailto:support@evlvpeptides.com" className="text-sm text-sage-deep transition hover:underline">
-                  support@evlvpeptides.com
-                </a>
-              </ContactRow>
-              <ContactRow icon="ri-mail-line" label="Office">
-                <a href="mailto:office@evlvpeptides.com" className="text-sm text-sage-deep transition hover:underline">
-                  office@evlvpeptides.com
-                </a>
+                <p className="text-sm text-charcoal/70">info@libertyaminos.com</p>
               </ContactRow>
               <ContactRow icon="ri-time-line" label="Response Time">
-                <p className="text-sm text-charcoal/60">Typically within minutes during business hours</p>
+                <p className="text-sm text-charcoal/60">We respond within 1 business day</p>
               </ContactRow>
             </div>
 
             <div className="rounded-lg border border-stone bg-ivory-soft p-5">
               <h4 className="mb-2 text-sm font-semibold text-charcoal">A note on compliance</h4>
               <p className="text-xs leading-relaxed text-charcoal/60">
-                EVLV products are supplied for research use only and are not intended for human consumption.
+                Liberty Aminos products are supplied for research use only and are not intended for human consumption.
+                We cannot provide dosing, administration, or clinical guidance.
               </p>
             </div>
           </div>

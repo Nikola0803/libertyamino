@@ -80,8 +80,7 @@ export function CartDrawer({ products = [] }: { products?: Product[] }) {
       >
         <div className="flex items-center justify-between border-b border-stone px-5 py-5">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-sage-deep">Secure checkout</p>
-            <h2 className="font-display text-lg font-semibold text-charcoal">Your research cart</h2>
+            <h2 className="font-display text-lg font-semibold text-charcoal">Your Cart</h2>
           </div>
           <button type="button" onClick={closeCart} aria-label="Close cart" className="flex h-8 w-8 items-center justify-center text-charcoal/60 transition hover:text-charcoal">
             <i className="ri-close-line text-lg" />
