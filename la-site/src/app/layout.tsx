@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { getCatalogProducts } from "@/lib/catalog";
 import { Footer } from "@/components/layout/Footer";
@@ -111,9 +110,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <CurrencyProvider>
           <CartProvider>
             <AgeGate>
-              <AnnouncementBar />
-              <Header products={products} />
-              <main className="flex-1 bg-white pt-[90px] md:pt-[100px]">{children}</main>
+              <Header />
+              <main className="flex-1 bg-white pt-[104px]">{children}</main>
               <Footer />
               <CartToast />
               <CartDrawer products={products} />

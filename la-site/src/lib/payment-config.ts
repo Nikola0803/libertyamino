@@ -1,83 +1,94 @@
 /**
- * Manual payment gateway handles, shown at checkout once a customer picks
- * CashApp / Zelle / Venmo. Matches the peptides-crm-app Order schema, which
- * models paymentMethod as "zelle" | "cashapp" | "venmo" with a paymentMemo
- * field, so this checkout flow lines up with what the real CRM expects.
+ * Payment rail configuration for Liberty Aminos.
+ *
+ * Handles and addresses are fetched at runtime from GET /la/v1/payment-config
+ * (served by the la-wp plugin from WP options). A rail with no configured
+ * handle/address is hidden from checkout. These static values are placeholders
+ * only — override via NEXT_PUBLIC_WC_URL env and the WP settings page.
+ *
+ * Awaiting from Jerod: LA payment rail handles/addresses.
  */
-export const PAYMENT_HANDLES = {
-  cashapp: "$VVGOps",
-  zelle: "Info@vintagevitalitygroup.com",
-  venmo: "@VVGOps",
-};
 
-export const PAYMENT_PROCESSOR_NOTE =
-  "Payments are collected by VVG Operations, EVLV's authorized payment and fulfillment partner.";
+export type PaymentRailId = "p2p" | "btc" | "usdc" | "usdt";
 
-const DEMO_HANDLES = {
-  cashapp: "$EVLVPeptidesDemo",
-  zelle: "payments@evlvpeptides.com",
-  venmo: "@EVLV-Peptides-Demo",
-};
-
-export type PaymentGatewayId = "cashapp" | "zelle" | "venmo";
-
-export function getEffectiveHandle(gateway: PaymentGatewayId): { handle: string; isDemo: boolean } {
-  const real = PAYMENT_HANDLES[gateway];
-  return real ? { handle: real, isDemo: false } : { handle: DEMO_HANDLES[gateway], isDemo: true };
-}
-
-/**
- * Venmo and Cash App both support real "pay this exact amount" deep links.
- * Zelle has no equivalent, it's direct bank-to-bank with no public payment-
- * request URL scheme, so there's nothing to build a working link/QR to; the
- * best we can honestly offer is a QR that encodes the handle/amount/memo as
- * plain text, to save re-typing, not a one-tap payment.
- */
-export function buildQuickPayTarget(
-  gateway: PaymentGatewayId,
-  amount: number,
-  memo: string
-): { kind: "payLink"; url: string } | { kind: "infoText"; text: string } {
-  const { handle } = getEffectiveHandle(gateway);
-  const amountStr = amount.toFixed(2);
-
-  if (gateway === "venmo") {
-    const clean = handle.replace(/^@/, "");
-    return { kind: "payLink", url: `https://venmo.com/${clean}?txn=pay&amount=${amountStr}&note=${encodeURIComponent(memo)}` };
-  }
-  if (gateway === "cashapp") {
-    const clean = handle.startsWith("$") ? handle.slice(1) : handle;
-    return { kind: "payLink", url: `https://cash.app/$${clean}/${amountStr}` };
-  }
-  return { kind: "infoText", text: `Zelle\nTo: ${handle}\nAmount: $${amountStr}\nMemo: ${memo}` };
-}
-
-export const PAYMENT_GATEWAYS: {
-  id: PaymentGatewayId;
+export interface PaymentRail {
+  id: PaymentRailId;
   label: string;
   icon: string;
+  /** Handle or address. Empty string = rail hidden from checkout. */
   handle: string;
-  handleNote: string;
-}[] = [
+  note: string;
+}
+
+/** Static fallback — replaced by /la/v1/payment-config at runtime. */
+export const PAYMENT_RAILS: PaymentRail[] = [
   {
-    id: "cashapp",
-    label: "Cash App",
+    id: "p2p",
+    label: "P2P Transfer",
     icon: "ri-money-dollar-circle-line",
-    handle: PAYMENT_HANDLES.cashapp,
-    handleNote: "Include only the EVLV order memo shown below so your payment can be matched quickly.",
+    handle: "",
+    note: "Send payment to the handle below. Include your order number as the memo.",
   },
   {
-    id: "zelle",
-    label: "Zelle",
-    icon: "ri-bank-line",
-    handle: PAYMENT_HANDLES.zelle,
-    handleNote: "Send to @vintagevitality or Info@vintagevitalitygroup.com — include only the order memo shown below so we can match your payment.",
+    id: "btc",
+    label: "Bitcoin",
+    icon: "ri-bit-coin-line",
+    handle: "",
+    note: "Send exact BTC amount to the address below. Include your order number in the transaction memo/comment field.",
   },
   {
-    id: "venmo",
-    label: "Venmo",
-    icon: "ri-smartphone-line",
-    handle: PAYMENT_HANDLES.venmo,
-    handleNote: "Include only the EVLV order memo shown below so your payment can be matched quickly.",
+    id: "usdc",
+    label: "USDC",
+    icon: "ri-coin-line",
+    handle: "",
+    note: "Send exact USDC amount to the address below. Include your order number in the memo.",
+  },
+  {
+    id: "usdt",
+    label: "USDT",
+    icon: "ri-coin-line",
+    handle: "",
+    note: "Send exact USDT amount to the address below. Include your order number in the memo.",
   },
 ];
+
+/** Returns only rails with a non-empty handle configured. */
+export function getActiveRails(rails: PaymentRail[] = PAYMENT_RAILS): PaymentRail[] {
+  return rails.filter(r => r.handle.trim() !== "");
+}
+
+// ---------------------------------------------------------------------------
+// Deprecated — kept for checkout/order-success pages pending Phase 3 rewrite
+// ---------------------------------------------------------------------------
+export type PaymentGatewayId = "p2p" | "btc" | "usdc" | "usdt";
+
+export const PAYMENT_PROCESSOR_NOTE =
+  "Payments processed by Liberty Aminos. Include your order number as the memo.";
+
+/** @deprecated Use PAYMENT_RAILS instead once checkout is rebuilt for LA. */
+export const PAYMENT_GATEWAYS = PAYMENT_RAILS.map(r => ({
+  id: r.id as PaymentGatewayId,
+  label: r.label,
+  icon: r.icon,
+  handle: r.handle,
+  handleNote: r.note,
+}));
+
+/** @deprecated Remove once checkout/order-success pages are rebuilt for LA. */
+export function getEffectiveHandle(id: PaymentRailId): { handle: string; isDemo: boolean } {
+  const rail = PAYMENT_RAILS.find(r => r.id === id);
+  return { handle: rail?.handle ?? "", isDemo: !rail?.handle };
+}
+
+/** @deprecated Remove once checkout/order-success pages are rebuilt for LA. */
+export function buildQuickPayTarget(
+  id: PaymentRailId,
+  amount: number,
+  memo: string,
+): { kind: "infoText"; text: string } {
+  const { handle } = getEffectiveHandle(id);
+  return {
+    kind: "infoText",
+    text: `${id.toUpperCase()}\nTo: ${handle || "(handle not configured)"}\nAmount: $${amount.toFixed(2)}\nMemo: ${memo}`,
+  };
+}
