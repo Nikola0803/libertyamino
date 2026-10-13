@@ -1,6 +1,6 @@
 /**
  * Each category gets its own visual expression of "transformation" instead
- * of a generic molecular-diagram icon, per the EVLV motif system: fragmented
+ * of a generic molecular-diagram icon, per the Liberty Aminos motif system: fragmented
  * lines reconnecting, particle systems, expanding structures, concentric
  * layers - obsidian/charcoal/copper only, no green (green is reserved for
  * brand sections, not decorative category art).
@@ -11,7 +11,7 @@
  */
 export function CategoryArt({ variant, className = "" }: { variant: "fragmented" | "particles" | "expanding" | "concentric"; className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center bg-charcoal ${className}`}>
+    <div className={`relative flex items-center justify-center bg-navy ${className}`}>
       {variant === "fragmented" && (
         <svg viewBox="0 0 160 200" className="h-[70%] w-auto" aria-hidden>
           <path d="M40 30 L60 60 M75 75 L95 100 M110 115 L120 170" stroke="#B8875A" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />

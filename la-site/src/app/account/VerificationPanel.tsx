@@ -39,14 +39,14 @@ export function VerificationPanel() {
     load();
   }, []);
 
-  if (loading) return <p className="text-sm text-charcoal/50">Loading your verification status…</p>;
+  if (loading) return <p className="text-sm text-muted">Loading your verification status…</p>;
 
   if (error) {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-information-line text-2xl text-charcoal/30" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Verification not available yet</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-charcoal/60">{error}</p>
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-information-line text-2xl text-muted" />
+        <p className="mt-3 font-sans text-lg font-semibold text-ink">Verification not available yet</p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-muted">{error}</p>
       </div>
     );
   }
@@ -54,9 +54,9 @@ export function VerificationPanel() {
   if (status === "APPROVED") {
     return (
       <div className="rounded-lg border border-sage-deep/30 bg-sage-mist p-8 text-center">
-        <i className="ri-shield-check-fill text-2xl text-sage-deep" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Verified Researcher</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-charcoal/60">
+        <i className="ri-shield-check-fill text-2xl text-navy" />
+        <p className="mt-3 font-sans text-lg font-semibold text-ink">Verified Researcher</p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-muted">
           Your account has verified researcher/institutional access. Restricted formats - nasal delivery and
           multi-dose cartridge formats - are unlocked across the shop.
         </p>
@@ -66,10 +66,10 @@ export function VerificationPanel() {
 
   if (status === "PENDING") {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-time-line text-2xl text-copper" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Application under review</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-charcoal/60">
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-time-line text-2xl text-navy" />
+        <p className="mt-3 font-sans text-lg font-semibold text-ink">Application under review</p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-muted">
           We review every verification request by hand, typically within a couple of business days. You&apos;ll get
           an email once a decision is made.
         </p>
@@ -119,10 +119,10 @@ function VerificationForm({ onApplied }: { onApplied: () => void }) {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-checkbox-circle-fill text-2xl text-sage-deep" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Request received</p>
-        <p className="mt-2 text-sm text-charcoal/60">
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-checkbox-circle-fill text-2xl text-navy" />
+        <p className="mt-3 font-sans text-lg font-semibold text-ink">Request received</p>
+        <p className="mt-2 text-sm text-muted">
           We review every request by hand, typically within a couple of business days.
         </p>
       </div>
@@ -131,32 +131,32 @@ function VerificationForm({ onApplied }: { onApplied: () => void }) {
 
   return (
     <div>
-      <div className="mb-6 rounded-lg border border-stone bg-ivory-soft p-6">
-        <p className="font-display text-lg font-semibold text-charcoal">Verified Researcher / Institutional Access</p>
-        <p className="mt-2 text-sm text-charcoal/60">
+      <div className="mb-6 rounded-lg border border-border-subtle bg-off-white p-6">
+        <p className="font-sans text-lg font-semibold text-ink">Verified Researcher / Institutional Access</p>
+        <p className="mt-2 text-sm text-muted">
           Some formats - nasal delivery and multi-dose cartridge formats - are restricted to accounts with
           verified researcher or institutional status. Tell us a bit about your work and we&apos;ll review your
           request by hand.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-stone bg-white p-6 md:p-8">
+      <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-border-subtle bg-white p-6 md:p-8">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-              Institution / Company <span className="text-copper">*</span>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">
+              Institution / Company <span className="text-navy">*</span>
             </label>
             <input
               type="text"
               required
               value={form.institution}
               onChange={(e) => set("institution", e.target.value)}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-              Your Role / Title <span className="text-copper">*</span>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">
+              Your Role / Title <span className="text-navy">*</span>
             </label>
             <input
               type="text"
@@ -164,27 +164,27 @@ function VerificationForm({ onApplied }: { onApplied: () => void }) {
               placeholder="e.g. Lab Manager, PI, Research Associate"
               value={form.role}
               onChange={(e) => set("role", e.target.value)}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
             />
           </div>
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-            Phone <span className="text-copper">*</span>
+          <label className="mb-1.5 block text-sm font-semibold text-ink">
+            Phone <span className="text-navy">*</span>
           </label>
           <input
             type="tel"
             required
             value={form.phone}
             onChange={(e) => set("phone", e.target.value)}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+            className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
           />
         </div>
 
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-            Research Purpose <span className="text-copper">*</span>
+          <label className="mb-1.5 block text-sm font-semibold text-ink">
+            Research Purpose <span className="text-navy">*</span>
           </label>
           <textarea
             required
@@ -193,7 +193,7 @@ function VerificationForm({ onApplied }: { onApplied: () => void }) {
             placeholder="What are you researching, and why does it call for a restricted format?"
             value={form.purpose}
             onChange={(e) => set("purpose", e.target.value)}
-            className="w-full resize-none rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+            className="w-full resize-none rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
           />
         </div>
 
@@ -207,7 +207,7 @@ function VerificationForm({ onApplied }: { onApplied: () => void }) {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+          className="w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
         >
           {submitting ? "Submitting..." : "Submit for Review"}
         </button>

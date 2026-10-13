@@ -7,7 +7,7 @@ import { getGoogleReviews } from "./google-reviews";
 const PLACEHOLDER_RATING = 4.7;
 
 function starsHtml(rating: number, variant: "dark" | "light"): string {
-  const emptyClass = variant === "light" ? "text-charcoal/20" : "text-white/30";
+  const emptyClass = variant === "light" ? "text-muted" : "text-white/30";
   return Array.from({ length: 5 })
     .map((_, i) =>
       i < Math.round(rating)
@@ -60,10 +60,10 @@ export async function getGoogleRatingBadgeHtml(variant: "dark" | "light" = "dark
 
   const label = reviewCount && reviewCount > 0 ? `${reviewCount.toLocaleString()}+ Google reviews` : "Google Reviews";
 
-  const ratingTextClass = variant === "light" ? "text-charcoal" : "text-white";
-  const labelTextClass = variant === "light" ? "text-charcoal/60" : "text-white/60";
+  const ratingTextClass = variant === "light" ? "text-ink" : "text-white";
+  const labelTextClass = variant === "light" ? "text-muted" : "text-white/60";
 
-  const inner = `${GOOGLE_LOGO_SVG}<span class="inline-flex items-center gap-0.5 text-copper">${starsHtml(rating, variant)}</span><span class="text-xs font-semibold ${ratingTextClass}">${rating.toFixed(1)}</span><span class="text-xs ${labelTextClass}">${escapeHtml(label)}</span>`;
+  const inner = `${GOOGLE_LOGO_SVG}<span class="inline-flex items-center gap-0.5 text-navy">${starsHtml(rating, variant)}</span><span class="text-xs font-semibold ${ratingTextClass}">${rating.toFixed(1)}</span><span class="text-xs ${labelTextClass}">${escapeHtml(label)}</span>`;
 
   const className =
     variant === "light"

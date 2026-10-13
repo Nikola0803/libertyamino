@@ -1,16 +1,34 @@
 import { NextResponse } from "next/server";
-import { crmConfigured, crmFetch } from "@/lib/crm-proxy";
 
 export const runtime = "nodejs";
 
-// POST /api/account/orders { token } - proxies to the CRM's
-// /api/store/account/orders, which resolves "whose orders" from the token
-// server-side (never trusts a client-supplied customer id/email).
+const WC_URL = process.env.NEXT_PUBLIC_WC_URL ?? "";
+
+/**
+ * POST /api/account/orders { token }
+ *
+ * Fetches WooCommerce orders for the authenticated customer.
+ * The JWT token (from /api/auth/login) is forwarded as a Bearer token
+ * to the WP backend, which resolves the customer server-side.
+ */
 export async function POST(req: Request) {
-  if (!crmConfigured()) {
-    return NextResponse.json({ error: "Order history isn't connected to the CRM yet." }, { status: 503 });
+  if (!WC_URL) {
+    return NextResponse.json({ error: "Order history is not configured yet." }, { status: 503 });
   }
-  const body = await req.json().catch(() => ({}));
-  const { ok, status, data } = await crmFetch("/api/store/account/orders", body);
-  return NextResponse.json(data, { status: ok ? 200 : status });
+
+  const { token } = await req.json().catch(() => ({}));
+  if (!token) {
+    return NextResponse.json({ error: "Authentication required." }, { status: 401 });
+  }
+
+  try {
+    const res = await fetch(`${WC_URL}/wp-json/wc/v3/orders?customer=me&per_page=50`, {
+      headers: { Authorization: `Bearer ${token}` },
+      cache: "no-store",
+    });
+    const data = await res.json().catch(() => []);
+    return NextResponse.json(data, { status: res.status });
+  } catch {
+    return NextResponse.json({ error: "Order service unavailable." }, { status: 503 });
+  }
 }

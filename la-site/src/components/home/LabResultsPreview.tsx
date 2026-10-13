@@ -5,7 +5,7 @@ import { BatchVerifyTerminal } from "./BatchVerifyTerminal";
 
 export function LabResultsPreview() {
   return (
-    <section className="relative overflow-hidden bg-charcoal py-24 text-white md:py-36">
+    <section className="relative overflow-hidden bg-navy py-24 text-white md:py-36">
       <div
         aria-hidden
         className="pointer-events-none absolute -left-40 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full opacity-40"
@@ -18,11 +18,11 @@ export function LabResultsPreview() {
 
       <div className="relative mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-14 px-4 md:grid-cols-5 md:px-8 lg:gap-16">
         <Reveal className="md:col-span-2">
-          <div className="mb-4 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
-            <span className="h-px w-8 bg-copper/60" />
+          <div className="mb-4 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">
+            <span className="h-px w-8 bg-navy/60" />
             06 / Transparency
           </div>
-          <h2 className="font-display text-5xl font-semibold uppercase leading-[0.95] md:text-6xl">
+          <h2 className="font-sans text-5xl font-semibold uppercase leading-[0.95] md:text-6xl">
             Exact reports.
             <br />
             Verified.
@@ -31,7 +31,7 @@ export function LabResultsPreview() {
             Search the public library by product or batch identifier. Exact matching reports are labeled clearly;
             unmatched products are never represented by a different compound&apos;s report.
           </p>
-          <ButtonLink href="/coas" variant="secondary" size="lg" className="mt-9 !border-white/40 !text-ivory hover:!border-copper hover:!bg-transparent hover:!text-copper">
+          <ButtonLink href="/coas" variant="secondary" size="lg" className="mt-9 !border-white/40 !text-ivory hover:!border-copper hover:!bg-transparent hover:!text-navy">
             View All COAs <i className="ri-arrow-right-line" />
           </ButtonLink>
         </Reveal>

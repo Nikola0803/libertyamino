@@ -22,7 +22,7 @@ import { Reveal } from "@/components/ui/Reveal";
 const APPLY_POINTS = [
   "Commission that grows with volume -- 8% to 20%, paid monthly",
   "A personal discount code for your own research orders",
-  "Early access to new EVLV research releases",
+  "Early access to new Liberty Aminos research releases",
 ];
 
 const AMBASSADOR_POINTS = [
@@ -33,12 +33,12 @@ const AMBASSADOR_POINTS = [
 
 export function PartnerReferralSection() {
   return (
-    <section className="bg-ivory-soft py-20 md:py-28">
+    <section className="bg-off-white py-20 md:py-28">
       <div className="mx-auto max-w-[1300px] px-4 md:px-8">
         <Reveal className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Research Partners</p>
-          <h2 className="font-display text-3xl font-semibold leading-tight text-charcoal md:text-4xl">
-            Labs, researchers, and creators partner with EVLV.
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Research Partners</p>
+          <h2 className="font-sans text-3xl font-semibold leading-tight text-ink md:text-4xl">
+            Labs, researchers, and creators partner with Liberty Aminos.
           </h2>
         </Reveal>
 
@@ -52,11 +52,11 @@ export function PartnerReferralSection() {
               className="absolute inset-0 -z-20 object-cover"
             />
             <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0f2a20]/90 via-[#0f2a20]/85 to-[#0e1113]/95" />
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-copper/20 text-copper">
+            <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-navy/20 text-navy">
               <i className="ri-flask-line text-xl" />
             </div>
-            <p className="relative mb-1.5 mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Apply</p>
-            <h3 className="relative font-display text-2xl font-semibold">Become an EVLV Ambassador</h3>
+            <p className="relative mb-1.5 mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Apply</p>
+            <h3 className="relative font-sans text-2xl font-semibold">Become an Liberty Aminos Ambassador</h3>
             <p className="relative mt-3 text-sm leading-relaxed text-white/70">
               Labs, researchers, and science content creators  -  get commission-based partnership, real batch
               data to share, and direct support from our team.
@@ -64,13 +64,13 @@ export function PartnerReferralSection() {
             <ul className="relative mt-6 flex flex-1 flex-col gap-2.5">
               {APPLY_POINTS.map((p) => (
                 <li key={p} className="flex items-start gap-2.5 text-sm text-white/85">
-                  <i className="ri-check-line mt-0.5 shrink-0 text-copper" /> {p}
+                  <i className="ri-check-line mt-0.5 shrink-0 text-navy" /> {p}
                 </li>
               ))}
             </ul>
             <Link
               href="/ambassadors#apply"
-              className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-copper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light"
+              className="relative mt-8 inline-flex w-fit items-center gap-2 rounded-md bg-navy px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light"
             >
               Apply for Partnership <i className="ri-arrow-right-line" />
             </Link>
@@ -91,7 +91,7 @@ export function PartnerReferralSection() {
             <p className="relative mb-1.5 mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
               Already Approved
             </p>
-            <h3 className="relative font-display text-2xl font-semibold">Refer a Researcher</h3>
+            <h3 className="relative font-sans text-2xl font-semibold">Refer a Researcher</h3>
             <p className="relative mt-3 text-sm leading-relaxed text-white/85">
               Share your ambassador link. When someone you refer places an order, it&apos;s tracked automatically and
               your commission accrues on the confirmed sale.

@@ -41,6 +41,6 @@ export const faqItems: FaqItem[] = [
   {
     question: "What is your intended use policy?",
     answer:
-      "All compounds sold by EVLV are supplied strictly for laboratory, in-vitro, and analytical research use. Products are not intended, labeled, or approved for human or animal diagnostic, therapeutic, or consumptive use of any kind. By placing an order, the purchasing institution or individual affirms the product will be used solely in a controlled laboratory research setting by qualified personnel.",
+      "All compounds sold by Liberty Aminos are supplied strictly for laboratory, in-vitro, and analytical research use. Products are not intended, labeled, or approved for human or animal diagnostic, therapeutic, or consumptive use of any kind. By placing an order, the purchasing institution or individual affirms the product will be used solely in a controlled laboratory research setting by qualified personnel.",
   },
 ];

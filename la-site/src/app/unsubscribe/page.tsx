@@ -41,29 +41,29 @@ export default async function UnsubscribePage({
   return (
     <div className="mx-auto flex max-w-[560px] flex-col items-center px-4 py-20 text-center md:px-8">
       <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-sage-deep/30 bg-sage-mist">
-        <i className={`ri-${ok ? "check-line text-sage-deep" : "mail-close-line text-charcoal/50"} text-3xl`} />
+        <i className={`ri-${ok ? "check-line text-navy" : "mail-close-line text-muted"} text-3xl`} />
       </div>
 
       {ok ? (
         <>
-          <h1 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">You&apos;re unsubscribed</h1>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-charcoal/60">
-            {email || "This address"} won&apos;t receive any more marketing emails from EVLV Peptides. Order and account
+          <h1 className="font-sans text-2xl font-semibold text-ink md:text-3xl">You&apos;re unsubscribed</h1>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+            {email || "This address"} won&apos;t receive any more marketing emails from Liberty Aminos Peptides. Order and account
             emails still go out as normal.
           </p>
         </>
       ) : (
         <>
-          <h1 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">Couldn&apos;t unsubscribe</h1>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-charcoal/60">{error}</p>
+          <h1 className="font-sans text-2xl font-semibold text-ink md:text-3xl">Couldn&apos;t unsubscribe</h1>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{error}</p>
         </>
       )}
 
       <Link
         href="/"
-        className="mt-8 inline-flex items-center justify-center rounded-full bg-charcoal px-6 py-3 text-sm font-medium text-white transition hover:bg-charcoal/90"
+        className="mt-8 inline-flex items-center justify-center rounded-full bg-navy px-6 py-3 text-sm font-medium text-white transition hover:bg-navy/90"
       >
-        Back to EVLV Peptides
+        Back to Liberty Aminos Peptides
       </Link>
     </div>
   );

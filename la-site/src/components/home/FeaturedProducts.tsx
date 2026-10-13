@@ -7,11 +7,11 @@ export function FeaturedProducts() {
   const products = getFeaturedProducts();
 
   return (
-    <section className="bg-ivory py-16 md:py-24">
+    <section className="bg-surface py-16 md:py-24">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <Reveal className="mb-12 max-w-2xl md:mb-16">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">02 / Our Collection</p>
-          <h2 className="font-display text-4xl font-semibold text-charcoal md:text-5xl lg:text-6xl">Featured Research</h2>
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">02 / Our Collection</p>
+          <h2 className="font-sans text-4xl font-semibold text-ink md:text-5xl lg:text-6xl">Featured Research</h2>
           <p className="mt-5 text-base leading-relaxed text-soft-gray md:text-lg">
             Our most requested research compounds, independently tested and prepared to exacting standards.
           </p>

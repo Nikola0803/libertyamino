@@ -16,8 +16,8 @@ import { getQuantityUnitPrice } from "./quantity-pricing";
  * switching on product pages, while every in-stock dose keeps its own card
  * in the main shop grid.
  *
- * "EVLV-3" is the site's compliant name for Retatrutide - do not rename to
- * "Retatrutide" anywhere in copy, slugs, or SKUs.
+ * GLP3-R is Liberty Aminos' compliant name for Retatrutide.
+ * GLP1-S = Semaglutide, GLP2-T = Tirzepatide, GLP3-R = Retatrutide.
  */
 
 const BPC_157_VARIANTS: ProductVariant[] = [
@@ -72,11 +72,11 @@ const EVLV2_VARIANTS: ProductVariant[] = [
 ];
 
 export const products: Product[] = [
-  // ---- EVLV-3 (Retatrutide) ----
+  // ---- GLP3-R (Retatrutide) ----
   {
     id: "7",
     slug: "evlv-3-10mg",
-    sku: "EVLV3-10",
+    sku: "GLP3-10",
     name: "GLP3-R 10MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -101,7 +101,7 @@ export const products: Product[] = [
   {
     id: "28",
     slug: "evlv-3-15mg",
-    sku: "EVLV3-15",
+    sku: "GLP3-15",
     name: "GLP3-R 15MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -126,7 +126,7 @@ export const products: Product[] = [
   {
     id: "29",
     slug: "evlv-3-30mg",
-    sku: "EVLV3-30",
+    sku: "GLP3-30",
     name: "GLP3-R 30MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -151,7 +151,7 @@ export const products: Product[] = [
   {
     id: "30",
     slug: "evlv-3-60mg",
-    sku: "EVLV3-60",
+    sku: "GLP3-60",
     name: "GLP3-R 60MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -170,15 +170,15 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-EVLV3-60-08", date: "2026-08-16", status: "PASS" },
+    batch: { code: "LA-GLP3-60-08", date: "2026-08-16", status: "PASS" },
     variants: EVLV3_VARIANTS,
   },
 
-  // ---- EVLV-1 / EVLV-2 (metabolic; compliant names for Semaglutide / Tirzepatide) ----
+  // ---- GLP1-S / GLP2-T (metabolic; compliant names for Semaglutide / Tirzepatide) ----
   {
     id: "36",
     slug: "evlv-1-5mg",
-    sku: "EVLV1-5",
+    sku: "GLP1-5",
     name: "GLP1-S 5MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -202,7 +202,7 @@ export const products: Product[] = [
   {
     id: "37",
     slug: "evlv-1-10mg",
-    sku: "EVLV1-10",
+    sku: "GLP1-10",
     name: "GLP1-S 10MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -220,13 +220,13 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-SEM10-08", date: "2026-08-24", status: "PASS" },
+    batch: { code: "LA-SEM10-08", date: "2026-08-24", status: "PASS" },
     variants: EVLV1_VARIANTS,
   },
   {
     id: "38",
     slug: "evlv-2-10mg",
-    sku: "EVLV2-10",
+    sku: "GLP2-10",
     name: "GLP2-T 10MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -250,7 +250,7 @@ export const products: Product[] = [
   {
     id: "39",
     slug: "evlv-2-15mg",
-    sku: "EVLV2-15",
+    sku: "GLP2-15",
     name: "GLP2-T 15MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -274,7 +274,7 @@ export const products: Product[] = [
   {
     id: "40",
     slug: "evlv-2-30mg",
-    sku: "EVLV2-30",
+    sku: "GLP2-30",
     name: "GLP2-T 30MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -298,7 +298,7 @@ export const products: Product[] = [
   {
     id: "41",
     slug: "evlv-2-60mg",
-    sku: "EVLV2-60",
+    sku: "GLP2-60",
     name: "GLP2-T 60MG",
     category: "peptides",
     categoryLabel: "Peptide Research",
@@ -316,7 +316,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-TIR60-08", date: "2026-08-25", status: "PASS" },
+    batch: { code: "LA-TIR60-08", date: "2026-08-25", status: "PASS" },
     variants: EVLV2_VARIANTS,
   },
 
@@ -393,7 +393,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-BPC20-08", date: "2026-08-11", status: "PASS" },
+    batch: { code: "LA-BPC20-08", date: "2026-08-11", status: "PASS" },
     variants: BPC_157_VARIANTS,
   },
 
@@ -470,7 +470,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-TB20-08", date: "2026-08-13", status: "PASS" },
+    batch: { code: "LA-TB20-08", date: "2026-08-13", status: "PASS" },
     variants: TB_500_VARIANTS,
   },
 
@@ -551,7 +551,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-TES10-07", date: "2026-07-18", status: "PASS" },
+    batch: { code: "LA-TES10-07", date: "2026-07-18", status: "PASS" },
     variants: TESAMORELIN_VARIANTS,
   },
   {
@@ -576,7 +576,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-TES20-08", date: "2026-08-17", status: "PASS" },
+    batch: { code: "LA-TES20-08", date: "2026-08-17", status: "PASS" },
     variants: TESAMORELIN_VARIANTS,
   },
 
@@ -602,7 +602,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-GHK50-08", date: "2026-08-16", status: "PASS" },
+    batch: { code: "LA-GHK50-08", date: "2026-08-16", status: "PASS" },
   },
 
   // ---- MOTS-c ----
@@ -651,7 +651,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-MOTS40-08", date: "2026-08-18", status: "PASS" },
+    batch: { code: "LA-MOTS40-08", date: "2026-08-18", status: "PASS" },
     variants: MOTS_C_VARIANTS,
   },
 
@@ -677,7 +677,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-TA15-08", date: "2026-08-19", status: "PASS" },
+    batch: { code: "LA-TA15-08", date: "2026-08-19", status: "PASS" },
   },
 
   // ---- GLOW / KLOW blends ----
@@ -726,7 +726,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-KLOW80-08", date: "2026-08-21", status: "PASS" },
+    batch: { code: "LA-KLOW80-08", date: "2026-08-21", status: "PASS" },
   },
 
   // ---- Selank / Semax (cognition) ----
@@ -751,7 +751,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-SEL10-08", date: "2026-08-22", status: "PASS" },
+    batch: { code: "LA-SEL10-08", date: "2026-08-22", status: "PASS" },
   },
   {
     id: "33",
@@ -774,7 +774,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-SMX10-08", date: "2026-08-22", status: "PASS" },
+    batch: { code: "LA-SMX10-08", date: "2026-08-22", status: "PASS" },
   },
 
   // ---- CJC-1295 / Ipamorelin blend ----
@@ -824,7 +824,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-CP20-08", date: "2026-08-23", status: "PASS" },
+    batch: { code: "LA-CP20-08", date: "2026-08-23", status: "PASS" },
     variants: CJC_IPA_BLEND_VARIANTS,
   },
 
@@ -850,7 +850,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-AOD10-08", date: "2026-08-19", status: "PASS" },
+    batch: { code: "LA-AOD10-08", date: "2026-08-19", status: "PASS" },
   },
   {
     id: "43",
@@ -873,7 +873,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-CART20-08", date: "2026-08-23", status: "PASS" },
+    batch: { code: "LA-CART20-08", date: "2026-08-23", status: "PASS" },
   },
   {
     id: "46",
@@ -896,7 +896,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-IGF1-08", date: "2026-08-20", status: "PASS" },
+    batch: { code: "LA-IGF1-08", date: "2026-08-20", status: "PASS" },
   },
   {
     id: "47",
@@ -942,7 +942,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-MT210-08", date: "2026-08-21", status: "PASS" },
+    batch: { code: "LA-MT210-08", date: "2026-08-21", status: "PASS" },
   },
   {
     id: "50",
@@ -965,7 +965,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-NAD500-08", date: "2026-08-21", status: "PASS" },
+    batch: { code: "LA-NAD500-08", date: "2026-08-21", status: "PASS" },
   },
   {
     id: "51",
@@ -988,7 +988,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-OXY10-08", date: "2026-08-22", status: "PASS" },
+    batch: { code: "LA-OXY10-08", date: "2026-08-22", status: "PASS" },
   },
   {
     id: "52",
@@ -1011,7 +1011,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-PT10-08", date: "2026-08-22", status: "PASS" },
+    batch: { code: "LA-PT10-08", date: "2026-08-22", status: "PASS" },
   },
   {
     id: "53",
@@ -1034,7 +1034,7 @@ export const products: Product[] = [
     storage: "Store lyophilized vials at 2–8°C. After reconstitution, use within 30 days and refrigerate.",
     reconstitution: "Reconstitute with bacteriostatic or sterile water appropriate for laboratory use.",
     badges: ["Case Pricing Available"],
-    batch: { code: "EVLV-SS3110-08", date: "2026-08-23", status: "PASS" },
+    batch: { code: "LA-SS3110-08", date: "2026-08-23", status: "PASS" },
   },
   {
     id: "54",
@@ -1113,7 +1113,7 @@ export function withQuantityPricing(product: Product): Product {
 }
 
 export function getFeaturedProducts() {
-  // EVLV-3/EVLV-2/EVLV-1 (the metabolic-research trio) lead as top products per
+  // GLP3-R/GLP2-T/GLP1-S (the metabolic-research trio) lead as top products per
   // request -- order here is deliberate, not just a filter, since
   // FeaturedProducts renders these in array order.
   const inventoryProducts = getProducts();

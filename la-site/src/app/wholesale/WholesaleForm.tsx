@@ -66,8 +66,8 @@ export function WholesaleForm() {
   if (submitted) {
     return (
       <div className="rounded-lg border border-white/10 bg-white/5 p-8 text-center">
-        <i className="ri-checkbox-circle-fill text-2xl text-copper" />
-        <p className="mt-3 font-display text-lg font-semibold text-white">Inquiry received</p>
+        <i className="ri-checkbox-circle-fill text-2xl text-navy" />
+        <p className="mt-3 font-sans text-lg font-semibold text-white">Inquiry received</p>
         <p className="mt-2 text-sm text-white/60">
           Our team reviews every partner inquiry by hand. We&apos;ll follow up by email within a couple of business days
           to discuss the right wholesale, white-label, or dropshipping path.
@@ -77,16 +77,16 @@ export function WholesaleForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-white/10 bg-charcoal/40 p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-white/10 bg-navy/40 p-6 md:p-8">
       <div>
         <label className="mb-1.5 block text-sm font-semibold text-white">
-          Partnership Model <span className="text-copper">*</span>
+          Partnership Model <span className="text-navy">*</span>
         </label>
         <select
           required
           value={form.programType}
           onChange={(e) => set("programType", e.target.value)}
-          className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none focus:border-copper"
+          className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none focus:border-navy"
         >
           <option value="" style={{ color: "#0E1113" }}>
             What are you interested in?
@@ -110,13 +110,13 @@ export function WholesaleForm() {
 
       <div>
         <label className="mb-1.5 block text-sm font-semibold text-white">
-          Expected Order Volume <span className="text-copper">*</span>
+          Expected Order Volume <span className="text-navy">*</span>
         </label>
         <select
           required
           value={form.monthlyVolume}
           onChange={(e) => set("monthlyVolume", e.target.value)}
-          className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none focus:border-copper"
+          className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none focus:border-navy"
         >
           <option value="" style={{ color: "#0E1113" }}>
             Select a range
@@ -139,7 +139,7 @@ export function WholesaleForm() {
           value={form.message}
           onChange={(e) => set("message", e.target.value)}
           placeholder="What are you looking to build - dropship, white-label, or a fully custom storefront?"
-          className="w-full resize-none rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/30 focus:border-copper"
+          className="w-full resize-none rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/30 focus:border-navy"
         />
       </div>
 
@@ -153,7 +153,7 @@ export function WholesaleForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
       >
         {submitting ? "Submitting..." : "Request Partner Review"}
       </button>
@@ -180,7 +180,7 @@ function Field({
     <div>
       <label className="mb-1.5 block text-sm font-semibold text-white">
         {label}
-        {required && <span className="text-copper"> *</span>}
+        {required && <span className="text-navy"> *</span>}
       </label>
       <input
         type={type}
@@ -188,7 +188,7 @@ function Field({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/30 focus:border-copper"
+        className="w-full rounded-md border border-white/15 bg-white/10 px-4 py-2.5 text-sm text-white outline-none placeholder:text-white/30 focus:border-navy"
       />
     </div>
   );

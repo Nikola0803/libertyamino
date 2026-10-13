@@ -12,7 +12,7 @@ export interface Pack {
   savePercent?: number;
 }
 
-/** EVLV's store-wide quantity ladder. Keep this aligned with the normalized
+/** Derives 1/3/5/10-vial pack tiers from a product's
  * bulk option returned by the catalog so product pages and checkout agree. */
 function buildPacks(product: Product): Pack[] {
   if (!product.bulkOption) return [{ label: "1 Vial", qty: 1, unitPrice: product.price }];

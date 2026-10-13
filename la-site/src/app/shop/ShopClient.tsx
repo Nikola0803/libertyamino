@@ -61,7 +61,7 @@ export function ShopClient({ products: initialProducts, verifiedCoaSlugs }: { pr
     <header className="cp-shop-hero">
       <div className="cp-shop-hero-inner">
         <div className="cp-shop-hero-copy">
-          <small>EVLV RESEARCH CATALOGUE</small>
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Shop</p>
           <h1>{title}</h1>
           <p>Research compounds with clearly labeled, product-specific batch documentation where available.</p>
           <div className="cp-shop-hero-proof" aria-label="Product quality standards">

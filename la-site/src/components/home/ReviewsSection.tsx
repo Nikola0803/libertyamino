@@ -10,7 +10,7 @@ const PURITY_STATS = [
   { icon: "ri-calendar-check-line", value: "12 mo", label: "Shelf life guarantee" },
 ];
 
-/** Real customer testimonials supplied directly by EVLV from their own
+/** Real customer testimonials supplied directly by Liberty Aminos from their own
  * correspondence -- not Google Places data, and not fabricated. Shown
  * unconditionally so the section always has real content instead of
  * depending on GOOGLE_PLACES_API_KEY being configured. */
@@ -18,7 +18,7 @@ const EMAIL_TESTIMONIALS = [
   {
     rating: 5,
     quote:
-      "Purity COAs are legit! Third party HPLC verified. I've tried 8 suppliers and EVLV is the only one I trust for serious work right now.",
+      "Purity COAs are legit! Third party HPLC verified. I've tried 8 suppliers and Liberty Aminos is the only one I trust for serious work right now.",
     initial: "R",
     name: "R. Hartmann",
     role: "Independent Researcher",
@@ -44,7 +44,7 @@ const EMAIL_TESTIMONIALS = [
 
 function Stars({ rating, className = "" }: { rating: number; className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-0.5 text-copper ${className}`} aria-label={`${rating} out of 5 stars`}>
+    <span className={`inline-flex items-center gap-0.5 text-navy ${className}`} aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <i key={i} className={i < Math.round(rating) ? "ri-star-fill" : "ri-star-line text-white/25"} />
       ))}
@@ -61,7 +61,7 @@ function Stars({ rating, className = "" }: { rating: number; className?: string 
  * claim, not three different ones. Rendered as four separate bordered
  * cards (not one box with internal dividers).
  *
- * EMAIL_TESTIMONIALS are real quotes supplied directly by EVLV from
+ * EMAIL_TESTIMONIALS are real quotes supplied directly by Liberty Aminos from
  * customer correspondence -- always shown. getGoogleReviews() is still
  * called for the optional aggregate rating badge ("4.9/5 · N+ reviews")
  * above the stats when GOOGLE_PLACES_API_KEY/GOOGLE_PLACE_ID are
@@ -73,7 +73,7 @@ export async function ReviewsSection() {
   const data = await getGoogleReviews();
 
   return (
-    <section className="relative overflow-hidden bg-charcoal py-24 text-white md:py-36">
+    <section className="relative overflow-hidden bg-navy py-24 text-white md:py-36">
       <MolecularMotif
         variant="particles"
         className="pointer-events-none absolute -right-24 -top-24 hidden h-[380px] w-[380px] lg:block"
@@ -100,8 +100,8 @@ export async function ReviewsSection() {
               key={s.label}
               className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-6 text-center transition hover:border-copper/30"
             >
-              <i className={`${s.icon} text-lg text-copper`} aria-hidden />
-              <p className="font-display text-xl font-semibold text-white md:text-2xl">{s.value}</p>
+              <i className={`${s.icon} text-lg text-navy`} aria-hidden />
+              <p className="font-sans text-xl font-semibold text-white md:text-2xl">{s.value}</p>
               <p className="max-w-[140px] text-[11px] leading-snug text-white/45">{s.label}</p>
             </div>
           ))}
@@ -134,7 +134,7 @@ export async function ReviewsSection() {
               href={data.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-copper transition hover:text-white"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-navy transition hover:text-white"
             >
               Read More on Google <i className="ri-arrow-right-line" />
             </a>

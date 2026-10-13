@@ -1,15 +1,44 @@
 import { NextResponse } from "next/server";
-import { crmConfigured, crmFetch } from "@/lib/crm-proxy";
 
 export const runtime = "nodejs";
 
-// POST /api/auth/login { email, password }
-// Proxies to the CRM's /api/store/auth/login, scoped to the EVLV brand.
+const WC_URL = process.env.NEXT_PUBLIC_WC_URL ?? "";
+
+/**
+ * POST /api/auth/login { email, password }
+ *
+ * Authenticates against WooCommerce via the WP JWT auth plugin
+ * (POST /wp-json/jwt-auth/v1/token) or application passwords.
+ * Returns { token, email, username, user_id } on success.
+ */
 export async function POST(req: Request) {
-  if (!crmConfigured()) {
-    return NextResponse.json({ error: "Sign-in isn't configured yet. Set CRM_API_URL / CRM_ORG_API_KEY / CRM_STORE_DOMAIN." }, { status: 503 });
+  if (!WC_URL) {
+    return NextResponse.json({ error: "Sign-in is not configured. Set NEXT_PUBLIC_WC_URL." }, { status: 503 });
   }
-  const body = await req.json().catch(() => ({}));
-  const { ok, status, data } = await crmFetch("/api/store/auth/login", body);
-  return NextResponse.json(data, { status: ok ? 200 : status });
+
+  const { email, password } = await req.json().catch(() => ({}));
+  if (!email || !password) {
+    return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
+  }
+
+  try {
+    const res = await fetch(`${WC_URL}/wp-json/jwt-auth/v1/token`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: email, password }),
+      cache: "no-store",
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      return NextResponse.json({ error: data?.message ?? "Invalid credentials." }, { status: 401 });
+    }
+    return NextResponse.json({
+      token: data.token,
+      email: data.user_email ?? email,
+      username: data.user_display_name ?? email,
+      user_id: String(data.user_id ?? ""),
+    });
+  } catch {
+    return NextResponse.json({ error: "Authentication service unavailable." }, { status: 503 });
+  }
 }

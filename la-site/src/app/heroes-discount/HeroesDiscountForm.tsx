@@ -9,8 +9,14 @@ interface FormState {
   status: string;
 }
 
-const STATUS_OPTIONS = ["Active Duty", "Veteran", "Reservist / National Guard", "First Responder (Police/Fire/EMS)"];
-const MAX_FILE_BYTES = 8 * 1024 * 1024; // 8MB
+const STATUS_OPTIONS = [
+  "Active Duty Military",
+  "Reserve / National Guard",
+  "Honorably Discharged Veteran",
+  "Law Enforcement",
+  "Fire / EMS / Paramedics",
+];
+const MAX_FILE_BYTES = 5 * 1024 * 1024; // 5MB per LA spec
 
 function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -36,7 +42,7 @@ export function HeroesDiscountForm() {
     const file = e.target.files?.[0] ?? null;
     setError("");
     if (file && file.size > MAX_FILE_BYTES) {
-      setError("File is too large - please upload something under 8MB.");
+      setError("File is too large — please upload something under 5 MB.");
       e.target.value = "";
       setProofFile(null);
       return;
@@ -48,7 +54,7 @@ export function HeroesDiscountForm() {
     e.preventDefault();
     setError("");
     if (!proofFile) {
-      setError("Please attach proof of service (ID, discharge paperwork, or a badge/department photo).");
+      setError("Please attach proof of service (military ID, DD-214, badge, or department ID).");
       return;
     }
     setSubmitting(true);
@@ -68,7 +74,7 @@ export function HeroesDiscountForm() {
       if (!res.ok) {
         throw new Error(
           res.status === 503
-            ? "This program isn't accepting requests yet - check back soon."
+            ? "This program is not currently accepting requests — check back soon."
             : data?.error || "Something went wrong submitting your request."
         );
       }
@@ -82,49 +88,49 @@ export function HeroesDiscountForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-checkbox-circle-fill text-2xl text-sage-deep" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Request received</p>
-        <p className="mt-2 text-sm text-charcoal/60">
-          We verify each request by hand. If approved, your one-time 20% code will be emailed to you within a couple
-          of business days.
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-checkbox-circle-fill text-2xl text-navy" />
+        <p className="mt-3 text-lg font-semibold text-ink">Application received</p>
+        <p className="mt-2 text-sm text-muted">
+          We verify each application by hand within about 24 hours. If approved, your personal 15% discount
+          code will arrive by email. Your uploaded credential will be deleted after review.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-stone bg-white p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-4 rounded-lg border border-border-subtle bg-white p-6 md:p-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">Full Name</label>
+          <label className="mb-1.5 block text-sm font-semibold text-ink">Full Name</label>
           <input
             type="text"
             required
             value={form.name}
             onChange={(e) => set("name", e.target.value)}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+            className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">Email</label>
+          <label className="mb-1.5 block text-sm font-semibold text-ink">Email</label>
           <input
             type="email"
             required
             value={form.email}
             onChange={(e) => set("email", e.target.value)}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+            className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
           />
         </div>
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">Status</label>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">Status</label>
         <select
           required
           value={form.status}
           onChange={(e) => set("status", e.target.value)}
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+          className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
         >
           <option value="">Select one</option>
           {STATUS_OPTIONS.map((s) => (
@@ -136,37 +142,36 @@ export function HeroesDiscountForm() {
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">Branch / Agency</label>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">Branch / Agency</label>
         <input
           type="text"
           required
           value={form.branch}
           onChange={(e) => set("branch", e.target.value)}
           placeholder="e.g. U.S. Army, Chicago PD, County EMS"
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+          className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none focus:border-navy"
         />
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-          Proof of Service <span className="text-copper">*</span>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">
+          Proof of Service <span className="text-red-600">*</span>
         </label>
         <input
           type="file"
           required
-          accept="image/*,.pdf"
+          accept="image/jpeg,image/png,application/pdf"
           onChange={handleFileChange}
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none file:mr-3 file:rounded file:border-0 file:bg-copper file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:text-charcoal focus:border-copper"
+          className="w-full rounded-md border border-border-subtle bg-surface px-4 py-2.5 text-sm outline-none file:mr-3 file:rounded file:border-0 file:bg-navy file:px-3 file:py-1.5 file:text-xs file:font-semibold file:uppercase file:text-white focus:border-navy"
         />
-        <p className="mt-1.5 text-xs text-charcoal/40">
-          Military/veteran ID, DD-214, or a department badge/ID photo. Image or PDF, under 8MB. Used only to verify
-          eligibility.
+        <p className="mt-1.5 text-xs text-muted">
+          Military/veteran ID, DD-214, or badge/department photo. JPG, PNG, or PDF, under 5 MB.
+          Used only to verify eligibility — deleted after review.
         </p>
       </div>
 
-      <p className="text-xs text-charcoal/50">
-        We may follow up by email to verify eligibility before issuing a code. One code per person, not combinable
-        with other offers.
+      <p className="text-xs text-muted">
+        One code per person. Not combinable with other offers. We may follow up by email to confirm eligibility.
       </p>
 
       {error && (
@@ -179,9 +184,9 @@ export function HeroesDiscountForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-white transition hover:bg-navy-dark disabled:cursor-wait disabled:opacity-60"
       >
-        {submitting ? "Submitting..." : "Request My Code"}
+        {submitting ? "Submitting..." : "Apply for My Code"}
       </button>
     </form>
   );

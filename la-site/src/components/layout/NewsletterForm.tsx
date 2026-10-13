@@ -35,7 +35,7 @@ export function NewsletterForm() {
           <p className="text-sm text-white/60">You&apos;re on the list.</p>
           {couponCode && (
             <p className="mt-1 text-sm text-white/80">
-              Your 10% off code: <span className="font-semibold tracking-wide text-copper">{couponCode}</span>
+              Your 10% off code: <span className="font-semibold tracking-wide text-navy">{couponCode}</span>
             </p>
           )}
         </div>
@@ -57,7 +57,7 @@ export function NewsletterForm() {
               type="submit"
               disabled={submitting}
               aria-label="Subscribe"
-              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/30 transition hover:border-copper hover:bg-copper hover:text-charcoal disabled:opacity-50"
+              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/30 transition hover:border-copper hover:bg-navy hover:text-ink disabled:opacity-50"
             >
               <i className="ri-arrow-right-line text-xs" />
             </button>

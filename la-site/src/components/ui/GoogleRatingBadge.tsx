@@ -17,9 +17,9 @@ function GoogleLogo() {
 }
 
 function Stars({ rating, variant }: { rating: number; variant: "dark" | "light" }) {
-  const emptyClass = variant === "light" ? "text-charcoal/20" : "text-white/30";
+  const emptyClass = variant === "light" ? "text-muted" : "text-white/30";
   return (
-    <span className="inline-flex items-center gap-0.5 text-copper">
+    <span className="inline-flex items-center gap-0.5 text-navy">
       {Array.from({ length: 5 }).map((_, i) => (
         <i key={i} className={i < Math.round(rating) ? "ri-star-fill text-[11px]" : `ri-star-line text-[11px] ${emptyClass}`} />
       ))}
@@ -51,8 +51,8 @@ export async function GoogleRatingBadge({
   const href = data?.mapsUrl;
   const label = reviewCount && reviewCount > 0 ? `${reviewCount.toLocaleString()}+ Google reviews` : "Google Reviews";
 
-  const ratingTextClass = variant === "light" ? "text-charcoal" : "text-white";
-  const labelTextClass = variant === "light" ? "text-charcoal/60" : "text-white/60";
+  const ratingTextClass = variant === "light" ? "text-ink" : "text-white";
+  const labelTextClass = variant === "light" ? "text-muted" : "text-white/60";
 
   const content = (
     <>

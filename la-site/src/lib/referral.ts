@@ -15,10 +15,10 @@
  * records end-to-end; the missing piece was ever collecting one from the
  * storefront in the first place.
  */
-const REF_KEY = "evlv_ref_code";
-const REF_EXPIRES_KEY = "evlv_ref_expires";
+const REF_KEY = "la_ref_code";
+const REF_EXPIRES_KEY = "la_ref_expires";
 const REF_TTL_MS = 30 * 24 * 60 * 60 * 1000;
-const CODE_KEY = "evlv_coupon_code";
+const CODE_KEY = "la_coupon_code";
 
 export function captureReferralFromUrl() {
   if (typeof window === "undefined") return;

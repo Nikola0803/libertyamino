@@ -1,28 +1,33 @@
 import { NextResponse } from "next/server";
+import { laPost } from "@/lib/woocommerce";
 
 export const runtime = "nodejs";
 
 /**
- * POST /api/contact { name, email, subject, message }
- * Proxies to the CRM's /api/forms/submit, which creates a real Conversation
- * (channel: CONTACT_FORM) visible in the CRM's Support inbox. That endpoint
- * authenticates with a per-brand `publicKey` (from TrackingConfig, the same
- * key the tracking pixel uses) rather than the x-store-domain/x-store-api-key
- * pair the rest of this proxy uses -- see peptide-saas's
- * src/app/api/forms/submit/route.ts.
+ * POST /api/contact { name, email, subject, message, phone? }
+ *
+ * Submits the contact form to the WP backend, which emails the LA inbox
+ * and stores consent with a timestamp.
  */
 export async function POST(req: Request) {
-  const publicKey = process.env.CRM_CONTACT_FORM_KEY;
-  if (!process.env.CRM_API_URL || !publicKey) {
-    return NextResponse.json({ error: "Contact form isn't connected to the CRM yet." }, { status: 503 });
-  }
   const body = await req.json().catch(() => ({}));
 
-  const res = await fetch(`${process.env.CRM_API_URL}/api/forms/submit`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ publicKey, ...body }),
+  if (!body.email || !body.message) {
+    return NextResponse.json({ error: "Email and message are required." }, { status: 400 });
+  }
+
+  const { ok, status, data } = await laPost("/contact", {
+    name: body.name,
+    email: body.email,
+    subject: body.subject ?? "Contact Form",
+    message: body.message,
+    phone: body.phone ?? "",
+    consent_timestamp: new Date().toISOString(),
   });
-  const data = await res.json().catch(() => ({}));
-  return NextResponse.json(data, { status: res.ok ? 200 : res.status });
+
+  if (!ok) {
+    return NextResponse.json(data ?? { error: "Could not send message. Please email us directly." }, { status });
+  }
+
+  return NextResponse.json({ success: true });
 }

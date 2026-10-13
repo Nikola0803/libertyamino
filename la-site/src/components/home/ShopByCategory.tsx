@@ -43,7 +43,7 @@ const CATEGORIES = [
  * Everlife's "Shop by goal" section is a horizontal snap-scroll carousel
  * with prev/next arrows (goal-track / #goal-prev / #goal-next in the
  * source markup) rather than a static grid -- this ports that exact
- * interaction pattern onto EVLV's own research-area categories.
+ * interaction pattern onto Liberty Aminos's own research-area categories.
  */
 export function ShopByCategory() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -57,13 +57,13 @@ export function ShopByCategory() {
   }
 
   return (
-    <section className="bg-ivory-soft pb-8 pt-20 md:pb-12 md:pt-32">
+    <section className="bg-off-white pb-8 pt-20 md:pb-12 md:pt-32">
       <div className="mx-auto max-w-[1400px] px-4 md:px-8">
         <Reveal className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">04 / Explore by Research Area</p>
-            <h2 className="max-w-xl font-display text-3xl font-semibold text-charcoal md:text-4xl">
-              Start with the <em className="text-sage-deep not-italic">research area</em>
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">04 / Explore by Research Area</p>
+            <h2 className="max-w-xl font-sans text-3xl font-semibold text-ink md:text-4xl">
+              Start with the <em className="text-navy not-italic">research area</em>
               <br />
               you want
             </h2>
@@ -73,7 +73,7 @@ export function ShopByCategory() {
               type="button"
               onClick={() => scrollByCard(-1)}
               aria-label="Previous"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone bg-white text-charcoal transition hover:border-sage-deep hover:text-sage-deep"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle bg-white text-ink transition hover:border-sage-deep hover:text-navy"
             >
               <i className="ri-arrow-left-s-line" />
             </button>
@@ -81,7 +81,7 @@ export function ShopByCategory() {
               type="button"
               onClick={() => scrollByCard(1)}
               aria-label="Next"
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-stone bg-white text-charcoal transition hover:border-sage-deep hover:text-sage-deep"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle bg-white text-ink transition hover:border-sage-deep hover:text-navy"
             >
               <i className="ri-arrow-right-s-line" />
             </button>
@@ -101,15 +101,15 @@ export function ShopByCategory() {
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
                 <CategoryArt variant={cat.art} className="h-full w-full transition duration-700 ease-out group-hover:scale-[1.04]" />
-                <span className="absolute left-4 top-4 font-display text-xs font-semibold tracking-[0.2em] text-copper">{cat.num}</span>
+                <span className="absolute left-4 top-4 font-sans text-xs font-semibold tracking-[0.2em] text-navy">{cat.num}</span>
               </div>
               <div className="mt-5 flex items-start justify-between gap-3">
                 <div>
-                  <h3 className="font-display text-lg font-medium text-charcoal">{cat.title}</h3>
+                  <h3 className="font-sans text-lg font-medium text-ink">{cat.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-soft-gray">{cat.descriptor}</p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.1em] text-charcoal/40">{cat.compounds}</p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.1em] text-muted">{cat.compounds}</p>
                 </div>
-                <i className="ri-arrow-right-line mt-1 shrink-0 text-charcoal/40 transition group-hover:translate-x-0.5 group-hover:text-sage-deep" />
+                <i className="ri-arrow-right-line mt-1 shrink-0 text-muted transition group-hover:translate-x-0.5 group-hover:text-navy" />
               </div>
             </Link>
           ))}
@@ -121,14 +121,14 @@ export function ShopByCategory() {
 
 /**
  * Each category gets its own visual expression of "transformation" instead
- * of a generic molecular-diagram icon, per the EVLV motif system: fragmented
+ * of a generic molecular-diagram icon, per the Liberty Aminos motif system: fragmented
  * lines reconnecting, particle systems, expanding structures, concentric
  * layers - obsidian/charcoal/copper only, no green (green is reserved for
  * brand sections, not decorative category art).
  */
 export function CategoryArt({ variant, className = "" }: { variant: "fragmented" | "particles" | "expanding" | "concentric"; className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center bg-charcoal ${className}`}>
+    <div className={`relative flex items-center justify-center bg-navy ${className}`}>
       {variant === "fragmented" && (
         <svg viewBox="0 0 160 200" className="h-[70%] w-auto" aria-hidden>
           <path d="M40 30 L60 60 M75 75 L95 100 M110 115 L120 170" stroke="#B8875A" strokeWidth="1.5" strokeLinecap="round" opacity="0.9" />

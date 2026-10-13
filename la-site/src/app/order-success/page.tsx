@@ -1,6 +1,7 @@
 import Link from "next/link";
 import QRCode from "qrcode";
-import { buildQuickPayTarget, getEffectiveHandle, PAYMENT_PROCESSOR_NOTE, type PaymentGatewayId } from "@/lib/payment-config";
+import { buildQuickPayTarget, getEffectiveHandle, type PaymentGatewayId } from "@/lib/payment-config";
+import { PAYMENT_GATEWAYS, PAYMENT_PROCESSOR_NOTE } from "@/lib/payment-meta";
 import { PurchasePixel } from "./PurchasePixel";
 import { PaymentActionLink } from "./PaymentActionLink";
 
@@ -35,7 +36,9 @@ export default async function OrderSuccessPage({
   let isDemoHandle = false;
 
   if (gateway && memo && amount > 0) {
-    quickPay = buildQuickPayTarget(gateway, amount, memo);
+    const gatewayMeta = PAYMENT_GATEWAYS.find((g) => g.id === gateway)!;
+    const gatewayObj = { ...gatewayMeta, handle };
+    quickPay = buildQuickPayTarget(gatewayObj, amount, memo);
     isDemoHandle = getEffectiveHandle(gateway).isDemo;
     const qrContent = quickPay.kind === "payLink" ? quickPay.url : quickPay.text;
     qrDataUrl = await QRCode.toDataURL(qrContent, { margin: 1, width: 240, color: { dark: "#2a2622", light: "#f7f4ef" } });
@@ -47,37 +50,37 @@ export default async function OrderSuccessPage({
         <PurchasePixel orderNumber={orderNumber} total={amount} currency="USD" />
       )}
       <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-sage-deep/30 bg-sage-mist">
-        <i className="ri-check-line text-3xl text-sage-deep" />
+        <i className="ri-check-line text-3xl text-navy" />
       </div>
-      <h1 className="font-display text-2xl font-semibold text-charcoal md:text-3xl">Order Submitted — Complete Payment</h1>
+      <h1 className="font-sans text-2xl font-semibold text-ink md:text-3xl">Order Submitted — Complete Payment</h1>
 
-      {orderNumber && <p className="mt-4 font-mono text-sm tracking-wider text-copper">Order #{orderNumber}</p>}
+      {orderNumber && <p className="mt-4 font-mono text-sm tracking-wider text-navy">Order #{orderNumber}</p>}
 
-      <p className="mt-4 max-w-md text-sm leading-relaxed text-charcoal/60">
-        Your order has been received. Please complete payment via <strong className="text-charcoal">{gatewayLabel}</strong>
+      <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
+        Your order has been received. Please complete payment via <strong className="text-ink">{gatewayLabel}</strong>
         {handle ? (
           <>
             {" "}
-            to <span className="font-mono text-copper">{handle}</span>
+            to <span className="font-mono text-navy">{handle}</span>
           </>
         ) : (
           " using the details we email you"
         )}
         .
       </p>
-      <p className="mt-2 max-w-md text-xs leading-relaxed text-charcoal/45">{PAYMENT_PROCESSOR_NOTE}</p>
+      <p className="mt-2 max-w-md text-xs leading-relaxed text-muted">{PAYMENT_PROCESSOR_NOTE}</p>
 
       {memo && (
-        <div className="mt-6 w-full max-w-md rounded-md border-2 border-copper bg-copper/5 p-5 text-left">
-          <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-copper">
+        <div className="mt-6 w-full max-w-md rounded-md border-2 border-copper bg-navy/5 p-5 text-left">
+          <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.15em] text-navy">
             <i className="ri-error-warning-line text-sm" />
             Required - Payment Note
           </p>
-          <p className="mt-2 text-sm leading-relaxed text-charcoal">
-            Enter <span className="font-mono text-base font-bold text-copper">{memo}</span> as the entire payment note. Nothing
+          <p className="mt-2 text-sm leading-relaxed text-ink">
+            Enter <span className="font-mono text-base font-bold text-navy">{memo}</span> as the entire payment note. Nothing
             else.
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-charcoal/60">
+          <p className="mt-2 text-xs leading-relaxed text-muted">
             This code is how our system automatically matches your payment to Order #{orderNumber || "this order"}. Adding your
             name, a message, or any other text alongside it can prevent the match and delay processing by a day or more.
           </p>
@@ -85,28 +88,28 @@ export default async function OrderSuccessPage({
       )}
 
       {qrDataUrl && quickPay && gateway && (
-        <div className="mt-6 w-full max-w-md rounded-md border border-stone bg-ivory p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-charcoal/50">Quick Pay</p>
+        <div className="mt-6 w-full max-w-md rounded-md border border-border-subtle bg-surface p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted">Quick Pay</p>
 
           {isDemoHandle && (
-            <p className="mx-auto mt-2 max-w-xs text-[11px] leading-relaxed text-charcoal/40">
+            <p className="mx-auto mt-2 max-w-xs text-[11px] leading-relaxed text-muted">
               Demo handle shown - this store&apos;s real {gatewayLabel} handle isn&apos;t set up yet, so this won&apos;t reach us.
               The scan/tap mechanism itself is fully functional and will work the moment a real handle is configured.
             </p>
           )}
 
-          <img src={qrDataUrl} alt={`${gatewayLabel} quick pay QR code`} width={200} height={200} className="mx-auto mt-4 rounded-md border border-stone" />
+          <img src={qrDataUrl} alt={`${gatewayLabel} quick pay QR code`} width={200} height={200} className="mx-auto mt-4 rounded-md border border-border-subtle" />
 
           {quickPay.kind === "payLink" ? (
             <>
-              <p className="mt-3 text-xs text-charcoal/50">Scan on desktop, or tap the button below on your phone.</p>
+              <p className="mt-3 text-xs text-muted">Scan on desktop, or tap the button below on your phone.</p>
               <PaymentActionLink href={quickPay.url} gateway={gateway} orderNumber={orderNumber} amount={amount}>
                 Open {gatewayLabel} - Pay ${amount.toFixed(2)}
               </PaymentActionLink>
-              <p className="mt-2 text-[11px] text-charcoal/40">The amount and note are pre-filled for you.</p>
+              <p className="mt-2 text-[11px] text-muted">The amount and note are pre-filled for you.</p>
             </>
           ) : (
-            <p className="mt-3 text-xs leading-relaxed text-charcoal/50">
+            <p className="mt-3 text-xs leading-relaxed text-muted">
               Zelle doesn&apos;t support one-tap payment links - bank apps don&apos;t allow it. Scan this QR in your banking app&apos;s
               camera to see the handle, amount, and note, then send the payment from there.
             </p>
@@ -114,21 +117,21 @@ export default async function OrderSuccessPage({
         </div>
       )}
 
-      <p className="mt-4 text-xs text-charcoal/40">Orders are typically dispatched within 24 hours of payment confirmation.</p>
+      <p className="mt-4 text-xs text-muted">Orders are typically dispatched within 24 hours of payment confirmation.</p>
 
-      <p className="mt-6 max-w-md text-[11px] leading-relaxed text-charcoal/40">
+      <p className="mt-6 max-w-md text-[11px] leading-relaxed text-muted">
         This order is supplied strictly for laboratory and analytical research use, in accordance with our{" "}
-        <Link href="/ruo" className="text-copper hover:underline">
+        <Link href="/ruo" className="text-navy hover:underline">
           Research Use Only Policy
         </Link>
         . Not for human or veterinary use.
       </p>
 
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <Link href="/account" className="rounded-md bg-copper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-copper-light">
+        <Link href="/account" className="rounded-md bg-navy px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy-light">
           View Order
         </Link>
-        <Link href="/shop" className="rounded-md border border-charcoal px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-charcoal hover:text-ivory">
+        <Link href="/shop" className="rounded-md border border-charcoal px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy hover:text-ivory">
           Back to Shop
         </Link>
       </div>

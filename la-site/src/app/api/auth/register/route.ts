@@ -1,15 +1,40 @@
 import { NextResponse } from "next/server";
-import { crmConfigured, crmFetch } from "@/lib/crm-proxy";
+import { wcCreateCustomer } from "@/lib/woocommerce";
 
 export const runtime = "nodejs";
 
-// POST /api/auth/register { email, password, name?, marketingOptIn? }
-// Proxies to the CRM's /api/store/auth/register, scoped to the EVLV brand.
+/**
+ * POST /api/auth/register { email, password, name?, marketingOptIn? }
+ *
+ * Creates a WooCommerce customer via the REST API.
+ */
 export async function POST(req: Request) {
-  if (!crmConfigured()) {
-    return NextResponse.json({ error: "Account creation isn't configured yet. Set CRM_API_URL / CRM_ORG_API_KEY / CRM_STORE_DOMAIN." }, { status: 503 });
+  const { email, password, name, marketingOptIn: _opt } = await req.json().catch(() => ({}));
+
+  if (!email || !password) {
+    return NextResponse.json({ error: "Email and password are required." }, { status: 400 });
   }
-  const body = await req.json().catch(() => ({}));
-  const { ok, status, data } = await crmFetch("/api/store/auth/register", body);
-  return NextResponse.json(data, { status: ok ? 200 : status });
+
+  const [first_name, ...rest] = (name ?? "").trim().split(" ");
+  const last_name = rest.join(" ");
+
+  const { ok, status, data } = await wcCreateCustomer({
+    email,
+    password,
+    first_name: first_name || "",
+    last_name: last_name || "",
+    username: email,
+  });
+
+  if (!ok) {
+    const d = data as Record<string, unknown>;
+    return NextResponse.json({ error: d?.message ?? "Could not create account." }, { status });
+  }
+
+  const d = data as Record<string, unknown>;
+  return NextResponse.json({
+    email,
+    username: email,
+    user_id: String(d.id ?? ""),
+  });
 }

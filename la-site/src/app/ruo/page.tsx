@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Accordion } from "@/components/ui/Accordion";
 
 export const metadata: Metadata = {
-  title: "Research Use Only Policy | EVLV",
+  title: "Research Use Only Policy | Liberty Aminos",
   description:
-    "EVLV's Research Use Only policy: what we can and cannot discuss, purchaser responsibilities, regulatory context and how prohibited inquiries are handled.",
+    "Liberty Aminos's Research Use Only policy: what we can and cannot discuss, purchaser responsibilities, regulatory context and how prohibited inquiries are handled.",
   alternates: { canonical: "/ruo" },
 };
 
@@ -85,14 +85,14 @@ const RESPONSIBILITIES = [
 
 const ENFORCEMENT_STEPS = [
   "We decline to answer the prohibited part of the inquiry.",
-  "We may restate that EVLV products are supplied for research use only.",
+  "We may restate that Liberty Aminos products are supplied for research use only.",
   "Where possible, we help with a separate, permissible question about the order, label, batch documentation or testing.",
   "Repeated or concerning inquiries may be logged and referred for compliance review.",
 ];
 
 const RUO_FAQ = [
   {
-    question: "Can EVLV calculate a dose or convert milligrams into units for me?",
+    question: "Can Liberty Aminos calculate a dose or convert milligrams into units for me?",
     answer:
       "No. We can't perform, verify or discuss any calculation aimed at determining an amount for human or veterinary administration, regardless of how the question is framed.",
   },
@@ -107,7 +107,7 @@ const RUO_FAQ = [
       "No. We don't review, approve, correct or validate third-party dosing, administration, stacking, cycling or human-use protocols, sourced from anywhere.",
   },
   {
-    question: "If EVLV links to a published study, does that mean the product is recommended for that use?",
+    question: "If Liberty Aminos links to a published study, does that mean the product is recommended for that use?",
     answer:
       "No. Scientific references are shared for general research context only. They aren't a recommendation, instruction or claim about safety or suitability for personal use.",
   },
@@ -126,27 +126,27 @@ const RUO_FAQ = [
 export default function RuoPolicyPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal · Compliance</p>
-          <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal · Compliance</p>
+          <h1 className="font-sans text-3xl font-semibold uppercase leading-tight md:text-5xl">
             Research Use Only Policy
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-            What EVLV supplies, what our team can and can&apos;t discuss with you, and what that means before you
+            What Liberty Aminos supplies, what our team can and can&apos;t discuss with you, and what that means before you
             reach out.
           </p>
           <p className="mt-4 text-xs text-white/40">Effective date: August 2026 · Applies to our website, email, chat and phone support</p>
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-surface py-16 md:py-24">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <div className="mb-14 rounded-lg border border-copper/40 bg-copper/5 p-6 md:p-8">
-            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-copper">
+          <div className="mb-14 rounded-lg border border-copper/40 bg-navy/5 p-6 md:p-8">
+            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-navy">
               <i className="ri-alert-line" /> Please read before contacting us
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-charcoal/70 md:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
               We can&apos;t answer questions about dosing, administration, injection, reconstitution for personal
               use, treatment recommendations, human-use protocols, or veterinary use - no matter how the question is
               worded. Our team is glad to help with orders, product documentation, testing results, and unopened-
@@ -160,10 +160,10 @@ export default function RuoPolicyPage() {
               { icon: "ri-forbid-line", title: "No Human-Use Guidance", body: "We don't provide directions, calculations or protocols for use in or on people or animals." },
               { icon: "ri-shield-check-line", title: "Enforced Consistently", body: "Suspected misuse can mean declined support, canceled orders or account restrictions." },
             ].map((item) => (
-              <div key={item.title} className="rounded-lg border border-stone bg-white p-5">
-                <i className={`${item.icon} text-2xl text-sage-deep`} />
-                <p className="mt-3 text-sm font-semibold text-charcoal">{item.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-charcoal/55">{item.body}</p>
+              <div key={item.title} className="rounded-lg border border-border-subtle bg-white p-5">
+                <i className={`${item.icon} text-2xl text-navy`} />
+                <p className="mt-3 text-sm font-semibold text-ink">{item.title}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted">{item.body}</p>
               </div>
             ))}
           </div>
@@ -171,7 +171,7 @@ export default function RuoPolicyPage() {
           <div className="space-y-14">
             <PolicySection num="1" title="Purpose & Scope">
               <p>
-                This policy sets the boundaries of what EVLV, our staff, contractors and representatives can discuss
+                We may restate that Liberty Aminos products are supplied for research use only
                 about the products listed on this website. It covers every channel we use to talk to you - product
                 pages, articles, Certificates of Analysis, email, live chat, phone, text, support tickets and social
                 media - and it applies whether a request is framed as hypothetical, personal, professional,
@@ -181,19 +181,19 @@ export default function RuoPolicyPage() {
 
             <PolicySection num="2" title="What Research Use Only Means for Our Products">
               <p>
-                Unless a product is expressly labeled otherwise, everything EVLV sells is intended exclusively for
+                Unless a product is expressly labeled otherwise, everything Liberty Aminos sells is intended exclusively for
                 qualified laboratory, analytical and non-clinical research. Our products are not sold as drugs,
                 foods, supplements, cosmetics or medical devices, and none of them are intended to diagnose, treat,
                 cure or prevent any condition. Specifically, our products are not for:
               </p>
               <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 {NOT_FOR.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-muted">
                 A product name, research description, published study, or customer review doesn&apos;t change this -
                 none of it should be read as an instruction to use a product in humans or animals.
               </p>
@@ -206,10 +206,10 @@ export default function RuoPolicyPage() {
               </p>
               <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {CANNOT_DISCUSS.map((item) => (
-                  <div key={item.title} className="rounded-lg border border-stone bg-ivory-soft p-4">
-                    <i className={`${item.icon} text-lg text-copper`} />
-                    <p className="mt-2 text-sm font-semibold text-charcoal">{item.title}</p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-charcoal/60">{item.body}</p>
+                  <div key={item.title} className="rounded-lg border border-border-subtle bg-off-white p-4">
+                    <i className={`${item.icon} text-lg text-navy`} />
+                    <p className="mt-2 text-sm font-semibold text-ink">{item.title}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -219,12 +219,12 @@ export default function RuoPolicyPage() {
               <p>Within these limits, our team is glad to help with the administrative and research-supply side of things:</p>
               <ul className="mt-5 space-y-2.5">
                 {CAN_DISCUSS.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-check-line mt-0.5 shrink-0 text-sage-deep" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                    <i className="ri-check-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-muted">
                 Sharing a Certificate of Analysis, product spec, or research article isn&apos;t a recommendation
                 about safety, dosage, administration or suitability for use in humans or animals.
               </p>
@@ -248,7 +248,7 @@ export default function RuoPolicyPage() {
               </p>
               <ol className="mt-5 space-y-3">
                 {ENFORCEMENT_STEPS.map((step, i) => (
-                  <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-charcoal/70">
+                  <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage text-xs font-semibold text-white">{i + 1}</span>
                     {step}
                   </li>
@@ -258,19 +258,19 @@ export default function RuoPolicyPage() {
 
             <PolicySection num="7" title="Purchaser Responsibilities">
               <p>
-                By creating an account or purchasing from EVLV, you confirm that you&apos;re obtaining products for
+                By purchasing from Liberty Aminos, you represent that you intend to use our products for
                 lawful research purposes and that you have the knowledge, facilities, training and authority to
                 receive and handle them appropriately. You&apos;re independently responsible for:
               </p>
               <ul className="mt-5 space-y-2.5">
                 {RESPONSIBILITIES.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-user-settings-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
+                    <i className="ri-user-settings-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
-                EVLV doesn&apos;t determine whether your proposed research satisfies federal, state, local,
+              <p className="mt-5 text-sm leading-relaxed text-muted">
+                Liberty Aminos doesn&apos;t determine whether your proposed research satisfies federal, state, local,
                 institutional or international requirements - that determination is yours to make.
               </p>
             </PolicySection>
@@ -282,14 +282,14 @@ export default function RuoPolicyPage() {
                 otherwise involved in a human or animal exposure, contact a licensed medical professional, emergency
                 services, poison control, or a veterinarian right away.
               </p>
-              <p className="mt-3 text-sm font-semibold text-charcoal">
-                Contacting EVLV is never a substitute for contacting qualified medical or emergency personnel.
+              <p className="mt-3 text-sm font-semibold text-ink">
+                Contacting Liberty Aminos is never a substitute for contacting qualified medical or emergency personnel.
               </p>
             </PolicySection>
 
             <PolicySection num="9" title="Regulatory Context">
               <p>
-                EVLV operates as a supplier of materials for lawful laboratory research and analytical use.
+                Liberty Aminos operates as a supplier of materials for lawful laboratory research and analytical use.
                 Requirements vary by product, labeling, intended use, and jurisdiction - the references below are
                 general context, not a claim that any single rule covers every product, transaction or customer.
               </p>
@@ -299,9 +299,9 @@ export default function RuoPolicyPage() {
                   { code: "21 CFR § 312.160", body: "Covers shipment of certain drugs intended solely for in-vitro testing or laboratory-animal research, including labeling and recordkeeping conditions." },
                   { code: "21 U.S.C. § 331", body: "Lists prohibited acts under the Federal Food, Drug, and Cosmetic Act, including conduct involving adulterated, misbranded or unlawfully distributed products." },
                 ].map((item) => (
-                  <div key={item.code} className="rounded-lg border border-stone bg-ivory-soft p-4">
-                    <p className="font-mono text-xs font-semibold text-sage-deep">{item.code}</p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-charcoal/60">{item.body}</p>
+                  <div key={item.code} className="rounded-lg border border-border-subtle bg-off-white p-4">
+                    <p className="font-mono text-xs font-semibold text-navy">{item.code}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-muted">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -332,30 +332,30 @@ export default function RuoPolicyPage() {
             </PolicySection>
           </div>
 
-          <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
-            <h3 className="font-display text-xl font-semibold md:text-2xl">Research with responsibility</h3>
+          <div className="mt-16 rounded-lg border border-border-subtle bg-navy p-8 text-center text-white md:p-10">
+            <h3 className="font-sans text-xl font-semibold md:text-2xl">Research with responsibility</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
-              By purchasing from EVLV, you acknowledge our products are supplied exclusively for lawful research and
+              We appreciate your understanding
               that our team can&apos;t provide guidance for human or veterinary use.
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-1 rounded-md bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+              className="mt-6 inline-flex items-center gap-1 rounded-md bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
             >
               Contact Compliance <i className="ri-arrow-right-line" />
             </Link>
           </div>
 
-          <div className="mt-12 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-12 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-muted">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-muted transition hover:text-ink">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/terms" className="text-muted transition hover:text-ink">
                 Terms of Service
               </Link>
-              <Link href="/returns" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/returns" className="text-muted transition hover:text-ink">
                 Returns Policy
               </Link>
             </div>
@@ -369,8 +369,8 @@ export default function RuoPolicyPage() {
 function PolicySection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-sans text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

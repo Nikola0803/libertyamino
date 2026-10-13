@@ -30,7 +30,7 @@ export function ProductClient({ product, coa }: { product: Product; coa?: CoaEnt
 
   return <>
     <section className="cp-pdp">
-      <div className="cp-pdp-gallery"><Image src={getProductImage(product)} alt={`${product.name} EVLV research product`} width={1600} height={1600} priority /></div>
+      <div className="cp-pdp-gallery"><Image src={getProductImage(product)} alt={`${product.name} Liberty Aminos research product`} width={1600} height={1600} priority /></div>
       <div className="cp-pdp-summary">
         <small className="cp-pdp-kicker">Premium Research Peptide</small>
         <h1>{product.name}</h1>

@@ -5,9 +5,9 @@ import { WholesaleForm } from "./WholesaleForm";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Wholesale, White Label & Dropshipping | EVLV",
+  title: "Wholesale & B2B | Liberty Aminos",
   description:
-    "Build with EVLV through bulk wholesale, private-label product development, or direct-to-customer dropshipping and fulfillment.",
+    "Build with Liberty Aminos through bulk wholesale, private-label product development, or direct-to-customer dropshipping and fulfillment.",
   alternates: { canonical: "/wholesale" },
 };
 
@@ -17,7 +17,7 @@ const PROGRAMS = [
     icon: "ri-box-3-line",
     title: "Bulk Wholesale",
     eyebrow: "Stock it. Sell it.",
-    body: "Purchase finished EVLV research products at volume pricing and fulfill from your own operation.",
+    body: "Purchase finished Liberty Aminos research products at volume pricing and fulfill from your own operation.",
     points: ["Volume-based pricing", "Batch documentation", "Flexible multi-SKU orders"],
   },
   {
@@ -56,9 +56,9 @@ const STEPS = [
 export default function WholesalePage() {
   return (
     <>
-      <div className="border-b border-stone bg-white py-2.5 text-center text-xs text-charcoal/60">
+      <div className="border-b border-border-subtle bg-white py-2.5 text-center text-xs text-muted">
         Already a partner?{" "}
-        <Link href="/account?tab=wholesale" className="font-semibold text-sage-deep underline underline-offset-2 hover:text-charcoal">
+        <Link href="/account?tab=wholesale" className="font-semibold text-navy underline underline-offset-2 hover:text-ink">
           Sign in to your dashboard
         </Link>
       </div>
@@ -66,8 +66,8 @@ export default function WholesalePage() {
       <section className="px-3 pb-12 pt-5 md:px-6 md:pb-16 md:pt-7">
         <div className="relative mx-auto min-h-[650px] max-w-[1400px] overflow-hidden rounded-[26px] bg-[#062f31] text-white shadow-[0_24px_70px_rgba(7,42,43,0.18)] md:min-h-[690px]">
           <Image
-            src="/images/wholesale/evlv-b2b-fulfillment.png"
-            alt="EVLV research products and branded fulfillment operation"
+            src="/images/wholesale/la-b2b-fulfillment.png"
+            alt="Liberty Aminos research products and branded fulfillment operation"
             fill
             priority
             sizes="(max-width: 768px) 100vw, 1400px"
@@ -79,9 +79,9 @@ export default function WholesalePage() {
           <div className="relative z-10 flex min-h-[650px] items-center px-6 py-14 sm:px-10 md:min-h-[690px] md:px-16 lg:px-20">
             <div className="max-w-[650px]">
               <p className="mb-5 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#b9d9ce]">
-                <span className="h-px w-8 bg-[#b9d9ce]/70" /> EVLV Partner Programs
+                <span className="h-px w-8 bg-[#b9d9ce]/70" /> Liberty Aminos Partner Programs
               </p>
-              <h1 className="font-display text-[42px] font-semibold leading-[1.02] tracking-[-0.025em] text-white sm:text-5xl md:text-6xl lg:text-[68px]">
+              <h1 className="font-sans text-[42px] font-semibold leading-[1.02] tracking-[-0.025em] text-white sm:text-5xl md:text-6xl lg:text-[68px]">
                 Wholesale, white label, and dropshipping - built around you.
               </h1>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
@@ -109,25 +109,25 @@ export default function WholesalePage() {
       <section id="programs" className="pb-20 pt-6 md:pb-28 md:pt-10">
         <div className="mx-auto max-w-[1320px] px-5 md:px-8">
           <Reveal className="mx-auto mb-11 max-w-3xl text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sage-deep">Three ways to partner</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-charcoal md:text-5xl">Choose the operating model that fits.</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/60 md:text-base">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-navy">Three ways to partner</p>
+            <h2 className="mt-3 font-sans text-3xl font-semibold tracking-tight text-ink md:text-5xl">Choose the operating model that fits.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
               Start with a single model or combine them. Every proposal is scoped around your market, catalog, volume, and fulfillment needs.
             </p>
           </Reveal>
 
           <Reveal stagger className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             {PROGRAMS.map((program) => (
-              <article key={program.title} className={`relative overflow-hidden rounded-2xl border p-7 md:p-8 ${program.featured ? "border-sage-deep bg-[#eef5f2] shadow-[0_16px_45px_rgba(11,65,64,.10)]" : "border-stone bg-white"}`}>
-                {program.featured && <span className="absolute right-5 top-5 rounded-full bg-sage-deep px-3 py-1 text-[9px] font-bold uppercase tracking-[0.15em] text-white">Most flexible</span>}
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-sage-deep text-xl text-white"><i className={program.icon} /></div>
-                <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.18em] text-sage-deep">{program.number} · {program.eyebrow}</p>
-                <h3 className="mt-2 font-display text-2xl font-semibold text-charcoal">{program.title}</h3>
-                <p className="mt-3 min-h-[72px] text-sm leading-relaxed text-charcoal/60">{program.body}</p>
+              <article key={program.title} className={`relative overflow-hidden rounded-2xl border p-7 md:p-8 ${program.featured ? "border-sage-deep bg-[#eef5f2] shadow-[0_16px_45px_rgba(11,65,64,.10)]" : "border-border-subtle bg-white"}`}>
+                {program.featured && <span className="absolute right-5 top-5 rounded-full bg-navy px-3 py-1 text-[9px] font-bold uppercase tracking-[0.15em] text-white">Most flexible</span>}
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-navy text-xl text-white"><i className={program.icon} /></div>
+                <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.18em] text-navy">{program.number} · {program.eyebrow}</p>
+                <h3 className="mt-2 font-sans text-2xl font-semibold text-ink">{program.title}</h3>
+                <p className="mt-3 min-h-[72px] text-sm leading-relaxed text-muted">{program.body}</p>
                 <ul className="mt-6 space-y-3 border-t border-charcoal/10 pt-5">
-                  {program.points.map((point) => <li key={point} className="flex items-center gap-2.5 text-sm text-charcoal/75"><i className="ri-check-line text-sage-deep" />{point}</li>)}
+                  {program.points.map((point) => <li key={point} className="flex items-center gap-2.5 text-sm text-muted"><i className="ri-check-line text-navy" />{point}</li>)}
                 </ul>
-                <a href="#inquire" className="mt-7 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-sage-deep">Discuss this model <i className="ri-arrow-right-line" /></a>
+                <a href="#inquire" className="mt-7 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.15em] text-navy">Discuss this model <i className="ri-arrow-right-line" /></a>
               </article>
             ))}
           </Reveal>
@@ -137,19 +137,19 @@ export default function WholesalePage() {
       <section className="bg-[#f2f6f4] py-20 md:py-28">
         <div className="mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-20">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white shadow-[0_20px_60px_rgba(10,52,53,.10)]">
-            <Image src="/images/wholesale/evlv-white-label-dropship.png" alt="EVLV white label packaging and dropshipping operation" fill sizes="(max-width: 1024px) 100vw, 650px" className="object-cover" />
+            <Image src="/images/wholesale/la-fulfillment-infrastructure.png" alt="Liberty Aminos fulfillment infrastructure" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 48vw" />
           </Reveal>
           <Reveal>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sage-deep">More than product supply</p>
-            <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-charcoal md:text-5xl">The infrastructure behind your next stage of growth.</h2>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-charcoal/60 md:text-base">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-navy">More than product supply</p>
+            <h2 className="mt-3 max-w-xl font-sans text-3xl font-semibold leading-tight text-ink md:text-5xl">The infrastructure behind your next stage of growth.</h2>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted md:text-base">
               Whether you need cases delivered to your warehouse or individual orders shipped to your customers, we can assemble the operating model around your business.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               {CAPABILITIES.map((item) => (
                 <div key={item.title} className="border-t border-charcoal/10 pt-4">
-                  <div className="flex items-center gap-2.5"><i className={`${item.icon} text-lg text-sage-deep`} /><h3 className="font-display text-base font-semibold text-charcoal">{item.title}</h3></div>
-                  <p className="mt-2 text-sm leading-relaxed text-charcoal/55">{item.body}</p>
+                  <div className="flex items-center gap-2.5"><i className={`${item.icon} text-lg text-navy`} /><h3 className="font-sans text-base font-semibold text-ink">{item.title}</h3></div>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -160,15 +160,15 @@ export default function WholesalePage() {
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-[1320px] px-5 md:px-8">
           <Reveal className="mb-10 max-w-2xl">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-sage-deep">A clear path to launch</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-charcoal md:text-5xl">From first conversation to fulfillment.</h2>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-navy">A clear path to launch</p>
+            <h2 className="mt-3 font-sans text-3xl font-semibold text-ink md:text-5xl">From first conversation to fulfillment.</h2>
           </Reveal>
           <Reveal stagger className="grid grid-cols-1 border-y border-charcoal/10 sm:grid-cols-2 lg:grid-cols-4">
             {STEPS.map((step, index) => (
               <div key={step.number} className={`py-7 sm:p-7 ${index > 0 ? "border-t border-charcoal/10 sm:border-t-0 sm:border-l" : ""} ${index === 2 ? "sm:border-l-0 lg:border-l" : ""}`}>
-                <p className="text-[11px] font-bold tracking-[0.18em] text-sage-deep">{step.number}</p>
-                <h3 className="mt-5 font-display text-xl font-semibold text-charcoal">{step.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal/55">{step.body}</p>
+                <p className="text-[11px] font-bold tracking-[0.18em] text-navy">{step.number}</p>
+                <h3 className="mt-5 font-sans text-xl font-semibold text-ink">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{step.body}</p>
               </div>
             ))}
           </Reveal>
@@ -179,7 +179,7 @@ export default function WholesalePage() {
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-12 px-5 md:px-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-20">
           <Reveal>
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#b9d9ce]">Partner inquiry</p>
-            <h2 className="mt-3 font-display text-4xl font-semibold leading-tight md:text-5xl">Tell us what you want to build.</h2>
+            <h2 className="mt-3 font-sans text-4xl font-semibold leading-tight md:text-5xl">Tell us what you want to build.</h2>
             <p className="mt-5 text-sm leading-relaxed text-white/65 md:text-base">Our team reviews every inquiry and replies with the most suitable program, practical next steps, and a scoped commercial conversation.</p>
             <div className="mt-8 space-y-4 border-t border-white/15 pt-7 text-sm text-white/70">
               <p className="flex items-start gap-3"><i className="ri-check-line mt-0.5 text-[#b9d9ce]" /> No generic tier required before we understand your needs.</p>

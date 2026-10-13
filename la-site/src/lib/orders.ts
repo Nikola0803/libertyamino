@@ -1,10 +1,9 @@
 "use client";
 
 /**
- * Order history, stored locally per browser (keyed by the signed-in user's
- * id) since there's no live payment/order backend wired up yet. Orders are
- * created for real when a checkout is submitted, not fabricated. Swap this
- * for a real CRM/WooCommerce orders fetch once that's connected.
+ * Order history. Local browser storage is used for orders placed in this
+ * session; remote orders are fetched from the WooCommerce REST API via
+ * /api/account/orders and merged in by the account page.
  */
 
 export interface OrderLine {
@@ -26,13 +25,13 @@ export interface Order {
   shipping: number;
   total: number;
   currency: "USD" | "CAD";
-  paymentMethod?: "cashapp" | "zelle" | "venmo";
+  paymentMethod?: string;
   paymentMemo?: string;
-  /** True for orders fetched live from the CRM, vs a local-only browser record. */
+  /** True for orders fetched live from WooCommerce, vs a local-only browser record. */
   isRemote?: boolean;
 }
 
-const STORAGE_KEY = "evlv_orders";
+const STORAGE_KEY = "la_orders";
 
 function readAll(): Order[] {
   if (typeof window === "undefined") return [];
@@ -60,7 +59,7 @@ export function getOrdersForUser(userId: string): Order[] {
 export function addOrder(order: Omit<Order, "id" | "createdAt" | "status">): Order {
   const full: Order = {
     ...order,
-    id: `EVLV-${Math.floor(100000 + Math.random() * 900000)}`,
+    id: `LA-${Math.floor(100000 + Math.random() * 900000)}`,
     createdAt: new Date().toISOString(),
     status: "Processing",
   };
@@ -68,41 +67,53 @@ export function addOrder(order: Omit<Order, "id" | "createdAt" | "status">): Ord
   return full;
 }
 
-const CRM_STATUS_LABEL: Record<string, OrderStatus> = {
-  PENDING: "Pending",
-  PROCESSING: "Processing",
-  COMPLETED: "Completed",
-  ON_HOLD: "On Hold",
-  REFUNDED: "Refunded",
-  CANCELLED: "Cancelled",
+const WC_STATUS_LABEL: Record<string, OrderStatus> = {
+  pending: "Pending",
+  processing: "Processing",
+  completed: "Completed",
+  on_hold: "On Hold",
+  refunded: "Refunded",
+  cancelled: "Cancelled",
+  failed: "Cancelled",
 };
 
-interface CrmOrder {
-  id: string;
+interface WcOrder {
+  id: number;
   number: string;
   status: string;
   total: string;
   date_created: string;
+  shipping_total: string;
   line_items: { name: string; quantity: number; total: string }[];
+  payment_method?: string;
+  meta_data?: Array<{ key: string; value: string }>;
 }
 
-/** Maps the CRM's /api/store/account/orders response onto the same Order shape local orders use. */
-export function mapCrmOrders(userId: string, crmOrders: CrmOrder[], currency: "USD" | "CAD"): Order[] {
-  return crmOrders.map((o) => ({
-    id: o.number || o.id,
-    userId,
-    createdAt: o.date_created,
-    status: CRM_STATUS_LABEL[o.status] ?? "Processing",
-    lines: o.line_items.map((li) => ({
-      name: li.name,
-      packLabel: "",
-      qty: li.quantity,
-      unitPrice: li.quantity > 0 ? Number(li.total) / li.quantity : Number(li.total),
-    })),
-    subtotal: Number(o.total),
-    shipping: 0,
-    total: Number(o.total),
-    currency,
-    isRemote: true,
-  }));
+/** Maps WooCommerce REST API orders onto the Order shape. */
+export function mapWcOrders(userId: string, wcOrders: WcOrder[]): Order[] {
+  return wcOrders.map((o) => {
+    const total = Number(o.total);
+    const shipping = Number(o.shipping_total ?? 0);
+    const subtotal = total - shipping;
+    const memo = o.meta_data?.find((m) => m.key === "_payment_memo")?.value;
+    return {
+      id: o.number || String(o.id),
+      userId,
+      createdAt: o.date_created,
+      status: WC_STATUS_LABEL[o.status] ?? "Processing",
+      lines: o.line_items.map((li) => ({
+        name: li.name,
+        packLabel: "",
+        qty: li.quantity,
+        unitPrice: li.quantity > 0 ? Number(li.total) / li.quantity : Number(li.total),
+      })),
+      subtotal,
+      shipping,
+      total,
+      currency: "USD",
+      paymentMethod: o.payment_method,
+      paymentMemo: memo,
+      isRemote: true,
+    };
+  });
 }
