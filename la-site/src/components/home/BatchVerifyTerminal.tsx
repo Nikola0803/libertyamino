@@ -44,21 +44,21 @@ export function BatchVerifyTerminal() {
   }
 
   return (
-    <div className="overflow-hidden rounded-lg border border-copper/15 bg-charcoal shadow-2xl shadow-black/30">
+    <div className="overflow-hidden rounded-lg border border-navy/15 bg-navy shadow-2xl shadow-black/30">
       <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-5 py-3">
         <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-copper" />
-          <span className="h-2 w-2 rounded-full bg-sage-deep" />
+          <span className="h-2 w-2 rounded-full bg-navy" />
+          <span className="h-2 w-2 rounded-full bg-navy" />
           <span className="h-2 w-2 rounded-full bg-white/20" />
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">EVLV Verification &middot; Terminal</span>
+        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">Liberty Aminos Verification &middot; Terminal</span>
         <span className="font-mono text-[10px] text-white/25">v1.0</span>
       </div>
 
       <div className="p-6 md:p-8">
-        <div className="mb-5 font-mono text-[11px] text-copper">
+        <div className="mb-5 font-mono text-[11px] text-navy">
           <span className="mr-2">$</span>
-          <span className="text-white/50">evlv verify --batch</span>
+          <span className="text-white/50">la verify --batch</span>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:flex-row">
@@ -69,13 +69,13 @@ export function BatchVerifyTerminal() {
               setState("idle");
             }}
             placeholder={latestBatch.batch.code}
-            className="h-13 flex-1 rounded-md border border-white/10 bg-white/5 px-4 font-mono text-sm tracking-wider text-white outline-none placeholder:text-white/25 focus:border-copper"
+            className="h-13 flex-1 rounded-md border border-white/10 bg-white/5 px-4 font-mono text-sm tracking-wider text-white outline-none placeholder:text-white/25 focus:border-navy"
             type="text"
           />
           <button
             type="submit"
             disabled={state === "loading"}
-            className="flex h-13 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-copper px-6 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:opacity-70"
+            className="flex h-13 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-navy px-6 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light disabled:opacity-70"
           >
             {state === "loading" ? (
               <>
@@ -90,10 +90,10 @@ export function BatchVerifyTerminal() {
         </form>
 
         {state === "found" && match && (
-          <div className="mt-5 rounded-md border border-sage-deep/40 bg-sage-deep/10 p-4">
+          <div className="mt-5 rounded-md border border-navy/40 bg-navy/10 p-4">
             <div className="mb-4 flex items-center gap-2">
-              <i className="ri-checkbox-circle-fill text-sage" />
-              <span className="font-mono text-xs font-semibold uppercase tracking-wide text-sage">Batch Verified, Pass</span>
+              <i className="ri-checkbox-circle-fill text-navy" />
+              <span className="font-mono text-xs font-semibold uppercase tracking-wide text-navy">Batch Verified, Pass</span>
             </div>
             <div className="grid grid-cols-2 gap-4 text-xs sm:grid-cols-4">
               <div>
@@ -106,22 +106,22 @@ export function BatchVerifyTerminal() {
               </div>
               <div>
                 <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">Purity</p>
-                <p className="font-mono text-copper">{match.purity ?? "On file"}</p>
+                <p className="font-mono text-navy">{match.purity ?? "On file"}</p>
               </div>
               <div>
                 <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">Test Date</p>
                 <p className="font-mono text-white/80">{match.batch.date}</p>
               </div>
             </div>
-            <Link href={`/shop/${match.slug}`} className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] text-copper transition hover:text-copper-light">
+            <Link href={`/shop/${match.slug}`} className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] text-navy transition hover:text-navy-light">
               View product & full COA <i className="ri-arrow-right-line" />
             </Link>
           </div>
         )}
 
         {state === "not-found" && (
-          <div className="mt-5 flex items-center gap-2 rounded-md border border-copper/30 bg-copper/5 p-4">
-            <i className="ri-error-warning-line text-copper" />
+          <div className="mt-5 flex items-center gap-2 rounded-md border border-navy/30 bg-navy/5 p-4">
+            <i className="ri-error-warning-line text-navy" />
             <span className="font-mono text-xs text-white/60">Batch not found. Try {latestBatch.batch.code}</span>
           </div>
         )}
@@ -138,7 +138,7 @@ export function BatchVerifyTerminal() {
             </div>
             <div>
               <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/35">Result</p>
-              <p className="flex items-center gap-1.5 font-mono text-xs text-sage">
+              <p className="flex items-center gap-1.5 font-mono text-xs text-navy">
                 <i className="ri-checkbox-circle-fill" /> Passed
               </p>
             </div>
@@ -148,7 +148,7 @@ export function BatchVerifyTerminal() {
 
       <div className="flex items-center justify-between border-t border-white/10 bg-white/[0.03] px-5 py-2.5">
         <span className="font-mono text-[10px] text-white/30">{products.length} batches archived</span>
-        <Link href="/coas" className="flex items-center gap-1 font-mono text-[10px] text-copper transition hover:text-copper-light">
+        <Link href="/coas" className="flex items-center gap-1 font-mono text-[10px] text-navy transition hover:text-navy-light">
           Browse Archive <i className="ri-arrow-right-line" />
         </Link>
       </div>

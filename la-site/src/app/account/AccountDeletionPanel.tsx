@@ -56,11 +56,11 @@ export function AccountDeletionPanel() {
   return (
     <div className="mt-8 max-w-md rounded-lg border border-red-200 bg-red-50/40 p-6">
       <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-wider text-red-700">Danger Zone</h3>
-      <p className="text-sm text-charcoal/70">Request removal of your account and personal data.</p>
+      <p className="text-sm text-ink/70">Request removal of your account and personal data.</p>
 
       {status === "NONE" && (
         <>
-          <p className="mt-2 text-[11px] leading-relaxed text-charcoal/50">
+          <p className="mt-2 text-[11px] leading-relaxed text-ink/50">
             We review every request by hand. Order records are kept in anonymized form for accounting purposes as
             required by law.
           </p>
@@ -76,19 +76,19 @@ export function AccountDeletionPanel() {
       )}
 
       {status === "PENDING" && (
-        <p className="mt-3 flex items-center gap-1.5 text-sm text-charcoal/70">
-          <i className="ri-time-line text-copper" /> Request under review. We&apos;ll email you once it&apos;s processed.
+        <p className="mt-3 flex items-center gap-1.5 text-sm text-ink/70">
+          <i className="ri-time-line text-navy" /> Request under review. We&apos;ll email you once it&apos;s processed.
         </p>
       )}
 
       {status === "APPROVED" && (
-        <p className="mt-3 flex items-center gap-1.5 text-sm text-charcoal/70">
-          <i className="ri-checkbox-circle-line text-sage-deep" /> Your account removal request has been processed.
+        <p className="mt-3 flex items-center gap-1.5 text-sm text-ink/70">
+          <i className="ri-checkbox-circle-line text-navy" /> Your account removal request has been processed.
         </p>
       )}
 
       {status === "REJECTED" && (
-        <p className="mt-3 text-sm text-charcoal/70">
+        <p className="mt-3 text-sm text-ink/70">
           We weren&apos;t able to process your removal request. Contact support if you think this was a mistake.
         </p>
       )}

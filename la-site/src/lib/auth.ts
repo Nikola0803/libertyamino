@@ -5,8 +5,8 @@
  * via this app's own /api/auth/* proxy routes (keeps the CRM's URL and API
  * key server-side, browser never talks to the CRM directly).
  */
-const TOKEN_KEY = "evlv_auth_token";
-const USER_KEY = "evlv_auth_user";
+const TOKEN_KEY = "la_auth_token";
+const USER_KEY = "la_auth_user";
 
 export type ResearcherStatus = "NONE" | "PENDING" | "APPROVED" | "REJECTED";
 export type MembershipStatus = "NONE" | "PENDING" | "APPROVED" | "REJECTED";

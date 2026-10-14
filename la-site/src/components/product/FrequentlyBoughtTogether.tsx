@@ -43,10 +43,10 @@ export function FrequentlyBoughtTogether({ product, related }: { product: Produc
   }
 
   return (
-    <section className="border-t border-stone bg-ivory-soft/60 py-16 md:py-24">
+    <section className="border-t border-border-subtle bg-surface/60 py-16 md:py-24">
       <div className="mx-auto max-w-[1200px] px-4 md:px-8">
-        <h2 className="mb-2 font-display text-2xl font-semibold text-charcoal md:text-3xl">Frequently bought together</h2>
-        <p className="mb-8 text-sm text-charcoal/60">Add related research materials to the same order.</p>
+        <h2 className="mb-2 font-display text-2xl font-semibold text-ink md:text-3xl">Frequently bought together</h2>
+        <p className="mb-8 text-sm text-ink/60">Add related research materials to the same order.</p>
 
         <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-2.5">
           {items.map((p, i) => {
@@ -57,8 +57,8 @@ export function FrequentlyBoughtTogether({ product, related }: { product: Produc
                 <label
                   className={`relative flex w-full cursor-pointer flex-col rounded-xl border-[1.5px] p-4 transition ${
                     isChecked
-                      ? "border-sage-deep bg-white shadow-md"
-                      : "border-stone/70 bg-white/40 opacity-55 hover:opacity-80"
+                      ? "border-navy bg-white shadow-md"
+                      : "border-border-subtle/70 bg-white/40 opacity-55 hover:opacity-80"
                   }`}
                 >
                   <input
@@ -66,27 +66,27 @@ export function FrequentlyBoughtTogether({ product, related }: { product: Produc
                     checked={isChecked}
                     onChange={() => toggle(p.id)}
                     disabled={isCurrent}
-                    className="absolute right-3 top-3 h-4 w-4 accent-sage-deep disabled:opacity-70"
+                    className="absolute right-3 top-3 h-4 w-4 accent-navy disabled:opacity-70"
                   />
-                  <div className="flex h-28 items-center justify-center overflow-hidden rounded-lg border border-stone bg-white p-3">
+                  <div className="flex h-28 items-center justify-center overflow-hidden rounded-lg border border-border-subtle bg-white p-3">
                     <Image src={getProductImage(p)} alt={p.name} width={160} height={160} className="h-full w-full object-contain" />
                   </div>
-                  <Link href={`/shop/${p.slug}`} className="mt-3 text-sm font-semibold text-charcoal hover:underline">
+                  <Link href={`/shop/${p.slug}`} className="mt-3 text-sm font-semibold text-ink hover:underline">
                     {p.name}
                   </Link>
-                  <p className="mt-1 text-xs text-charcoal/60">
+                  <p className="mt-1 text-xs text-ink/60">
                     {p.categoryLabel}
                     {p.purity ? ` -- ${p.purity} purity` : ""}
                   </p>
-                  <p className="mt-2 font-display text-base font-semibold text-charcoal">{formatPrice(p.price)}</p>
+                  <p className="mt-2 font-display text-base font-semibold text-ink">{formatPrice(p.price)}</p>
                   {isCurrent && (
-                    <span className="mt-1.5 inline-block w-fit rounded-full bg-sage-deep/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage-deep">
+                    <span className="mt-1.5 inline-block w-fit rounded-full bg-navy/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-navy">
                       This item
                     </span>
                   )}
                 </label>
                 {i < items.length - 1 && (
-                  <span aria-hidden className="hidden shrink-0 font-display text-2xl font-semibold text-charcoal/25 sm:block">
+                  <span aria-hidden className="hidden shrink-0 font-display text-2xl font-semibold text-ink/25 sm:block">
                     +
                   </span>
                 )}
@@ -95,17 +95,17 @@ export function FrequentlyBoughtTogether({ product, related }: { product: Produc
           })}
         </div>
 
-        <div className="mt-5 flex flex-col items-center justify-between gap-4 rounded-xl bg-charcoal p-5 sm:flex-row">
-          <p className="text-sm text-ivory/70">
+        <div className="mt-5 flex flex-col items-center justify-between gap-4 rounded-xl bg-navy p-5 sm:flex-row">
+          <p className="text-sm text-white/70">
             {selected.length} item{selected.length === 1 ? "" : "s"} selected
           </p>
           <div className="flex items-center gap-4">
-            <p className="font-display text-xl font-semibold text-ivory">{formatPrice(total)}</p>
+            <p className="font-display text-xl font-semibold text-white">{formatPrice(total)}</p>
             <button
               type="button"
               onClick={addAll}
               disabled={selected.length === 0}
-              className="whitespace-nowrap rounded-xl bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light disabled:cursor-not-allowed disabled:opacity-40"
+              className="whitespace-nowrap rounded-xl bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-40"
             >
               Add Selected to Cart
             </button>

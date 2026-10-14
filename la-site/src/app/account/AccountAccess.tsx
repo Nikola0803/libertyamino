@@ -94,7 +94,7 @@ export function AccountAccess({ initialMode = "signin" }: { initialMode?: Mode }
 
   return (
     <section className="px-4 py-10 md:py-16">
-      <div className="mx-auto grid max-w-[1120px] overflow-hidden rounded-[24px] border border-stone bg-white shadow-[0_22px_65px_rgba(11,47,44,.10)] lg:grid-cols-[.9fr_1.1fr]">
+      <div className="mx-auto grid max-w-[1120px] overflow-hidden rounded-[24px] border border-border-subtle bg-white shadow-[0_22px_65px_rgba(11,47,44,.10)] lg:grid-cols-[.9fr_1.1fr]">
         <div className="relative flex min-h-[320px] flex-col justify-between overflow-hidden bg-[#07383a] p-8 text-white md:p-12 lg:min-h-[650px]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_12%,rgba(185,217,206,.22),transparent_38%),linear-gradient(145deg,#07383a,#092825)]" />
           <div className="relative">
@@ -112,14 +112,14 @@ export function AccountAccess({ initialMode = "signin" }: { initialMode?: Mode }
         <div className="flex items-center p-7 sm:p-10 md:p-14">
           <div className="mx-auto w-full max-w-md">
             <div className="grid grid-cols-2 rounded-lg bg-[#f1f5f3] p-1">
-              <button type="button" onClick={() => switchMode("signin")} className={`rounded-md px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] transition ${mode === "signin" ? "bg-white text-charcoal shadow-sm" : "text-charcoal/45"}`}>Sign In</button>
-              <button type="button" onClick={() => switchMode("register")} className={`rounded-md px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] transition ${mode === "register" ? "bg-white text-charcoal shadow-sm" : "text-charcoal/45"}`}>Create Account</button>
+              <button type="button" onClick={() => switchMode("signin")} className={`rounded-md px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] transition ${mode === "signin" ? "bg-white text-ink shadow-sm" : "text-ink/45"}`}>Sign In</button>
+              <button type="button" onClick={() => switchMode("register")} className={`rounded-md px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] transition ${mode === "register" ? "bg-white text-ink shadow-sm" : "text-ink/45"}`}>Create Account</button>
             </div>
 
             <div className="mt-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-sage-deep">{mode === "signin" ? "Welcome back" : "Create your profile"}</p>
-              <h2 className="mt-2 font-display text-3xl font-semibold text-charcoal">{mode === "signin" ? "Sign in to EVLV" : "Open an EVLV account"}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal/50">{mode === "signin" ? "Enter the email and password connected to your account." : "Create one secure login and receive 10% off your first purchase. Your personal reward is applied automatically at checkout."}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-navy">{mode === "signin" ? "Welcome back" : "Create your profile"}</p>
+              <h2 className="mt-2 font-display text-3xl font-semibold text-ink">{mode === "signin" ? "Sign in to EVLV" : "Open an EVLV account"}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-ink/50">{mode === "signin" ? "Enter the email and password connected to your account." : "Create one secure login and receive 10% off your first purchase. Your personal reward is applied automatically at checkout."}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="mt-7 space-y-4">
@@ -127,7 +127,7 @@ export function AccountAccess({ initialMode = "signin" }: { initialMode?: Mode }
               <Field label="Password" type="password" value={password} onChange={setPassword} autoComplete={mode === "signin" ? "current-password" : "new-password"} />
 
               {mode === "register" && (
-                <label className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-charcoal/55">
+                <label className="flex cursor-pointer items-start gap-3 text-xs leading-relaxed text-ink/55">
                   <input type="checkbox" checked={marketingOptIn} onChange={(event) => setMarketingOptIn(event.target.checked)} className="mt-0.5 accent-[#07383a]" />
                   Send me EVLV research updates, new product notices, and occasional offers.
                 </label>
@@ -140,7 +140,7 @@ export function AccountAccess({ initialMode = "signin" }: { initialMode?: Mode }
               </button>
             </form>
 
-            <p className="mt-6 text-center text-[11px] leading-relaxed text-charcoal/40">
+            <p className="mt-6 text-center text-[11px] leading-relaxed text-ink/40">
               By continuing, you agree to our <Link href="/terms" className="underline">Terms</Link> and <Link href="/privacy" className="underline">Privacy Policy</Link>.
             </p>
           </div>
@@ -153,8 +153,8 @@ export function AccountAccess({ initialMode = "signin" }: { initialMode?: Mode }
 function Field({ label, type = "text", value, onChange, autoComplete }: { label: string; type?: string; value: string; onChange: (value: string) => void; autoComplete: string }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-semibold text-charcoal">{label}</span>
-      <input required type={type} value={value} onChange={(event) => onChange(event.target.value)} autoComplete={autoComplete} className="w-full rounded-md border border-[#d6e0db] bg-white px-4 py-3 text-base text-charcoal outline-none transition placeholder:text-charcoal/25 focus:border-sage-deep focus:ring-2 focus:ring-sage-deep/10" />
+      <span className="mb-1.5 block text-xs font-semibold text-ink">{label}</span>
+      <input required type={type} value={value} onChange={(event) => onChange(event.target.value)} autoComplete={autoComplete} className="w-full rounded-md border border-border-subtle bg-white px-4 py-3 text-base text-ink outline-none transition placeholder:text-ink/25 focus:border-navy focus:ring-2 focus:ring-navy/10" />
     </label>
   );
 }

@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-const TOPICS = ["Order Question", "Product Question", "Shipping & Tracking", "COAs", "Other"];
+const TOPICS = ["Order inquiry", "COA request", "Research question", "Other"];
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -42,27 +42,27 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-md border border-stone bg-ivory-soft p-6 text-center md:p-8">
-        <p className="font-display text-lg font-semibold text-charcoal">Message sent</p>
-        <p className="mt-2 text-sm text-charcoal/60">Thanks for reaching out. Our team typically responds within minutes during business hours.</p>
+      <div className="rounded-md border border-border-subtle bg-surface p-6 text-center md:p-8">
+        <p className="font-display text-lg font-semibold text-ink">Message sent</p>
+        <p className="mt-2 text-sm text-ink/60">Thanks for reaching out. Our team typically responds within minutes during business hours.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-md border border-stone bg-ivory-soft p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-md border border-border-subtle bg-surface p-6 md:p-8">
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <Field label="Name" name="name" placeholder="Your name" required value={name} onChange={setName} />
         <Field label="Email" name="email" type="email" placeholder="you@example.com" required value={email} onChange={setEmail} />
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">Subject</label>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">Subject</label>
         <select
           required
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
-          className="w-full rounded-md border border-stone bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sage-deep"
+          className="w-full rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm outline-none transition focus:border-navy"
         >
           <option value="">Select a topic</option>
           {TOPICS.map((t) => (
@@ -75,7 +75,7 @@ export function ContactForm() {
 
       <div>
         <div className="mb-1.5 flex items-center justify-between">
-          <label className="text-sm font-semibold text-charcoal">Message</label>
+          <label className="text-sm font-semibold text-ink">Message</label>
         </div>
         <textarea
           required
@@ -84,9 +84,9 @@ export function ContactForm() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="How can we help you?"
-          className="w-full resize-none rounded-md border border-stone bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sage-deep"
+          className="w-full resize-none rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm outline-none transition focus:border-navy"
         />
-        <div className="mt-1 text-right text-xs text-charcoal/40">Max 500 characters</div>
+        <div className="mt-1 text-right text-xs text-ink/40">Max 500 characters</div>
       </div>
 
       <input tabIndex={-1} autoComplete="off" aria-hidden className="hidden" type="text" name="company" />
@@ -101,7 +101,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
       >
         {submitting ? "Sending..." : "Send Message"}
       </button>
@@ -128,7 +128,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-charcoal">
+      <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-ink">
         {label}
       </label>
       <input
@@ -139,7 +139,7 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-md border border-stone bg-white px-4 py-2.5 text-sm outline-none transition focus:border-sage-deep"
+        className="w-full rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm outline-none transition focus:border-navy"
       />
     </div>
   );

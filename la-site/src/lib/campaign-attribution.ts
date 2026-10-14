@@ -10,7 +10,7 @@ export interface CampaignAttribution {
   capturedAt?: string;
 }
 
-const STORAGE_KEY = "evlv_campaign_attribution_v1";
+const STORAGE_KEY = "la_campaign_attribution_v1";
 const PARAMS: Array<[keyof CampaignAttribution, string]> = [
   ["source", "utm_source"],
   ["medium", "utm_medium"],

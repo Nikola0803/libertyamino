@@ -82,9 +82,9 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
   }
 
   return (
-    <div className="rounded-lg border border-stone bg-white p-6">
-      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Payout Method</p>
-      <p className="mb-4 text-xs text-charcoal/50">Where should we send your commission when you request a payout?</p>
+    <div className="rounded-lg border border-border-subtle bg-white p-6">
+      <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-ink/50">Payout Method</p>
+      <p className="mb-4 text-xs text-ink/50">Where should we send your commission when you request a payout?</p>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         {METHODS.map((m) => (
@@ -93,10 +93,10 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
             type="button"
             onClick={() => setMethod(m.id)}
             className={`flex flex-col items-center gap-2 rounded-md border px-3 py-4 text-xs font-medium transition ${
-              method === m.id ? "border-copper bg-copper/10 text-charcoal" : "border-stone text-charcoal/60 hover:border-copper/60"
+              method === m.id ? "border-navy bg-navy/10 text-ink" : "border-border-subtle text-ink/60 hover:border-navy/60"
             }`}
           >
-            <i className={`${m.icon} text-lg ${method === m.id ? "text-copper" : "text-charcoal/40"}`} />
+            <i className={`${m.icon} text-lg ${method === m.id ? "text-navy" : "text-ink/40"}`} />
             {m.label}
           </button>
         ))}
@@ -104,7 +104,7 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
 
       {method && method !== "bank_ach" && (
         <div className="mt-5">
-          <label className="mb-1.5 block text-sm font-semibold text-charcoal">
+          <label className="mb-1.5 block text-sm font-semibold text-ink">
             {method === "venmo" ? "Venmo Username" : method === "zelle" ? "Zelle Email or Phone" : "Cash App $Cashtag"}
           </label>
           <input
@@ -112,7 +112,7 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder={method === "venmo" ? "@your-username" : method === "zelle" ? "you@example.com" : "$YourCashtag"}
-            className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+            className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
           />
         </div>
       )}
@@ -120,40 +120,40 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
       {method === "bank_ach" && (
         <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="sm:col-span-2">
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">Account Holder Name</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">Account Holder Name</label>
             <input
               type="text"
               value={accountHolder}
               onChange={(e) => setAccountHolder(e.target.value)}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">Routing Number</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">Routing Number</label>
             <input
               type="text"
               inputMode="numeric"
               value={routingNumber}
               onChange={(e) => setRoutingNumber(e.target.value)}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">Account Number</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">Account Number</label>
             <input
               type="text"
               inputMode="numeric"
               value={accountNumber}
               onChange={(e) => setAccountNumber(e.target.value)}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
             />
           </div>
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-charcoal">Account Type</label>
+            <label className="mb-1.5 block text-sm font-semibold text-ink">Account Type</label>
             <select
               value={accountType}
               onChange={(e) => setAccountType(e.target.value as "checking" | "savings")}
-              className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+              className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
             >
               <option value="checking">Checking</option>
               <option value="savings">Savings</option>
@@ -173,7 +173,7 @@ export function PayoutSettings({ initial, onSaved }: { initial: PayoutInfo; onSa
         type="button"
         onClick={handleSave}
         disabled={saving || !method}
-        className="mt-5 rounded-md bg-copper px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="mt-5 rounded-md bg-navy px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
       >
         {saving ? "Saving..." : saved ? "Saved" : "Save Payout Method"}
       </button>

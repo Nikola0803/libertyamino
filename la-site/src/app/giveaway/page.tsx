@@ -24,12 +24,12 @@ export default async function GiveawayPage() {
 
   return (
     <>
-      <section className="-mt-[90px] bg-charcoal pb-16 pt-[150px] text-white md:-mt-[100px] md:pb-20 md:pt-[170px]">
+      <section className="-mt-[90px] bg-navy pb-16 pt-[150px] text-white md:-mt-[100px] md:pb-20 md:pt-[170px]">
         <div className="mx-auto max-w-[1000px] px-4 md:px-8">
           {isLive ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto] md:items-center md:gap-12">
               <div>
-                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Today's Giveaway</p>
+                <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Today's Giveaway</p>
                 <h1 className="font-display text-4xl font-semibold leading-tight md:text-5xl">
                   {minOrder
                     ? `Orders Over $${minOrder} Are Automatically Entered`
@@ -45,7 +45,7 @@ export default async function GiveawayPage() {
                 )}
                 <a
                   href="/shop"
-                  className="mt-7 inline-block rounded-md bg-copper px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light"
+                  className="mt-7 inline-block rounded-md bg-navy px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light"
                 >
                   Shop Now
                 </a>
@@ -54,13 +54,13 @@ export default async function GiveawayPage() {
               {giveaway?.prizeLabel && (
                 <div className="rounded-lg border border-white/15 bg-white/5 px-7 py-6 text-center md:min-w-[220px]">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/50">Today's Prize</p>
-                  <p className="mt-2 font-display text-3xl font-semibold text-copper">{prizeHeadline(giveaway.prizeLabel)}</p>
+                  <p className="mt-2 font-display text-3xl font-semibold text-navy">{prizeHeadline(giveaway.prizeLabel)}</p>
                 </div>
               )}
             </div>
           ) : (
             <div className="text-center">
-              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Giveaway</p>
+              <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Giveaway</p>
               <h1 className="font-display text-4xl font-semibold md:text-5xl">No Giveaway Running Right Now</h1>
               <p className="mx-auto mt-4 max-w-md text-sm text-white/70">
                 Check back soon -- we run these periodically and announce them on the homepage.
@@ -78,7 +78,7 @@ export default async function GiveawayPage() {
 
       {isLive && (
         <>
-          <section className="bg-ivory py-14 md:py-20">
+          <section className="bg-off-white py-14 md:py-20">
             <div className="mx-auto max-w-[1000px] px-4 md:px-8">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <HowItWorksStep n={1} title="Order" body="Place a qualifying order over today's minimum." />
@@ -88,11 +88,11 @@ export default async function GiveawayPage() {
             </div>
           </section>
 
-          <section className="bg-ivory pb-16 md:pb-28">
+          <section className="bg-off-white pb-16 md:pb-28">
             <div className="mx-auto max-w-[560px] px-4 md:px-8">
-              <div className="rounded-lg border border-stone bg-ivory-soft p-6">
-                <h3 className="mb-2 font-display text-base font-semibold text-charcoal">Official Rules</h3>
-                <p className="whitespace-pre-line text-xs leading-relaxed text-charcoal/60">
+              <div className="rounded-lg border border-border-subtle bg-surface p-6">
+                <h3 className="mb-2 font-display text-base font-semibold text-ink">Official Rules</h3>
+                <p className="whitespace-pre-line text-xs leading-relaxed text-ink/60">
                   {giveaway?.rulesText?.trim() || DEFAULT_RULES}
                 </p>
               </div>
@@ -107,9 +107,9 @@ export default async function GiveawayPage() {
 
 function HowItWorksStep({ n, title, body }: { n: number; title: string; body: string }) {
   return (
-    <div className="rounded-lg border border-stone bg-white p-5">
-      <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-copper">{n}. {title}</p>
-      <p className="text-sm leading-relaxed text-charcoal/60">{body}</p>
+    <div className="rounded-lg border border-border-subtle bg-white p-5">
+      <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy">{n}. {title}</p>
+      <p className="text-sm leading-relaxed text-ink/60">{body}</p>
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { getGoogleReviews } from "./google-reviews";
 const PLACEHOLDER_RATING = 4.7;
 
 function starsHtml(rating: number, variant: "dark" | "light"): string {
-  const emptyClass = variant === "light" ? "text-charcoal/20" : "text-white/30";
+  const emptyClass = variant === "light" ? "text-ink/20" : "text-white/30";
   return Array.from({ length: 5 })
     .map((_, i) =>
       i < Math.round(rating)
@@ -60,17 +60,17 @@ export async function getGoogleRatingBadgeHtml(variant: "dark" | "light" = "dark
 
   const label = reviewCount && reviewCount > 0 ? `${reviewCount.toLocaleString()}+ Google reviews` : "Google Reviews";
 
-  const ratingTextClass = variant === "light" ? "text-charcoal" : "text-white";
-  const labelTextClass = variant === "light" ? "text-charcoal/60" : "text-white/60";
+  const ratingTextClass = variant === "light" ? "text-ink" : "text-white";
+  const labelTextClass = variant === "light" ? "text-ink/60" : "text-white/60";
 
-  const inner = `${GOOGLE_LOGO_SVG}<span class="inline-flex items-center gap-0.5 text-copper">${starsHtml(rating, variant)}</span><span class="text-xs font-semibold ${ratingTextClass}">${rating.toFixed(1)}</span><span class="text-xs ${labelTextClass}">${escapeHtml(label)}</span>`;
+  const inner = `${GOOGLE_LOGO_SVG}<span class="inline-flex items-center gap-0.5 text-navy">${starsHtml(rating, variant)}</span><span class="text-xs font-semibold ${ratingTextClass}">${rating.toFixed(1)}</span><span class="text-xs ${labelTextClass}">${escapeHtml(label)}</span>`;
 
   const className =
     variant === "light"
-      ? "inline-flex items-center gap-2 rounded-full border border-charcoal/10 bg-white px-3.5 py-1.5 shadow-sm"
+      ? "inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-3.5 py-1.5 shadow-sm"
       : "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 backdrop-blur-sm";
 
-  const hoverClass = variant === "light" ? "transition hover:border-charcoal/20" : "transition hover:border-white/30";
+  const hoverClass = variant === "light" ? "transition hover:border-navy/20" : "transition hover:border-white/30";
 
   return href
     ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer" class="${className} ${hoverClass}">${inner}</a>`

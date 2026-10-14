@@ -90,14 +90,14 @@ export function AffiliatePanel() {
     }
   }
 
-  if (loading) return <p className="text-sm text-charcoal/50">Loading your affiliate status…</p>;
+  if (loading) return <p className="text-sm text-ink/50">Loading your affiliate status…</p>;
 
   if (error) {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-information-line text-2xl text-charcoal/30" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Affiliate status not available yet</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-charcoal/60">{error}</p>
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-information-line text-2xl text-ink/30" />
+        <p className="mt-3 font-display text-lg font-semibold text-ink">Affiliate status not available yet</p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-ink/60">{error}</p>
       </div>
     );
   }
@@ -105,9 +105,9 @@ export function AffiliatePanel() {
   if (!data || data.status === "NONE") {
     return (
       <div>
-        <div className="mb-6 rounded-lg border border-stone bg-ivory-soft p-6">
-          <p className="font-display text-lg font-semibold text-charcoal">Become an EVLV Affiliate</p>
-          <p className="mt-2 text-sm text-charcoal/60">
+        <div className="mb-6 rounded-lg border border-border-subtle bg-surface p-6">
+          <p className="font-display text-lg font-semibold text-ink">Become an EVLV Affiliate</p>
+          <p className="mt-2 text-sm text-ink/60">
             Earn commission referring researchers and labs to EVLV. Applications are reviewed by hand, typically
             within a couple of business days.
           </p>
@@ -119,10 +119,10 @@ export function AffiliatePanel() {
 
   if (data.status === "PENDING") {
     return (
-      <div className="rounded-lg border border-stone bg-white p-8 text-center">
-        <i className="ri-time-line text-2xl text-copper" />
-        <p className="mt-3 font-display text-lg font-semibold text-charcoal">Application under review</p>
-        <p className="mx-auto mt-2 max-w-md text-sm text-charcoal/60">
+      <div className="rounded-lg border border-border-subtle bg-white p-8 text-center">
+        <i className="ri-time-line text-2xl text-navy" />
+        <p className="mt-3 font-display text-lg font-semibold text-ink">Application under review</p>
+        <p className="mx-auto mt-2 max-w-md text-sm text-ink/60">
           We review every affiliate application by hand. You&apos;ll get an email once a decision is made - usually
           within a couple of business days.
         </p>
@@ -133,14 +133,14 @@ export function AffiliatePanel() {
   // APPROVED
   return (
     <div>
-      <div className="mb-8 rounded-lg border border-stone bg-white p-6">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Your Referral Link</p>
+      <div className="mb-8 rounded-lg border border-border-subtle bg-white p-6">
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-ink/50">Your Referral Link</p>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <code className="flex-1 truncate rounded-md bg-ivory px-4 py-2.5 text-sm text-charcoal">{referralLink}</code>
+          <code className="flex-1 truncate rounded-md bg-off-white px-4 py-2.5 text-sm text-ink">{referralLink}</code>
           <button
             type="button"
             onClick={copyLink}
-            className="shrink-0 rounded-md bg-copper px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+            className="shrink-0 rounded-md bg-navy px-5 py-2.5 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
           >
             {copied ? "Copied" : "Copy Link"}
           </button>
@@ -156,19 +156,19 @@ export function AffiliatePanel() {
         <StatCard label="Pending Commission" value={money(data.commissionPendingCents ?? 0)} />
       </div>
 
-      <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-lg border border-stone bg-white p-6 sm:flex-row sm:items-center">
+      <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-lg border border-border-subtle bg-white p-6 sm:flex-row sm:items-center">
         <div>
-          <p className="font-display text-base font-semibold text-charcoal">Withdraw Your Earnings</p>
-          <p className="mt-1 text-xs text-charcoal/50">
+          <p className="font-display text-base font-semibold text-ink">Withdraw Your Earnings</p>
+          <p className="mt-1 text-xs text-ink/50">
             Minimum payout: {money(data.minPayoutCents ?? 0)} · Sent via {data.payoutMethod ? PAYOUT_LABELS[data.payoutMethod] : "N/A"}
           </p>
-          {requestMsg && <p className={`mt-2 text-xs font-medium ${requestMsg.ok ? "text-sage-deep" : "text-red-600"}`}>{requestMsg.text}</p>}
+          {requestMsg && <p className={`mt-2 text-xs font-medium ${requestMsg.ok ? "text-navy" : "text-red-600"}`}>{requestMsg.text}</p>}
         </div>
         <button
           type="button"
           onClick={requestPayout}
           disabled={requesting || !data.payoutMethod || (data.commissionAvailableCents ?? 0) < (data.minPayoutCents ?? 0)}
-          className="shrink-0 rounded-md bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light disabled:cursor-not-allowed disabled:opacity-40"
+          className="shrink-0 rounded-md bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-40"
         >
           {requesting ? "Requesting..." : "Request Payout"}
         </button>
@@ -193,9 +193,9 @@ export function AffiliatePanel() {
 
 function StatCard({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
-    <div className="rounded-lg border border-stone bg-white p-6">
-      <p className={`font-display text-2xl font-semibold ${accent ? "text-copper" : "text-charcoal"}`}>{value}</p>
-      <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-charcoal/50">{label}</p>
+    <div className="rounded-lg border border-border-subtle bg-white p-6">
+      <p className={`font-display text-2xl font-semibold ${accent ? "text-navy" : "text-ink"}`}>{value}</p>
+      <p className="mt-1 text-[10px] font-semibold uppercase tracking-wider text-ink/50">{label}</p>
     </div>
   );
 }

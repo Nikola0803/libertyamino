@@ -16,13 +16,13 @@ import { AccountAccess } from "./AccountAccess";
 type Tab = "orders" | "addresses" | "profile" | "affiliate" | "verification" | "wholesale";
 
 const STATUS_STYLE: Record<Order["status"], string> = {
-  Processing: "bg-copper/15 text-copper",
-  Shipped: "bg-sage-mist text-sage-deep",
-  Delivered: "bg-sage-deep text-ivory",
-  Pending: "bg-copper/15 text-copper",
-  Completed: "bg-sage-deep text-ivory",
-  "On Hold": "bg-stone text-charcoal/70",
-  Refunded: "bg-stone text-charcoal/70",
+  Processing: "bg-navy/15 text-navy",
+  Shipped: "bg-surface text-navy",
+  Delivered: "bg-navy text-white",
+  Pending: "bg-navy/15 text-navy",
+  Completed: "bg-navy text-white",
+  "On Hold": "bg-surface text-ink/70",
+  Refunded: "bg-surface text-ink/70",
   Cancelled: "bg-red-100 text-red-700",
 };
 
@@ -106,21 +106,21 @@ function AccountPageInner() {
     <div className="mx-auto max-w-5xl px-4 py-10 md:py-14">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">My Account</p>
-          <h1 className="mt-2 font-display text-2xl font-semibold text-charcoal md:text-3xl">{user.username || user.email}</h1>
-          <p className="mt-1 text-sm text-charcoal/50">{user.email}</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">My Account</p>
+          <h1 className="mt-2 font-display text-2xl font-semibold text-ink md:text-3xl">{user.username || user.email}</h1>
+          <p className="mt-1 text-sm text-ink/50">{user.email}</p>
         </div>
         <button
           type="button"
           onClick={handleSignOut}
-          className="rounded-md border border-charcoal px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+          className="rounded-md border border-navy px-5 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy hover:text-white"
         >
           Sign Out
         </button>
       </div>
 
       {justPlacedId && (
-        <div className="mt-8 flex items-center gap-2 rounded-lg border border-sage-deep/30 bg-sage-mist px-4 py-3 text-sm text-sage-deep">
+        <div className="mt-8 flex items-center gap-2 rounded-lg border border-navy/30 bg-surface px-4 py-3 text-sm text-navy">
           <i className="ri-checkbox-circle-fill" />
           Order {justPlacedId} placed. You&rsquo;ll see it below.
         </div>
@@ -134,12 +134,12 @@ function AccountPageInner() {
               type="button"
               onClick={() => setTab(t.key)}
               className={`flex shrink-0 items-center gap-2 rounded-md px-4 py-3 text-xs font-semibold uppercase tracking-wide transition ${
-                tab === t.key ? "bg-charcoal text-ivory" : "text-charcoal/40 hover:text-charcoal"
+                tab === t.key ? "bg-navy text-white" : "text-ink/40 hover:text-ink"
               }`}
             >
               <i className={t.icon} /> {t.label}
               {t.key === "orders" && orders.length > 0 && (
-                <span className={`ml-auto rounded-full px-1.5 text-[10px] ${tab === t.key ? "bg-ivory/20" : "bg-charcoal/10"}`}>{orders.length}</span>
+                <span className={`ml-auto rounded-full px-1.5 text-[10px] ${tab === t.key ? "bg-off-white/20" : "bg-ink/10"}`}>{orders.length}</span>
               )}
             </button>
           ))}
@@ -172,29 +172,29 @@ function AccountPageInner() {
 function OrdersPanel({ orders, formatPrice }: { orders: Order[]; formatPrice: (n: number) => string }) {
   return (
     <div>
-      <h2 className="mb-5 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Order History ({orders.length})</h2>
+      <h2 className="mb-5 text-[11px] font-semibold uppercase tracking-wider text-ink/50">Order History ({orders.length})</h2>
 
       {orders.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-stone bg-ivory-soft p-10 text-center">
-          <i className="ri-inbox-line text-2xl text-charcoal/30" />
-          <p className="mt-3 text-sm text-charcoal/50">You haven&rsquo;t placed any orders yet.</p>
-          <Link href="/shop" className="mt-5 inline-block rounded-md bg-copper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-copper-light">
+        <div className="rounded-lg border border-dashed border-border-subtle bg-surface p-10 text-center">
+          <i className="ri-inbox-line text-2xl text-ink/30" />
+          <p className="mt-3 text-sm text-ink/50">You haven&rsquo;t placed any orders yet.</p>
+          <Link href="/shop" className="mt-5 inline-block rounded-md bg-navy px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy-light">
             Shop Products
           </Link>
         </div>
       ) : (
         <div className="space-y-4">
           {orders.map((order) => (
-            <div key={order.id} className="rounded-lg border border-stone">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-stone bg-ivory-soft px-5 py-3.5">
+            <div key={order.id} className="rounded-lg border border-border-subtle">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border-subtle bg-surface px-5 py-3.5">
                 <div className="flex items-center gap-4">
                   <div>
-                    <p className="text-[10px] uppercase tracking-wider text-charcoal/40">Order</p>
-                    <p className="font-mono text-sm font-medium text-charcoal">{order.id}</p>
+                    <p className="text-[10px] uppercase tracking-wider text-ink/40">Order</p>
+                    <p className="font-mono text-sm font-medium text-ink">{order.id}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-wider text-charcoal/40">Placed</p>
-                    <p className="text-sm text-charcoal">
+                    <p className="text-[10px] uppercase tracking-wider text-ink/40">Placed</p>
+                    <p className="text-sm text-ink">
                       {new Date(order.createdAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
                     </p>
                   </div>
@@ -202,37 +202,37 @@ function OrdersPanel({ orders, formatPrice }: { orders: Order[]; formatPrice: (n
                 <span className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wide ${STATUS_STYLE[order.status]}`}>{order.status}</span>
               </div>
 
-              <div className="divide-y divide-stone px-5">
+              <div className="divide-y divide-border-subtle px-5">
                 {order.lines.map((line, i) => (
                   <div key={i} className="flex items-center justify-between gap-3 py-3">
                     <div>
-                      <p className="text-sm font-medium text-charcoal">{line.name}</p>
-                      <p className="text-xs text-charcoal/50">
+                      <p className="text-sm font-medium text-ink">{line.name}</p>
+                      <p className="text-xs text-ink/50">
                         {line.packLabel} &middot; Qty {line.qty}
                       </p>
                     </div>
-                    <span className="text-sm font-medium text-charcoal">{formatPrice(line.qty * line.unitPrice)}</span>
+                    <span className="text-sm font-medium text-ink">{formatPrice(line.qty * line.unitPrice)}</span>
                   </div>
                 ))}
               </div>
 
               {order.paymentMethod && (
-                <div className="flex items-center gap-2 border-t border-dashed border-stone px-5 py-3 text-xs text-charcoal/50">
-                  <i className="ri-bank-card-line text-copper" />
-                  Pay via <span className="font-medium capitalize text-charcoal">{order.paymentMethod}</span>
+                <div className="flex items-center gap-2 border-t border-dashed border-border-subtle px-5 py-3 text-xs text-ink/50">
+                  <i className="ri-bank-card-line text-navy" />
+                  Pay via <span className="font-medium capitalize text-ink">{order.paymentMethod}</span>
                   {order.paymentMemo && (
                     <>
-                      , memo <span className="font-mono text-copper">{order.paymentMemo}</span>
+                      , memo <span className="font-mono text-navy">{order.paymentMemo}</span>
                     </>
                   )}
                 </div>
               )}
 
               <div className="flex items-center justify-between px-5 py-3.5">
-                <span className="text-xs text-charcoal/50">
+                <span className="text-xs text-ink/50">
                   Subtotal {formatPrice(order.subtotal)} + Shipping {order.shipping === 0 ? "Free" : formatPrice(order.shipping)}
                 </span>
-                <span className="font-display text-base font-semibold text-charcoal">{formatPrice(order.total)}</span>
+                <span className="font-display text-base font-semibold text-ink">{formatPrice(order.total)}</span>
               </div>
             </div>
           ))}
@@ -268,57 +268,57 @@ function AddressesPanel({ addresses, userId, onChange }: { addresses: Address[];
   return (
     <div>
       <div className="mb-5 flex items-center justify-between">
-        <h2 className="text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Saved Addresses ({addresses.length})</h2>
+        <h2 className="text-[11px] font-semibold uppercase tracking-wider text-ink/50">Saved Addresses ({addresses.length})</h2>
         <button
           type="button"
           onClick={() => setShowForm((v) => !v)}
-          className="flex items-center gap-1.5 rounded-md border border-charcoal px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+          className="flex items-center gap-1.5 rounded-md border border-navy px-4 py-2 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy hover:text-white"
         >
           <i className={showForm ? "ri-close-line" : "ri-add-line"} /> {showForm ? "Cancel" : "Add Address"}
         </button>
       </div>
 
       {showForm && (
-        <form onSubmit={handleAdd} className="mb-6 grid grid-cols-1 gap-3 rounded-lg border border-stone bg-ivory-soft p-5 sm:grid-cols-2">
+        <form onSubmit={handleAdd} className="mb-6 grid grid-cols-1 gap-3 rounded-lg border border-border-subtle bg-surface p-5 sm:grid-cols-2">
           <input
             required
             placeholder="Full name"
             value={form.fullName}
             onChange={(e) => setForm((f) => ({ ...f, fullName: e.target.value }))}
-            className="rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+            className="rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
           <input
             required
             placeholder="Address"
             value={form.line1}
             onChange={(e) => setForm((f) => ({ ...f, line1: e.target.value }))}
-            className="rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+            className="rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
           <input
             required
             placeholder="City"
             value={form.city}
             onChange={(e) => setForm((f) => ({ ...f, city: e.target.value }))}
-            className="rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+            className="rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
           <input
             required
             placeholder="Postal / ZIP code"
             value={form.postalCode}
             onChange={(e) => setForm((f) => ({ ...f, postalCode: e.target.value }))}
-            className="rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+            className="rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
           <select
             value={form.country}
             onChange={(e) => setForm((f) => ({ ...f, country: e.target.value }))}
-            className="rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none focus:border-copper sm:col-span-2"
+            className="rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none focus:border-navy sm:col-span-2"
           >
             <option>United States</option>
             <option>Canada</option>
           </select>
           <button
             type="submit"
-            className="rounded-md bg-copper py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light sm:col-span-2"
+            className="rounded-md bg-navy py-3 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light sm:col-span-2"
           >
             Save Address
           </button>
@@ -326,19 +326,19 @@ function AddressesPanel({ addresses, userId, onChange }: { addresses: Address[];
       )}
 
       {addresses.length === 0 && !showForm ? (
-        <div className="rounded-lg border border-dashed border-stone bg-ivory-soft p-10 text-center">
-          <i className="ri-map-pin-line text-2xl text-charcoal/30" />
-          <p className="mt-3 text-sm text-charcoal/50">No saved addresses yet.</p>
+        <div className="rounded-lg border border-dashed border-border-subtle bg-surface p-10 text-center">
+          <i className="ri-map-pin-line text-2xl text-ink/30" />
+          <p className="mt-3 text-sm text-ink/50">No saved addresses yet.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {addresses.map((a) => (
-            <div key={a.id} className="rounded-lg border border-stone p-4">
+            <div key={a.id} className="rounded-lg border border-border-subtle p-4">
               <div className="flex items-start justify-between gap-2">
-                <p className="text-sm font-medium text-charcoal">{a.fullName}</p>
-                {a.isDefault && <span className="rounded-full bg-sage-mist px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sage-deep">Default</span>}
+                <p className="text-sm font-medium text-ink">{a.fullName}</p>
+                {a.isDefault && <span className="rounded-full bg-surface px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-navy">Default</span>}
               </div>
-              <p className="mt-1 text-xs leading-relaxed text-charcoal/60">
+              <p className="mt-1 text-xs leading-relaxed text-ink/60">
                 {a.line1}
                 <br />
                 {a.city}, {a.postalCode}
@@ -347,11 +347,11 @@ function AddressesPanel({ addresses, userId, onChange }: { addresses: Address[];
               </p>
               <div className="mt-3 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-wide">
                 {!a.isDefault && (
-                  <button type="button" onClick={() => handleSetDefault(a.id)} className="text-copper transition hover:text-copper-dark">
+                  <button type="button" onClick={() => handleSetDefault(a.id)} className="text-navy transition hover:text-navy-dark">
                     Set Default
                   </button>
                 )}
-                <button type="button" onClick={() => handleRemove(a.id)} className="text-charcoal/40 transition hover:text-charcoal">
+                <button type="button" onClick={() => handleRemove(a.id)} className="text-ink/40 transition hover:text-ink">
                   Remove
                 </button>
               </div>
@@ -377,23 +377,23 @@ function ProfilePanel({ user, onUpdate }: { user: AuthUser; onUpdate: (u: AuthUs
 
   return (
     <div>
-      <h2 className="mb-5 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Profile</h2>
-      <form onSubmit={handleSave} className="max-w-md space-y-4 rounded-lg border border-stone bg-ivory-soft p-6">
+      <h2 className="mb-5 text-[11px] font-semibold uppercase tracking-wider text-ink/50">Profile</h2>
+      <form onSubmit={handleSave} className="max-w-md space-y-4 rounded-lg border border-border-subtle bg-surface p-6">
         <div>
-          <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-charcoal/50">Email</label>
-          <input disabled value={user.email} className="w-full cursor-not-allowed rounded-md border border-stone bg-stone/30 px-4 py-2.5 text-sm text-charcoal/60" />
-          <p className="mt-1.5 text-[11px] text-charcoal/40">Email changes aren&rsquo;t available yet, contact support to update it.</p>
+          <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-ink/50">Email</label>
+          <input disabled value={user.email} className="w-full cursor-not-allowed rounded-md border border-border-subtle bg-surface/30 px-4 py-2.5 text-sm text-ink/60" />
+          <p className="mt-1.5 text-[11px] text-ink/40">Email changes aren&rsquo;t available yet, contact support to update it.</p>
         </div>
         <div>
-          <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-charcoal/50">Display Name</label>
+          <label className="mb-1.5 block text-[10px] font-semibold uppercase tracking-wider text-ink/50">Display Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Add a display name"
-            className="w-full rounded-md border border-stone bg-white px-4 py-2.5 text-sm text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+            className="w-full rounded-md border border-border-subtle bg-white px-4 py-2.5 text-sm text-ink outline-none placeholder:text-ink/40 focus:border-navy"
           />
         </div>
-        <button type="submit" className="rounded-md bg-copper px-6 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light">
+        <button type="submit" className="rounded-md bg-navy px-6 py-2.5 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light">
           {saved ? "Saved" : "Save Changes"}
         </button>
       </form>

@@ -32,7 +32,7 @@ export interface Order {
   isRemote?: boolean;
 }
 
-const STORAGE_KEY = "evlv_orders";
+const STORAGE_KEY = "la_orders";
 
 function readAll(): Order[] {
   if (typeof window === "undefined") return [];

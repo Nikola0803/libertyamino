@@ -8,8 +8,8 @@ import { ShopClient } from "./ShopClient";
 import { TrustIconRow } from "@/components/ui/TrustIconRow";
 
 export const metadata: Metadata = {
-  title: "Research Peptides for Sale in the USA",
-  description: "Browse EVLV research-use-only peptides and laboratory supplies with lot-specific COAs, current purity data, and U.S. order fulfillment.",
+  title: "Research Compounds | Liberty Aminos",
+  description: "Browse Liberty Aminos research-use-only compounds with lot-specific COAs, 99%+ purity data, and U.S. order fulfillment.",
   alternates: { canonical: "/shop" },
 };
 
@@ -29,25 +29,24 @@ export default async function ShopPage() {
       <Suspense fallback={null}>
         <ShopClient products={products} verifiedCoaSlugs={verifiedCoaSlugs} />
       </Suspense>
-      <section className="border-t border-stone bg-ivory-soft py-14 md:py-20" aria-labelledby="shop-research-heading">
+      <section className="border-t border-[var(--border-subtle)] bg-[var(--off-white)] py-14 md:py-20" aria-labelledby="shop-research-heading">
         <div className="mx-auto grid max-w-[1180px] gap-8 px-4 md:grid-cols-[1.1fr_0.9fr] md:px-8">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sage-deep">U.S. research supply</p>
-            <h2 id="shop-research-heading" className="mt-3 font-display text-3xl font-semibold text-charcoal md:text-4xl">
-              Research-use-only products with batch traceability
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--navy)]">U.S. research supply</p>
+            <h2 id="shop-research-heading" className="mt-3 font-display text-3xl font-semibold text-[var(--ink)] md:text-4xl">
+              Research-use-only compounds with batch traceability
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-soft-gray md:text-base">
-              EVLV product pages identify the compound, labeled quantity, SKU, current availability, and available
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--muted)] md:text-base">
+              Liberty Aminos product pages identify the compound, labeled quantity, SKU, current availability, and
               batch documentation. Match the lot on a received item to the report in our COA Library before beginning
               laboratory work. All products are strictly for lawful research and analytical use—not for human or
               veterinary use.
             </p>
           </div>
-          <div className="grid gap-3 self-start rounded-lg border border-stone bg-white p-6 text-sm">
-            <Link className="font-semibold text-sage-deep" href="/research-peptides-usa">How to evaluate research peptides in the USA →</Link>
-            <Link className="font-semibold text-sage-deep" href="/coas">Search lot-specific Certificates of Analysis →</Link>
-            <Link className="font-semibold text-sage-deep" href="/sourcing">Review EVLV testing and sourcing standards →</Link>
-            <Link className="font-semibold text-sage-deep" href="/ruo">Understand the research-use-only policy →</Link>
+          <div className="grid gap-3 self-start rounded-lg border border-[var(--border-subtle)] bg-white p-6 text-sm">
+            <Link className="font-semibold text-[var(--navy)]" href="/coas">Search lot-specific Certificates of Analysis →</Link>
+            <Link className="font-semibold text-[var(--navy)]" href="/research-use-policy">Understand the research-use-only policy →</Link>
+            <Link className="font-semibold text-[var(--navy)]" href="/prohibited-guidance">Prohibited guidance policy →</Link>
           </div>
         </div>
       </section>

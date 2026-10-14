@@ -1,112 +1,191 @@
-import { ButtonLink } from "@/components/ui/Button";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative -mt-[90px] flex min-h-[80vh] items-center overflow-hidden bg-charcoal md:min-h-[88vh] md:-mt-[100px]">
-      {/* Mobile: real EVLV footage (portrait cut), poster fallback is the static portrait shot.
-          Desktop: real EVLV footage — a 21:9 cut on ultra-wide viewports, the standard 16:9 cut otherwise. */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover md:hidden"
-        poster="/images/hero-vial-mobile.png"
-      >
-        <source src="/videos/hero-mobile.mp4" type="video/mp4" />
-      </video>
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover max-md:hidden"
-        poster="/images/hero-vial.png"
-      >
-        <source src="/videos/hero-21by9.mp4" media="(min-aspect-ratio: 21/9)" type="video/mp4" />
-        <source src="/videos/hero-evlv.mp4" type="video/mp4" />
-      </video>
+    <section className="cp-hero cp-wrap">
+      {/* Left: navy copy panel */}
+      <div className="cp-hero-copy">
+        <p
+          style={{
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: ".14em",
+            textTransform: "uppercase",
+            color: "#a1b5e2",
+            marginBottom: 18,
+          }}
+        >
+          Third-Party Tested · COA Every Batch
+        </p>
 
-      {/* Light dark-wash for text legibility only — the footage itself is already on-brand, no color correction needed */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-charcoal/25" />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "linear-gradient(90deg, rgba(14,17,19,0.55) 0%, rgba(14,17,19,0.2) 55%, rgba(14,17,19,0.05) 80%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-40"
-        style={{ background: "linear-gradient(0deg, rgba(14,17,19,0.5) 0%, rgba(14,17,19,0) 100%)" }}
-      />
+        <h1>
+          Research amino<br />
+          <span>compounds.</span>
+          <br />
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.52em",
+              fontWeight: 400,
+              color: "#d3e0db",
+              letterSpacing: "-.01em",
+              lineHeight: 1.4,
+              marginTop: 8,
+            }}
+          >
+            Verified to the lot.
+          </span>
+        </h1>
 
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 pb-32 pt-[150px] md:px-8 md:pb-28 md:pt-[170px]">
-        <div className="max-w-xl">
-          <div className="mb-6 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.3em] text-copper">
-            <span className="h-px w-8 bg-copper/60" />
-            Precision. Purity. Potential.
-          </div>
+        <p>
+          Every compound ships with an independent certificate of analysis.
+          No exceptions, no exclusions.
+        </p>
 
-          <h1 className="font-display text-4xl font-semibold leading-[1.05] md:text-6xl lg:text-7xl">
-            <span className="text-white/40">Evolve.</span>
-            <br />
-            <span className="text-white">Become your ultimate.</span>
-          </h1>
+        {/* Trust badges */}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            flexWrap: "wrap",
+            marginBottom: 30,
+          }}
+        >
+          {["COA Verified — All Active Lots", "US Fulfilment", "99%+ Purity HPLC"].map((badge) => (
+            <span
+              key={badge}
+              style={{
+                padding: "5px 12px",
+                border: "1px solid rgba(255,255,255,0.28)",
+                borderRadius: 20,
+                fontSize: 10,
+                fontWeight: 700,
+                color: "#d3e0db",
+                letterSpacing: ".06em",
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {badge}
+            </span>
+          ))}
+        </div>
 
-          <p className="mt-7 max-w-md text-base leading-relaxed text-white/70 md:text-lg">
-            Premium research peptides engineered around precision and transparency. For Research Use Only. Not for human or veterinary use.
-          </p>
-
-          <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-            <ButtonLink href="/shop" size="lg">
-              Explore Research
-            </ButtonLink>
-            <ButtonLink href="/shop" variant="secondary" size="lg" className="!border-white/40 !text-ivory hover:!bg-white/10 hover:!border-white/60">
-              View Compounds
-            </ButtonLink>
-          </div>
-
-          <div className="mt-11 flex flex-wrap items-center gap-x-7 gap-y-2">
-            {["Transparent Purity Data", "Exact COAs Labeled", "Research Use Only"].map((label) => (
-              <span key={label} className="flex items-center gap-2 text-[11px] uppercase tracking-[0.15em] text-white/70">
-                <i className="ri-check-line text-sm text-copper" />
-                {label}
-              </span>
-            ))}
-          </div>
+        {/* CTAs */}
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          <Link className="cp-primary" href="/shop">
+            Shop All Compounds
+          </Link>
+          <Link
+            href="/coas"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: 48,
+              padding: "0 28px",
+              borderRadius: 25,
+              border: "1px solid rgba(255,255,255,0.35)",
+              color: "#fff",
+              fontSize: 13,
+              fontWeight: 700,
+              transition: "border-color .2s, background .2s",
+            }}
+          >
+            View COA Library
+          </Link>
         </div>
       </div>
 
-      <div className="absolute bottom-6 left-4 border-l border-copper/60 bg-charcoal/70 px-5 py-3 text-white backdrop-blur-sm md:bottom-8 md:left-8">
-        <div className="text-[10px] uppercase tracking-[0.2em] text-copper">Independently Verified</div>
-        <div className="text-base font-semibold md:text-lg">99.2% Avg. Purity</div>
-      </div>
-
-      <StampBadge className="absolute right-4 top-[100px] h-20 w-20 md:right-8 md:top-[120px] md:h-24 md:w-24" />
+      {/* Right: vial image placeholder */}
+      <VialRenderPlaceholder />
     </section>
   );
 }
 
-function StampBadge({ className = "" }: { className?: string }) {
-  const text = "EVOLVE. • BECOME YOUR ULTIMATE. • ";
+function VialRenderPlaceholder() {
   return (
-    <div className={`flex items-center justify-center rounded-full border border-white/40 bg-charcoal/50 backdrop-blur-sm ${className}`}>
-      <svg viewBox="0 0 100 100" className="hero-spin absolute inset-0 h-full w-full">
-        <defs>
-          <path id="stamp-circle" d="M 50,50 m -34,0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0" />
-        </defs>
-        <text fill="#F2EDE2" fontSize="7.4" letterSpacing="1.2" fontFamily="var(--font-body), sans-serif">
-          <textPath href="#stamp-circle" startOffset="0%">
-            {text}
-          </textPath>
-        </text>
-      </svg>
-      <svg viewBox="0 0 100 100" className="hero-pulse absolute inset-0 h-full w-full" style={{ transformOrigin: "50% 50%" }}>
-        <circle cx="50" cy="50" r="20" fill="none" stroke="#F2EDE2" strokeWidth="1" opacity="0.7" />
-        <path d="M42 50l6 6 12-13" fill="none" stroke="#F2EDE2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+    <div
+      className="cp-hero-image"
+      style={{
+        background: "linear-gradient(135deg, #0a1840 0%, #0e2153 55%, #1a3470 100%)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 20,
+        padding: 40,
+      }}
+      aria-label="Liberty Aminos product image — awaiting asset"
+    >
+      {/* Vial silhouette placeholder */}
+      <div
+        style={{
+          position: "relative",
+          width: 110,
+          height: 190,
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.07) 100%)",
+          border: "1px solid rgba(255,255,255,0.22)",
+          borderRadius: "8px 8px 12px 12px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "rgba(255,255,255,0.35)",
+          fontSize: 10,
+          fontWeight: 700,
+          letterSpacing: ".1em",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}
+      >
+        <span>Hero<br />Image<br />Pending</span>
+      </div>
+
+      {/* COA float badge */}
+      <div
+        style={{
+          padding: "10px 16px",
+          background: "#fff",
+          borderRadius: 8,
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          boxShadow: "0 8px 28px rgba(0,0,0,0.22)",
+        }}
+      >
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 28,
+            height: 28,
+            borderRadius: 6,
+            background: "#0e2153",
+            color: "#fff",
+            fontSize: 14,
+          }}
+        >
+          ✓
+        </span>
+        <div>
+          <div
+            style={{
+              fontSize: 8,
+              fontWeight: 700,
+              letterSpacing: ".1em",
+              textTransform: "uppercase",
+              color: "#5a6272",
+            }}
+          >
+            COA Verified
+          </div>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#0e2153" }}>
+            Lot Active
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

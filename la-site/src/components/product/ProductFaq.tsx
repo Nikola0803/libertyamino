@@ -39,7 +39,7 @@ export function ProductFaq({ product, title }: { product: Product; title: string
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="divide-y divide-stone border-y border-stone">
+    <div className="divide-y divide-border-subtle border-y border-border-subtle">
       {items.map((item, i) => (
         <div key={item.q}>
           <button
@@ -48,10 +48,10 @@ export function ProductFaq({ product, title }: { product: Product; title: string
             className="flex w-full items-center justify-between gap-4 py-5 text-left"
             aria-expanded={open === i}
           >
-            <span className="font-display text-base font-medium text-charcoal md:text-lg">{item.q}</span>
-            <i className={`ri-add-line shrink-0 text-xl text-charcoal/40 transition-transform ${open === i ? "rotate-45" : ""}`} />
+            <span className="font-display text-base font-medium text-ink md:text-lg">{item.q}</span>
+            <i className={`ri-add-line shrink-0 text-xl text-ink/40 transition-transform ${open === i ? "rotate-45" : ""}`} />
           </button>
-          {open === i && <p className="max-w-3xl pb-5 text-sm leading-relaxed text-charcoal/60 md:text-base">{item.a}</p>}
+          {open === i && <p className="max-w-3xl pb-5 text-sm leading-relaxed text-ink/60 md:text-base">{item.a}</p>}
         </div>
       ))}
     </div>

@@ -6,19 +6,19 @@
  */
 export function ResearchUseNotice() {
   return (
-    <details className="group mt-4 rounded-lg border border-sage-deep/25 bg-sage-mist/25 open:pb-3">
+    <details className="group mt-4 rounded-lg border border-navy/25 bg-surface/25 open:pb-3">
       <summary className="flex cursor-pointer list-none items-start gap-2.5 px-3.5 py-2.5 marker:content-none">
-        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-sage-deep/50 text-[10px] font-semibold text-sage-deep">
+        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-navy/50 text-[10px] font-semibold text-navy">
           i
         </span>
-        <span className="flex-1 text-xs leading-snug text-charcoal/70">
-          <span className="font-semibold text-charcoal">Research-use information</span>
+        <span className="flex-1 text-xs leading-snug text-ink/70">
+          <span className="font-semibold text-ink">Research-use information</span>
           <br />
           This product is for research use only. Not for human or veterinary use.
         </span>
-        <i className="ri-arrow-down-s-line mt-0.5 shrink-0 text-charcoal/40 transition group-open:rotate-180" />
+        <i className="ri-arrow-down-s-line mt-0.5 shrink-0 text-ink/40 transition group-open:rotate-180" />
       </summary>
-      <p className="px-3.5 text-xs leading-relaxed text-charcoal/60">
+      <p className="px-3.5 text-xs leading-relaxed text-ink/60">
         Everything sold here is supplied strictly for laboratory and analytical research -- not for human or animal
         consumption. These are not medicines or drugs, and none of it has been evaluated or approved by the U.S. Food
         and Drug Administration for diagnosing, treating, curing, or preventing any disease or condition, nor is any

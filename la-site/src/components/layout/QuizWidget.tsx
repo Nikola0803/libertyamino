@@ -63,8 +63,8 @@ export function QuizWidget() {
 
   useEffect(() => {
     const onOpenEvent = () => setOpen(true);
-    window.addEventListener("evlv:open-quiz", onOpenEvent);
-    return () => window.removeEventListener("evlv:open-quiz", onOpenEvent);
+    window.addEventListener("la:open-quiz", onOpenEvent);
+    return () => window.removeEventListener("la:open-quiz", onOpenEvent);
   }, []);
 
   useEffect(() => {
@@ -142,16 +142,16 @@ export function QuizWidget() {
           // underneath it (product prices, headings, CTAs). It only
           // expands into the full label once there's enough width (md+)
           // for it to stop competing with the page for room.
-          className="cp-quiz-trigger fixed bottom-4 right-4 z-[100] flex items-center gap-2 rounded-full bg-charcoal p-3.5 text-xs font-semibold uppercase tracking-wide text-ivory shadow-lg transition hover:bg-sage-deep md:bottom-6 md:right-6 md:px-5 md:py-3"
+          className="cp-quiz-trigger fixed bottom-4 right-4 z-[100] flex items-center gap-2 rounded-full bg-navy p-3.5 text-xs font-semibold uppercase tracking-wide text-white shadow-lg transition hover:bg-navy md:bottom-6 md:right-6 md:px-5 md:py-3"
         >
-          <i className="ri-compass-3-line text-base text-copper" />
+          <i className="ri-compass-3-line text-base text-navy" />
           <span className="hidden md:inline">Not sure what you need?</span>
         </button>
       )}
 
       {open && (
         <div className="fixed inset-0 z-[140] flex items-center justify-center p-4">
-          <div aria-hidden onClick={closeModal} className="absolute inset-0 bg-charcoal/60 backdrop-blur-sm" />
+          <div aria-hidden onClick={closeModal} className="absolute inset-0 bg-ink/60 backdrop-blur-sm" />
 
           {/*
             No max-height/scroll here before meant a step with a lot of
@@ -162,27 +162,27 @@ export function QuizWidget() {
             scrolling internally keeps every step fully reachable no
             matter how short the screen is.
           */}
-          <div className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-stone bg-ivory p-6 shadow-2xl md:p-8">
+          <div className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-border-subtle bg-off-white p-6 shadow-2xl md:p-8">
             <button
               type="button"
               onClick={closeModal}
               aria-label="Close"
-              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center text-charcoal/50 transition hover:text-charcoal"
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center text-ink/50 transition hover:text-ink"
             >
               <i className="ri-close-line text-lg" />
             </button>
 
             {step === "intro" && (
               <div>
-                <h2 className="font-display text-xl font-semibold text-charcoal md:text-2xl">Find your protocol</h2>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal/60">
+                <h2 className="font-display text-xl font-semibold text-ink md:text-2xl">Find your protocol</h2>
+                <p className="mt-3 text-sm leading-relaxed text-ink/60">
                   Answer a couple of quick questions and we&apos;ll point you toward the right compound or stack. No
                   pressure, no upsell.
                 </p>
                 <button
                   type="button"
                   onClick={() => setStep("goals")}
-                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-copper-light"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy-light"
                 >
                   Take the quiz <i className="ri-arrow-right-line" />
                 </button>
@@ -191,8 +191,8 @@ export function QuizWidget() {
 
             {step === "goals" && (
               <div>
-                <h2 className="font-display text-xl font-semibold text-charcoal md:text-2xl">Which compound class are you researching?</h2>
-                <p className="mt-2 text-sm text-charcoal/50">Pick up to {MAX_FOCUS_SELECTIONS}.</p>
+                <h2 className="font-display text-xl font-semibold text-ink md:text-2xl">Which compound class are you researching?</h2>
+                <p className="mt-2 text-sm text-ink/50">Pick up to {MAX_FOCUS_SELECTIONS}.</p>
 
                 <div className="mt-6 grid gap-3 sm:grid-cols-2">
                   {FOCUS_AREAS.map((area) => {
@@ -205,7 +205,7 @@ export function QuizWidget() {
                         disabled={disabled}
                         onClick={() => toggleGoal(area.key)}
                         className={`rounded-lg border px-4 py-3.5 text-left text-sm font-medium transition-colors disabled:opacity-30 ${
-                          isSelected ? "border-copper bg-copper/10 text-charcoal" : "border-stone bg-ivory-soft text-charcoal/70 hover:border-charcoal/30"
+                          isSelected ? "border-navy bg-navy/10 text-ink" : "border-border-subtle bg-surface text-ink/70 hover:border-navy/30"
                         }`}
                       >
                         {area.label}
@@ -218,7 +218,7 @@ export function QuizWidget() {
                   type="button"
                   disabled={selectedGoals.length === 0}
                   onClick={handleGoalsContinue}
-                  className="mt-8 w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-copper-light disabled:cursor-not-allowed disabled:opacity-30"
+                  className="mt-8 w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-30"
                 >
                   Continue <i className="ri-arrow-right-line" />
                 </button>
@@ -230,14 +230,14 @@ export function QuizWidget() {
                 <button
                   type="button"
                   onClick={() => setStep("goals")}
-                  className="mb-4 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal/50 transition hover:text-copper"
+                  className="mb-4 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/50 transition hover:text-navy"
                 >
                   <i className="ri-arrow-left-line text-sm" /> Back
                 </button>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-copper">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-navy">
                   {goalLabel(currentGoalKey)} · {subgoalIndex + 1} of {selectedGoals.length}
                 </p>
-                <h2 className="mt-3 font-display text-xl font-semibold text-charcoal md:text-2xl">{currentSubgoal.question}</h2>
+                <h2 className="mt-3 font-display text-xl font-semibold text-ink md:text-2xl">{currentSubgoal.question}</h2>
 
                 <div className="mt-6 flex flex-col gap-3">
                   {currentSubgoal.options.map((opt) => (
@@ -245,7 +245,7 @@ export function QuizWidget() {
                       key={opt.key}
                       type="button"
                       onClick={() => answerSubgoal(opt.key)}
-                      className="rounded-lg border border-stone bg-ivory-soft px-4 py-3.5 text-left text-sm font-medium text-charcoal/70 transition hover:border-copper hover:text-charcoal"
+                      className="rounded-lg border border-border-subtle bg-surface px-4 py-3.5 text-left text-sm font-medium text-ink/70 transition hover:border-navy hover:text-ink"
                     >
                       {opt.label}
                     </button>
@@ -259,17 +259,17 @@ export function QuizWidget() {
                 <button
                   type="button"
                   onClick={() => setStep("goals")}
-                  className="mb-4 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal/50 transition hover:text-copper"
+                  className="mb-4 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink/50 transition hover:text-navy"
                 >
                   <i className="ri-arrow-left-line text-sm" /> Back
                 </button>
-                <h2 className="font-display text-xl font-semibold text-charcoal md:text-2xl">{QUIZ_LABELS.resultsHeader}</h2>
-                <p className="mt-2 text-sm text-charcoal/50">{QUIZ_LABELS.resultsSubheader}</p>
+                <h2 className="font-display text-xl font-semibold text-ink md:text-2xl">{QUIZ_LABELS.resultsHeader}</h2>
+                <p className="mt-2 text-sm text-ink/50">{QUIZ_LABELS.resultsSubheader}</p>
 
                 <div className="mt-6 max-h-[46vh] space-y-6 overflow-y-auto pr-1">
                   {results.map((goal) => (
                     <div key={goal.goalKey}>
-                      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-charcoal/50">
+                      <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-ink/50">
                         {goalLabel(goal.goalKey)}
                         {goal.subgoalLabel ? ` · ${goal.subgoalLabel}` : ""}
                       </p>
@@ -279,52 +279,52 @@ export function QuizWidget() {
                             const product = getProductBySlug(pick.slug);
                             if (!product) return null;
                             return (
-                              <div key={pick.slug} className="rounded-lg border border-stone p-3">
+                              <div key={pick.slug} className="rounded-lg border border-border-subtle p-3">
                                 <div className="flex items-center gap-3">
-                                  <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
+                                  <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-surface">
                                     <Image src={getProductImage(product)} alt={product.name} width={90} height={112} className="h-full w-full object-cover" />
                                   </div>
                                   <div className="min-w-0 flex-1">
-                                    <p className="truncate text-sm font-medium text-charcoal">{product.name}</p>
-                                    <p className="text-xs text-charcoal/50">{formatPrice(product.price)}</p>
+                                    <p className="truncate text-sm font-medium text-ink">{product.name}</p>
+                                    <p className="text-xs text-ink/50">{formatPrice(product.price)}</p>
                                   </div>
-                                  <span className="shrink-0 whitespace-nowrap rounded-full bg-copper/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-copper">
+                                  <span className="shrink-0 whitespace-nowrap rounded-full bg-navy/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-navy">
                                     {i === 0 ? QUIZ_LABELS.startHere : QUIZ_LABELS.alsoWorthLook}
                                   </span>
                                   <button
                                     type="button"
                                     onClick={() => addToCart(product, 1, product.price, "1 PCS")}
-                                    className="shrink-0 rounded-md border border-charcoal px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+                                    className="shrink-0 rounded-md border border-navy px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy hover:text-white"
                                   >
                                     Add
                                   </button>
                                 </div>
-                                <p className="mt-2.5 text-xs leading-relaxed text-charcoal/60">{pick.text}</p>
+                                <p className="mt-2.5 text-xs leading-relaxed text-ink/60">{pick.text}</p>
                               </div>
                             );
                           })}
                         </div>
                       ) : (
-                        <p className="text-xs text-charcoal/50">{QUIZ_LABELS.noMatch}</p>
+                        <p className="text-xs text-ink/50">{QUIZ_LABELS.noMatch}</p>
                       )}
                     </div>
                   ))}
                 </div>
 
-                <p className="mt-6 border-t border-stone pt-4 text-[11px] leading-relaxed text-charcoal/50">{QUIZ_LABELS.footer}</p>
+                <p className="mt-6 border-t border-border-subtle pt-4 text-[11px] leading-relaxed text-ink/50">{QUIZ_LABELS.footer}</p>
 
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                   <button
                     type="button"
                     onClick={retake}
-                    className="flex-1 rounded-md border border-charcoal py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+                    className="flex-1 rounded-md border border-navy py-3 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy hover:text-white"
                   >
                     Retake Quiz
                   </button>
                   <Link
                     href="/shop"
                     onClick={closeModal}
-                    className="flex-1 rounded-md bg-copper py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+                    className="flex-1 rounded-md bg-navy py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
                   >
                     Shop All Products
                   </Link>
