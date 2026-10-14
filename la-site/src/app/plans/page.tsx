@@ -95,9 +95,9 @@ export default function PlansPage() {
 
   return (
     <>
-      <section className="-mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="-mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[700px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Plans</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Plans</p>
           <h1 className="font-display text-4xl font-semibold md:text-5xl">Choose your access.</h1>
           <p className="mt-4 text-base leading-relaxed text-white/70">
             Request Member access for member-only research blend formulations, or ask us to grant access manually on
@@ -106,10 +106,10 @@ export default function PlansPage() {
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[1100px] px-4 md:px-8">
           {!user && (
-            <div className="mb-8 rounded-lg border border-dashed border-stone bg-ivory-soft p-4 text-center text-sm text-charcoal/50">
+            <div className="mb-8 rounded-lg border border-dashed border-border-subtle bg-surface p-4 text-center text-sm text-ink/50">
               You&rsquo;re browsing as a guest, sign in to request Member access.
             </div>
           )}
@@ -127,21 +127,21 @@ export default function PlansPage() {
               return (
                 <div
                   key={tier.key}
-                  className={`flex flex-col rounded-lg border p-6 ${isCurrentMember ? "border-copper bg-copper/5" : "border-stone bg-white"}`}
+                  className={`flex flex-col rounded-lg border p-6 ${isCurrentMember ? "border-navy bg-navy/5" : "border-border-subtle bg-white"}`}
                 >
                   {isCurrentMember && (
-                    <span className="mb-3 w-fit rounded-full bg-copper px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-charcoal">
+                    <span className="mb-3 w-fit rounded-full bg-navy px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-ink">
                       Active
                     </span>
                   )}
-                  <h2 className="font-display text-xl font-semibold text-charcoal">{tier.label}</h2>
-                  <p className="mt-1 text-sm font-medium text-copper">{tier.price}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-charcoal/60">{tier.body}</p>
+                  <h2 className="font-display text-xl font-semibold text-ink">{tier.label}</h2>
+                  <p className="mt-1 text-sm font-medium text-navy">{tier.price}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-ink/60">{tier.body}</p>
 
                   <ul className="mt-5 flex-1 space-y-2.5">
                     {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-xs text-charcoal/60">
-                        <i className="ri-checkbox-circle-line mt-0.5 text-copper" />
+                      <li key={f} className="flex items-start gap-2 text-xs text-ink/60">
+                        <i className="ri-checkbox-circle-line mt-0.5 text-navy" />
                         {f}
                       </li>
                     ))}
@@ -151,7 +151,7 @@ export default function PlansPage() {
                     {tier.key === "standard" && (
                       <button
                         disabled
-                        className="w-full cursor-default rounded-md border border-stone py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal/40"
+                        className="w-full cursor-default rounded-md border border-border-subtle py-3 text-[11px] font-semibold uppercase tracking-wide text-ink/40"
                       >
                         {user ? "Included" : "Default Plan"}
                       </button>
@@ -160,21 +160,21 @@ export default function PlansPage() {
                       (!user ? (
                         <Link
                           href="/"
-                          className="block w-full rounded-md bg-copper py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+                          className="block w-full rounded-md bg-navy py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
                         >
                           Sign In to Request
                         </Link>
                       ) : status === "APPROVED" ? (
                         <button
                           disabled
-                          className="w-full cursor-default rounded-md border border-stone py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal/40"
+                          className="w-full cursor-default rounded-md border border-border-subtle py-3 text-[11px] font-semibold uppercase tracking-wide text-ink/40"
                         >
                           Active
                         </button>
                       ) : status === "PENDING" ? (
                         <button
                           disabled
-                          className="w-full cursor-default rounded-md border border-stone py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal/40"
+                          className="w-full cursor-default rounded-md border border-border-subtle py-3 text-[11px] font-semibold uppercase tracking-wide text-ink/40"
                         >
                           Request Under Review
                         </button>
@@ -183,7 +183,7 @@ export default function PlansPage() {
                           type="button"
                           onClick={handleRequestMembership}
                           disabled={requesting || loadingStatus}
-                          className="w-full rounded-md bg-copper py-3 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+                          className="w-full rounded-md bg-navy py-3 text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
                         >
                           {requesting ? "Submitting..." : status === "REJECTED" ? "Request Again" : "Request Member Access"}
                         </button>
@@ -191,7 +191,7 @@ export default function PlansPage() {
                     {tier.key === "admin" && (
                       <Link
                         href="/contact"
-                        className="block w-full rounded-md border border-charcoal py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+                        className="block w-full rounded-md border border-navy py-3 text-center text-[11px] font-semibold uppercase tracking-wide text-ink transition hover:bg-navy hover:text-white"
                       >
                         Contact Us
                       </Link>
@@ -203,7 +203,7 @@ export default function PlansPage() {
           </div>
 
           {user && status === "PENDING" && (
-            <p className="mt-8 text-center text-xs text-charcoal/40">
+            <p className="mt-8 text-center text-xs text-ink/40">
               We review every Member request by hand -- we&rsquo;ll follow up by email within a couple of business
               days.
             </p>

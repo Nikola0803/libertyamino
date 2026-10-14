@@ -11,12 +11,12 @@ export const PAYMENT_HANDLES = {
 };
 
 export const PAYMENT_PROCESSOR_NOTE =
-  "Payments are collected by VVG Operations, EVLV's authorized payment and fulfillment partner.";
+  "Payments are collected by VVG Operations, Liberty Aminos authorized payment and fulfillment partner.";
 
 const DEMO_HANDLES = {
-  cashapp: "$EVLVPeptidesDemo",
-  zelle: "payments@evlvpeptides.com",
-  venmo: "@EVLV-Peptides-Demo",
+  cashapp: "$LADemo",
+  zelle: "payments@libertyaminos.com",
+  venmo: "@LibAminosDemo",
 };
 
 export type PaymentGatewayId = "cashapp" | "zelle" | "venmo";
@@ -64,7 +64,7 @@ export const PAYMENT_GATEWAYS: {
     label: "Cash App",
     icon: "ri-money-dollar-circle-line",
     handle: PAYMENT_HANDLES.cashapp,
-    handleNote: "Include only the EVLV order memo shown below so your payment can be matched quickly.",
+    handleNote: "Include only the Liberty Aminos order memo shown below so your payment can be matched quickly.",
   },
   {
     id: "zelle",
@@ -78,6 +78,6 @@ export const PAYMENT_GATEWAYS: {
     label: "Venmo",
     icon: "ri-smartphone-line",
     handle: PAYMENT_HANDLES.venmo,
-    handleNote: "Include only the EVLV order memo shown below so your payment can be matched quickly.",
+    handleNote: "Include only the Liberty Aminos order memo shown below so your payment can be matched quickly.",
   },
 ];

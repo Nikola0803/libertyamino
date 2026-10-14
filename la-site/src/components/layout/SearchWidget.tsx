@@ -55,12 +55,12 @@ export function SearchWidget() {
 
       {open && (
         <div className="fixed inset-0 z-[140] flex items-start justify-center pt-24 md:pt-32">
-          <div aria-hidden onClick={close} className="absolute inset-0 bg-charcoal/60 backdrop-blur-sm" />
+          <div aria-hidden onClick={close} className="absolute inset-0 bg-ink/60 backdrop-blur-sm" />
 
           <div className="relative w-full max-w-xl px-4">
-            <div className="rounded-lg border border-stone bg-ivory shadow-2xl">
-              <div className="flex items-center gap-3 border-b border-stone px-5 py-4">
-                <i className="ri-search-line text-lg text-charcoal/40" />
+            <div className="rounded-lg border border-border-subtle bg-off-white shadow-2xl">
+              <div className="flex items-center gap-3 border-b border-border-subtle px-5 py-4">
+                <i className="ri-search-line text-lg text-ink/40" />
                 <input
                   ref={inputRef}
                   type="search"
@@ -68,9 +68,9 @@ export function SearchWidget() {
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && goToShop()}
                   placeholder="Search products, SKU, category..."
-                  className="w-full bg-transparent text-sm text-charcoal outline-none placeholder:text-charcoal/40"
+                  className="w-full bg-transparent text-sm text-ink outline-none placeholder:text-ink/40"
                 />
-                <button type="button" onClick={close} aria-label="Close search" className="text-charcoal/40 transition hover:text-charcoal">
+                <button type="button" onClick={close} aria-label="Close search" className="text-ink/40 transition hover:text-ink">
                   <i className="ri-close-line text-lg" />
                 </button>
               </div>
@@ -84,28 +84,28 @@ export function SearchWidget() {
                           key={p.id}
                           href={`/shop/${p.slug}`}
                           onClick={close}
-                          className="flex items-center gap-3 rounded-md p-3 transition hover:bg-ivory-soft"
+                          className="flex items-center gap-3 rounded-md p-3 transition hover:bg-surface"
                         >
-                          <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
+                          <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-surface">
                             <Image src={getProductImage(p)} alt={p.name} width={90} height={112} className="h-full w-full object-cover" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm font-medium text-charcoal">{p.name}</p>
-                            <p className="text-xs text-charcoal/50">{p.categoryLabel}</p>
+                            <p className="text-sm font-medium text-ink">{p.name}</p>
+                            <p className="text-xs text-ink/50">{p.categoryLabel}</p>
                           </div>
-                          <span className="text-sm font-semibold text-charcoal">{formatPrice(p.price)}</span>
+                          <span className="text-sm font-semibold text-ink">{formatPrice(p.price)}</span>
                         </Link>
                       ))}
                       <button
                         type="button"
                         onClick={goToShop}
-                        className="mt-1 flex w-full items-center justify-center gap-2 rounded-md py-3 text-xs font-semibold uppercase tracking-wide text-copper transition hover:bg-ivory-soft"
+                        className="mt-1 flex w-full items-center justify-center gap-2 rounded-md py-3 text-xs font-semibold uppercase tracking-wide text-navy transition hover:bg-surface"
                       >
                         View all results for &ldquo;{query.trim()}&rdquo; <i className="ri-arrow-right-line" />
                       </button>
                     </>
                   ) : (
-                    <p className="p-6 text-center text-sm text-charcoal/50">No products match &ldquo;{query.trim()}&rdquo;.</p>
+                    <p className="p-6 text-center text-sm text-ink/50">No products match &ldquo;{query.trim()}&rdquo;.</p>
                   )}
                 </div>
               )}

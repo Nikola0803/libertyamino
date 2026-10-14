@@ -232,9 +232,9 @@ export default function CheckoutPage() {
   if (lines.length === 0) {
     return (
       <div className="mx-auto max-w-lg px-4 py-24 text-center">
-        <h1 className="font-display text-2xl font-semibold text-charcoal">Your cart is empty</h1>
-        <p className="mt-2 text-sm text-charcoal/50">Add something to your cart before checking out.</p>
-        <Link href="/shop" className="mt-6 inline-block rounded-md bg-copper px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-charcoal transition hover:bg-copper-light">
+        <h1 className="font-display text-2xl font-semibold text-ink">Your cart is empty</h1>
+        <p className="mt-2 text-sm text-ink/50">Add something to your cart before checking out.</p>
+        <Link href="/shop" className="mt-6 inline-block rounded-md bg-navy px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.2em] text-ink transition hover:bg-navy-light">
           Shop Products
         </Link>
       </div>
@@ -266,7 +266,7 @@ export default function CheckoutPage() {
       <form onSubmit={handlePlaceOrder} className="cp-checkout-form mt-10 grid grid-cols-1 gap-12 lg:grid-cols-[1fr_460px]">
         <div className="space-y-6">
           <section className="cp-checkout-panel">
-            <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider text-charcoal/50">Shipping Information</h2>
+            <h2 className="mb-5 text-sm font-semibold uppercase tracking-wider text-ink/50">Shipping Information</h2>
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <Field label="First Name" required value={firstName} onChange={setFirstName} placeholder="John" />
               <Field label="Last Name" required value={lastName} onChange={setLastName} placeholder="Doe" />
@@ -275,8 +275,8 @@ export default function CheckoutPage() {
               <Field label="Street Address" required value={address1} onChange={setAddress1} placeholder="123 Research Blvd, Suite 100" className="sm:col-span-2" />
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-charcoal/70">
-                  Country <span className="text-copper">*</span>
+                <label className="mb-2 block text-sm font-medium text-ink/70">
+                  Country <span className="text-navy">*</span>
                 </label>
                 <select
                   value={country}
@@ -284,7 +284,7 @@ export default function CheckoutPage() {
                     setCountry(e.target.value as "US" | "CA");
                     setStateCode("");
                   }}
-                  className="h-12 w-full rounded-md border border-stone bg-white px-4 text-base text-charcoal outline-none focus:border-copper"
+                  className="h-12 w-full rounded-md border border-border-subtle bg-white px-4 text-base text-ink outline-none focus:border-navy"
                 >
                   <option value="US">United States</option>
                   <option value="CA">Canada</option>
@@ -293,13 +293,13 @@ export default function CheckoutPage() {
               <Field label="City" required value={city} onChange={setCity} placeholder="Boston" />
 
               <div>
-                <label className="mb-2 block text-sm font-medium text-charcoal/70">
-                  {country === "US" ? "State" : "Province"} <span className="text-copper">*</span>
+                <label className="mb-2 block text-sm font-medium text-ink/70">
+                  {country === "US" ? "State" : "Province"} <span className="text-navy">*</span>
                 </label>
                 <select
                   value={stateCode}
                   onChange={(e) => setStateCode(e.target.value)}
-                  className="h-12 w-full rounded-md border border-stone bg-white px-4 text-base text-charcoal outline-none focus:border-copper"
+                  className="h-12 w-full rounded-md border border-border-subtle bg-white px-4 text-base text-ink outline-none focus:border-navy"
                 >
                   <option value="" disabled>
                     Select {country === "US" ? "state" : "province"}...
@@ -314,17 +314,17 @@ export default function CheckoutPage() {
               <Field label="Postal / ZIP Code" required value={zip} onChange={setZip} placeholder="02110" maxLength={10} />
             </div>
 
-            <label className="mt-6 flex items-start gap-3 rounded-lg border border-stone bg-ivory-soft p-4">
-              <input type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 accent-copper" />
-              <span className="text-xs leading-relaxed text-charcoal/60">
+            <label className="mt-6 flex items-start gap-3 rounded-lg border border-border-subtle bg-surface p-4">
+              <input type="checkbox" checked={smsConsent} onChange={(e) => setSmsConsent(e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 accent-navy" />
+              <span className="text-xs leading-relaxed text-ink/60">
                 By checking this box, you agree to receive text messages from EVLV at the number provided. Consent
                 is not a condition to purchase. Message frequency varies. Message and data rates may apply. Reply
                 STOP to cancel or HELP for help. View our{" "}
-                <Link href="/privacy" className="text-copper hover:underline">
+                <Link href="/privacy" className="text-navy hover:underline">
                   Privacy Policy
                 </Link>{" "}
                 and{" "}
-                <Link href="/terms" className="text-copper hover:underline">
+                <Link href="/terms" className="text-navy hover:underline">
                   Terms of Service
                 </Link>
                 .
@@ -333,8 +333,8 @@ export default function CheckoutPage() {
           </section>
 
           <section className="cp-checkout-panel">
-            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-charcoal/50">
-              Promo / Referral Code <span className="font-normal normal-case text-charcoal/40">(optional)</span>
+            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-ink/50">
+              Promo / Referral Code <span className="font-normal normal-case text-ink/40">(optional)</span>
             </label>
             <input
               type="text"
@@ -345,11 +345,11 @@ export default function CheckoutPage() {
                 setStoredCouponCode(next);
               }}
               placeholder="Enter a code"
-              className="h-12 w-full rounded-md border border-stone bg-white px-4 text-base uppercase tracking-wide text-charcoal outline-none placeholder:text-charcoal/40 placeholder:normal-case focus:border-copper"
+              className="h-12 w-full rounded-md border border-border-subtle bg-white px-4 text-base uppercase tracking-wide text-ink outline-none placeholder:text-ink/40 placeholder:normal-case focus:border-navy"
             />
-            {coupon.checking && <p className="mt-1.5 text-xs text-charcoal/40">Checking code...</p>}
+            {coupon.checking && <p className="mt-1.5 text-xs text-ink/40">Checking code...</p>}
             {!coupon.checking && coupon.valid && (
-              <p className="mt-1.5 text-xs font-medium text-sage-deep">
+              <p className="mt-1.5 text-xs font-medium text-navy">
                 {couponCode.trim() ? "Code applied" : "Member reward applied"} -- {formatPrice(coupon.discountUsd)} off
                 {coupon.flooredByMargin ? " (partial, discount limit reached)" : ""}
               </p>
@@ -357,8 +357,8 @@ export default function CheckoutPage() {
           </section>
 
           <section className="cp-checkout-panel">
-            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-charcoal/50">
-              Order Notes <span className="font-normal normal-case text-charcoal/40">(optional)</span>
+            <label className="mb-3 block text-sm font-semibold uppercase tracking-wider text-ink/50">
+              Order Notes <span className="font-normal normal-case text-ink/40">(optional)</span>
             </label>
             <textarea
               maxLength={500}
@@ -366,58 +366,58 @@ export default function CheckoutPage() {
               placeholder="Any special instructions or notes..."
               value={orderNotes}
               onChange={(e) => setOrderNotes(e.target.value)}
-              className="w-full resize-none rounded-md border border-stone bg-white px-4 py-3.5 text-base text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+              className="w-full resize-none rounded-md border border-border-subtle bg-white px-4 py-3.5 text-base text-ink outline-none placeholder:text-ink/40 focus:border-navy"
             />
-            <p className="mt-1.5 text-right text-xs text-charcoal/40">{orderNotes.length}/500</p>
+            <p className="mt-1.5 text-right text-xs text-ink/40">{orderNotes.length}/500</p>
           </section>
         </div>
 
         <div className="cp-checkout-sidebar h-fit space-y-6">
-          <div className="cp-checkout-summary rounded-lg border border-stone bg-white p-6 shadow-sm">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-charcoal/50">Order Summary</h2>
+          <div className="cp-checkout-summary rounded-lg border border-border-subtle bg-white p-6 shadow-sm">
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-ink/50">Order Summary</h2>
             <ShippingProgressBar />
             <div className="space-y-5">
               {lines.map((line) => (
                 <div key={`${line.product.id}-${line.packLabel}`} className="flex gap-4">
                   <div className="relative h-20 w-16 shrink-0 overflow-hidden rounded-md bg-white">
                     <Image src={getProductImage(line.product)} alt={line.product.name} width={120} height={150} className="h-full w-full object-cover" />
-                    <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-charcoal text-[10px] font-semibold text-ivory">{line.qty}</span>
+                    <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-navy text-[10px] font-semibold text-white">{line.qty}</span>
                   </div>
                   <div className="flex-1">
-                    <p className="text-base font-medium text-charcoal">{line.product.name}</p>
-                    <p className="text-sm text-charcoal/50">{line.packLabel}</p>
+                    <p className="text-base font-medium text-ink">{line.product.name}</p>
+                    <p className="text-sm text-ink/50">{line.packLabel}</p>
                   </div>
-                  <span className="text-base font-semibold text-charcoal">{formatPrice(line.qty * line.unitPrice)}</span>
+                  <span className="text-base font-semibold text-ink">{formatPrice(line.qty * line.unitPrice)}</span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-6 space-y-2 border-t border-stone pt-5 text-base">
+            <div className="mt-6 space-y-2 border-t border-border-subtle pt-5 text-base">
               <div className="flex items-center justify-between">
-                <span className="text-charcoal/60">Subtotal</span>
-                <span className="font-medium text-charcoal">{formatPrice(subtotal)}</span>
+                <span className="text-ink/60">Subtotal</span>
+                <span className="font-medium text-ink">{formatPrice(subtotal)}</span>
               </div>
               {discount > 0 && (
                 <div className="flex items-center justify-between">
-                  <span className="text-sage-deep">
+                  <span className="text-navy">
                     Discount{couponCode.trim() ? ` (${couponCode.trim()})` : " (member reward)"}
                   </span>
-                  <span className="font-medium text-sage-deep">-{formatPrice(discount)}</span>
+                  <span className="font-medium text-navy">-{formatPrice(discount)}</span>
                 </div>
               )}
               <div className="flex items-center justify-between">
-                <span className="text-charcoal/60">Shipping</span>
-                <span className="font-medium text-charcoal">{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
+                <span className="text-ink/60">Shipping</span>
+                <span className="font-medium text-ink">{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
               </div>
-              <div className="flex items-center justify-between border-t border-stone pt-3 text-lg">
-                <span className="font-medium text-charcoal">Total</span>
-                <span className="font-display text-xl font-semibold text-charcoal">{formatPrice(total)}</span>
+              <div className="flex items-center justify-between border-t border-border-subtle pt-3 text-lg">
+                <span className="font-medium text-ink">Total</span>
+                <span className="font-display text-xl font-semibold text-ink">{formatPrice(total)}</span>
               </div>
             </div>
           </div>
 
           <div className="cp-checkout-payment">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-charcoal/50">Payment Method</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-ink/50">Payment Method</h2>
             <div className="grid grid-cols-3 gap-3">
               {PAYMENT_GATEWAYS.map((gw) => {
                 const active = selectedGateway === gw.id;
@@ -436,42 +436,42 @@ export default function CheckoutPage() {
                     }}
                     aria-pressed={active}
                     className={`relative flex flex-col items-center gap-2.5 rounded-lg border p-5 transition ${
-                      active ? "border-copper bg-copper/10" : "border-stone bg-ivory-soft hover:border-charcoal/30"
+                      active ? "border-navy bg-navy/10" : "border-border-subtle bg-surface hover:border-navy/30"
                     }`}
                   >
-                    {active && <i className="ri-checkbox-circle-fill absolute right-2.5 top-2.5 text-base text-copper" />}
-                    <i className={`${gw.icon} text-3xl ${active ? "text-copper" : "text-charcoal/40"}`} />
-                    <span className={`text-sm font-medium ${active ? "text-copper" : "text-charcoal/60"}`}>{gw.label}</span>
+                    {active && <i className="ri-checkbox-circle-fill absolute right-2.5 top-2.5 text-base text-navy" />}
+                    <i className={`${gw.icon} text-3xl ${active ? "text-navy" : "text-ink/40"}`} />
+                    <span className={`text-sm font-medium ${active ? "text-navy" : "text-ink/60"}`}>{gw.label}</span>
                   </button>
                 );
               })}
             </div>
 
             {selectedGatewayInfo && (
-              <div className="mt-4 rounded-lg border border-stone bg-ivory-soft p-5">
-                <p className="mb-3 text-xs leading-relaxed text-charcoal/55">{PAYMENT_PROCESSOR_NOTE}</p>
-                <p className="mb-3 flex items-center gap-2 text-sm font-medium text-charcoal/70">
-                  <i className={`${selectedGatewayInfo.icon} text-copper`} /> Send your {selectedGatewayInfo.label} payment to
+              <div className="mt-4 rounded-lg border border-border-subtle bg-surface p-5">
+                <p className="mb-3 text-xs leading-relaxed text-ink/55">{PAYMENT_PROCESSOR_NOTE}</p>
+                <p className="mb-3 flex items-center gap-2 text-sm font-medium text-ink/70">
+                  <i className={`${selectedGatewayInfo.icon} text-navy`} /> Send your {selectedGatewayInfo.label} payment to
                 </p>
                 {selectedGatewayInfo.handle ? (
                   <>
                     <div className="flex items-center gap-2">
-                      <span className="flex h-12 flex-1 items-center truncate rounded-md border border-copper/40 bg-white px-4 font-mono text-base text-copper">
+                      <span className="flex h-12 flex-1 items-center truncate rounded-md border border-navy/40 bg-white px-4 font-mono text-base text-navy">
                         {selectedGatewayInfo.handle}
                       </span>
                       <button
                         type="button"
                         onClick={handleCopyGatewayHandle}
-                        className="h-12 shrink-0 whitespace-nowrap rounded-md border border-stone px-4 text-sm font-medium text-charcoal/70 transition hover:border-copper hover:text-copper"
+                        className="h-12 shrink-0 whitespace-nowrap rounded-md border border-border-subtle px-4 text-sm font-medium text-ink/70 transition hover:border-navy hover:text-navy"
                       >
                         {handleCopied ? "Copied" : "Copy"}
                       </button>
                     </div>
-                    <p className="mt-2.5 text-xs leading-relaxed text-charcoal/50">{selectedGatewayInfo.handleNote}</p>
+                    <p className="mt-2.5 text-xs leading-relaxed text-ink/50">{selectedGatewayInfo.handleNote}</p>
                   </>
                 ) : (
-                  <p className="flex items-start gap-2 text-sm leading-relaxed text-charcoal/60">
-                    <i className="ri-mail-send-line mt-0.5 shrink-0 text-copper" />
+                  <p className="flex items-start gap-2 text-sm leading-relaxed text-ink/60">
+                    <i className="ri-mail-send-line mt-0.5 shrink-0 text-navy" />
                     We&rsquo;ll email your {selectedGatewayInfo.label} payment details right after you place this
                     order, along with your memo code below.
                   </p>
@@ -479,44 +479,44 @@ export default function CheckoutPage() {
               </div>
             )}
 
-            {selectedGatewayInfo && <div className="mt-4 rounded-lg border border-copper/30 bg-copper/5 p-5">
+            {selectedGatewayInfo && <div className="mt-4 rounded-lg border border-navy/30 bg-navy/5 p-5">
               <div className="mb-3 flex items-center justify-between">
-                <label className="text-sm font-semibold text-charcoal">Payment Memo</label>
-                <span className="text-xs text-charcoal/45">Generated for this order</span>
+                <label className="text-sm font-semibold text-ink">Payment Memo</label>
+                <span className="text-xs text-ink/45">Generated for this order</span>
               </div>
               <div className="flex items-center gap-2">
                 <span
-                  className="flex h-14 flex-1 items-center justify-center rounded-md border border-copper/40 bg-white font-mono text-2xl tracking-[0.4em] text-copper"
+                  className="flex h-14 flex-1 items-center justify-center rounded-md border border-navy/40 bg-white font-mono text-2xl tracking-[0.4em] text-navy"
                 >
                   {memo}
                 </span>
                 <button
                   type="button"
                   onClick={handleCopyMemo}
-                  className="h-14 shrink-0 whitespace-nowrap rounded-md border border-stone px-5 text-sm font-medium text-charcoal/70 transition hover:border-copper hover:text-copper"
+                  className="h-14 shrink-0 whitespace-nowrap rounded-md border border-border-subtle px-5 text-sm font-medium text-ink/70 transition hover:border-navy hover:text-navy"
                 >
                   {copied ? "Copied" : "Copy"}
                 </button>
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-charcoal/50">
+              <p className="mt-3 text-xs leading-relaxed text-ink/50">
                 Include this exact code in your {selectedGatewayInfo.label} payment note so we can match your payment to this order. Inventory is confirmed after the order is submitted.
               </p>
             </div>}
           </div>
 
-          <label className="flex items-start gap-3 rounded-lg border border-stone bg-ivory-soft p-4">
+          <label className="flex items-start gap-3 rounded-lg border border-border-subtle bg-surface p-4">
             <input
               type="checkbox"
               checked={ruoAttestation}
               onChange={(e) => setRuoAttestation(e.target.checked)}
               required
-              className="mt-0.5 h-4 w-4 shrink-0 accent-copper"
+              className="mt-0.5 h-4 w-4 shrink-0 accent-navy"
             />
-            <span className="text-xs leading-relaxed text-charcoal/60">
+            <span className="text-xs leading-relaxed text-ink/60">
               I confirm I am purchasing these products exclusively for laboratory, analytical, or in-vitro research
               use by qualified personnel, not for human or animal consumption, administration, or any diagnostic
               or therapeutic purpose, in accordance with the{" "}
-              <Link href="/ruo" className="text-copper hover:underline">
+              <Link href="/ruo" className="text-navy hover:underline">
                 Research Use Only Policy
               </Link>
               . I understand this order and its attestation are retained as part of the order record.
@@ -533,11 +533,11 @@ export default function CheckoutPage() {
           <button
             type="submit"
             disabled={!selectedGateway || !shippingComplete || !ruoAttestation || placing}
-            className="w-full rounded-md bg-copper px-5 py-5 text-sm font-semibold uppercase tracking-[0.12em] text-charcoal transition hover:bg-copper-light disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-md bg-navy px-5 py-5 text-sm font-semibold uppercase tracking-[0.12em] text-ink transition hover:bg-navy-light disabled:cursor-not-allowed disabled:opacity-40"
           >
             {placing ? "Submitting Order..." : `Submit Order & Continue to Payment · ${formatPrice(total)}`}
           </button>
-          <p className="-mt-3 text-center text-[11px] leading-relaxed text-charcoal/45">
+          <p className="-mt-3 text-center text-[11px] leading-relaxed text-ink/45">
             No payment is collected by this button. Your selected payment instructions appear immediately after submission.
           </p>
         </div>
@@ -567,8 +567,8 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <label className="mb-2 block text-sm font-medium text-charcoal/70">
-        {label} {required && <span className="text-copper">*</span>}
+      <label className="mb-2 block text-sm font-medium text-ink/70">
+        {label} {required && <span className="text-navy">*</span>}
       </label>
       <input
         type={type}
@@ -577,7 +577,7 @@ function Field({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="h-12 w-full rounded-md border border-stone bg-white px-4 text-base text-charcoal outline-none placeholder:text-charcoal/40 focus:border-copper"
+        className="h-12 w-full rounded-md border border-border-subtle bg-white px-4 text-base text-ink outline-none placeholder:text-ink/40 focus:border-navy"
       />
     </div>
   );

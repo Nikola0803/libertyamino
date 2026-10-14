@@ -1,6 +1,6 @@
 export function VialRenderPlaceholder({ className = "" }: { className?: string }) {
   return (
-    <div className={`relative flex items-center justify-center overflow-hidden bg-charcoal ${className}`}>
+    <div className={`relative flex items-center justify-center overflow-hidden bg-navy ${className}`}>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"

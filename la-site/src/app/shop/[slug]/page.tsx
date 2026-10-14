@@ -101,12 +101,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c") }} />
       <div className="mx-auto max-w-[1400px] px-4 pb-4 pt-8 md:px-8 md:pt-10">
-        <nav className="flex flex-wrap items-center gap-2 text-xs text-charcoal/50" aria-label="Breadcrumb">
-          <Link href="/" className="transition hover:text-charcoal">Home</Link>
+        <nav className="flex flex-wrap items-center gap-2 text-xs text-ink/50" aria-label="Breadcrumb">
+          <Link href="/" className="transition hover:text-ink">Home</Link>
           <i className="ri-arrow-right-s-line" />
-          <Link href="/shop" className="transition hover:text-charcoal">Shop</Link>
+          <Link href="/shop" className="transition hover:text-ink">Shop</Link>
           <i className="ri-arrow-right-s-line" />
-          <span className="font-medium text-charcoal">{product.name}</span>
+          <span className="font-medium text-ink">{product.name}</span>
         </nav>
       </div>
       <div className="mx-auto max-w-[1400px] px-4 pb-5 md:px-8">

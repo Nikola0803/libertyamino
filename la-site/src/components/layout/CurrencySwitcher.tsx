@@ -15,7 +15,7 @@ export function CurrencySwitcher() {
           type="button"
           onClick={() => setCurrency(c)}
           aria-pressed={currency === c}
-          className={`rounded-full px-2.5 py-0.5 transition ${currency === c ? "bg-copper text-charcoal" : "text-white/60 hover:text-white"}`}
+          className={`rounded-full px-2.5 py-0.5 transition ${currency === c ? "bg-navy text-ink" : "text-white/60 hover:text-white"}`}
         >
           {c}
         </button>

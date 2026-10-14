@@ -37,7 +37,7 @@ export function MediaGallery({
 
   if (media.length === 0) {
     return (
-      <div className="overflow-hidden rounded-lg border border-stone bg-ivory-soft">
+      <div className="overflow-hidden rounded-lg border border-border-subtle bg-surface">
         <div className="aspect-square w-full">
           <ProductVisual name={title} dosage={dosage} className="h-full w-full p-10" />
         </div>
@@ -54,7 +54,7 @@ export function MediaGallery({
 
   return (
     <div>
-      <div className="group relative overflow-hidden rounded-lg border border-stone bg-ivory-soft">
+      <div className="group relative overflow-hidden rounded-lg border border-border-subtle bg-surface">
         <div className="aspect-square w-full p-10 sm:p-14">
           {current.type === "video" ? (
             <video
@@ -89,7 +89,7 @@ export function MediaGallery({
               type="button"
               aria-label="Previous media"
               onClick={() => go(index - 1)}
-              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal opacity-0 shadow-sm transition group-hover:opacity-100"
+              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink opacity-0 shadow-sm transition group-hover:opacity-100"
             >
               <i className="ri-arrow-left-s-line text-lg" />
             </button>
@@ -97,7 +97,7 @@ export function MediaGallery({
               type="button"
               aria-label="Next media"
               onClick={() => go(index + 1)}
-              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-charcoal opacity-0 shadow-sm transition group-hover:opacity-100"
+              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-ink opacity-0 shadow-sm transition group-hover:opacity-100"
             >
               <i className="ri-arrow-right-s-line text-lg" />
             </button>
@@ -114,7 +114,7 @@ export function MediaGallery({
               aria-label={`Show ${m.type} ${i + 1}`}
               onClick={() => setIndex(i)}
               className={`flex h-2 items-center justify-center rounded-full transition-all ${
-                i === index ? "w-6 bg-copper" : "w-2 bg-stone hover:bg-charcoal/30"
+                i === index ? "w-6 bg-navy" : "w-2 bg-surface hover:bg-navy/30"
               }`}
             />
           ))}

@@ -14,7 +14,7 @@ declare global {
 export function PurchasePixel({ orderNumber, total, currency }: { orderNumber: string; total: number; currency: string }) {
   useEffect(() => {
     if (!orderNumber || !Number.isFinite(total)) return;
-    const key = `evlv_order_submitted_tracked_${orderNumber}`;
+    const key = `la_order_submitted_tracked_${orderNumber}`;
     try {
       if (localStorage.getItem(key)) return;
       localStorage.setItem(key, "1");

@@ -49,12 +49,12 @@ export function GiveawayEntryForm() {
 
   if (result === "entered" || result === "already") {
     return (
-      <div className="mt-4 rounded-lg border border-stone bg-white p-6 text-center">
-        <i className="ri-checkbox-circle-fill text-2xl text-sage-deep" />
-        <p className="mt-3 font-display text-base font-semibold text-charcoal">
+      <div className="mt-4 rounded-lg border border-border-subtle bg-white p-6 text-center">
+        <i className="ri-checkbox-circle-fill text-2xl text-navy" />
+        <p className="mt-3 font-display text-base font-semibold text-ink">
           {result === "already" ? "You're already entered for today" : "You're entered!"}
         </p>
-        <p className="mt-2 text-xs text-charcoal/60">
+        <p className="mt-2 text-xs text-ink/60">
           Winners are drawn once entries close for the day. Come back tomorrow for another free entry.
         </p>
       </div>
@@ -66,7 +66,7 @@ export function GiveawayEntryForm() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="mt-4 block w-full text-center text-[11px] uppercase tracking-[0.12em] text-charcoal/40 underline decoration-charcoal/20 underline-offset-2 transition hover:text-charcoal/70"
+        className="mt-4 block w-full text-center text-[11px] uppercase tracking-[0.12em] text-ink/40 underline decoration-ink/20 underline-offset-2 transition hover:text-ink/70"
       >
         Prefer not to order? Enter free instead -- no purchase necessary
       </button>
@@ -74,10 +74,10 @@ export function GiveawayEntryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4 space-y-4 rounded-lg border border-stone bg-white p-6">
+    <form onSubmit={handleSubmit} className="mt-4 space-y-4 rounded-lg border border-border-subtle bg-white p-6">
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-charcoal">
-          Email <span className="text-copper">*</span>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">
+          Email <span className="text-navy">*</span>
         </label>
         <input
           type="email"
@@ -86,7 +86,7 @@ export function GiveawayEntryForm() {
           placeholder="you@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-md border border-stone bg-ivory px-4 py-2.5 text-sm outline-none focus:border-copper"
+          className="w-full rounded-md border border-border-subtle bg-off-white px-4 py-2.5 text-sm outline-none focus:border-navy"
         />
       </div>
 
@@ -100,12 +100,12 @@ export function GiveawayEntryForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full rounded-md bg-copper py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-charcoal transition hover:bg-copper-light disabled:cursor-wait disabled:opacity-60"
+        className="w-full rounded-md bg-navy py-3.5 text-[12px] font-semibold uppercase tracking-[0.15em] text-ink transition hover:bg-navy-light disabled:cursor-wait disabled:opacity-60"
       >
         {submitting ? "Entering..." : "Enter for Free"}
       </button>
 
-      <p className="text-center text-[11px] leading-relaxed text-charcoal/50">
+      <p className="text-center text-[11px] leading-relaxed text-ink/50">
         No purchase necessary. One free entry per person per day.
       </p>
     </form>

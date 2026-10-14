@@ -126,9 +126,9 @@ const RUO_FAQ = [
 export default function RuoPolicyPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal · Compliance</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal · Compliance</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">
             Research Use Policy
           </h1>
@@ -140,13 +140,13 @@ export default function RuoPolicyPage() {
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <div className="mb-14 rounded-lg border border-copper/40 bg-copper/5 p-6 md:p-8">
-            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-copper">
+          <div className="mb-14 rounded-lg border border-navy/40 bg-navy/5 p-6 md:p-8">
+            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-navy">
               <i className="ri-alert-line" /> Please read before contacting us
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-charcoal/70 md:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-ink/70 md:text-base">
               We can&apos;t answer questions about dosing, administration, injection, reconstitution for personal
               use, treatment recommendations, human-use protocols, or veterinary use - no matter how the question is
               worded. Our team is glad to help with orders, product documentation, testing results, and unopened-
@@ -160,10 +160,10 @@ export default function RuoPolicyPage() {
               { icon: "ri-forbid-line", title: "No Human-Use Guidance", body: "We don't provide directions, calculations or protocols for use in or on people or animals." },
               { icon: "ri-shield-check-line", title: "Enforced Consistently", body: "Suspected misuse can mean declined support, canceled orders or account restrictions." },
             ].map((item) => (
-              <div key={item.title} className="rounded-lg border border-stone bg-white p-5">
-                <i className={`${item.icon} text-2xl text-sage-deep`} />
-                <p className="mt-3 text-sm font-semibold text-charcoal">{item.title}</p>
-                <p className="mt-1.5 text-xs leading-relaxed text-charcoal/55">{item.body}</p>
+              <div key={item.title} className="rounded-lg border border-border-subtle bg-white p-5">
+                <i className={`${item.icon} text-2xl text-navy`} />
+                <p className="mt-3 text-sm font-semibold text-ink">{item.title}</p>
+                <p className="mt-1.5 text-xs leading-relaxed text-ink/55">{item.body}</p>
               </div>
             ))}
           </div>
@@ -188,12 +188,12 @@ export default function RuoPolicyPage() {
               </p>
               <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 {NOT_FOR.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 A product name, research description, published study, or customer review doesn&apos;t change this -
                 none of it should be read as an instruction to use a product in humans or animals.
               </p>
@@ -206,10 +206,10 @@ export default function RuoPolicyPage() {
               </p>
               <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {CANNOT_DISCUSS.map((item) => (
-                  <div key={item.title} className="rounded-lg border border-stone bg-ivory-soft p-4">
-                    <i className={`${item.icon} text-lg text-copper`} />
-                    <p className="mt-2 text-sm font-semibold text-charcoal">{item.title}</p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-charcoal/60">{item.body}</p>
+                  <div key={item.title} className="rounded-lg border border-border-subtle bg-surface p-4">
+                    <i className={`${item.icon} text-lg text-navy`} />
+                    <p className="mt-2 text-sm font-semibold text-ink">{item.title}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-ink/60">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -219,12 +219,12 @@ export default function RuoPolicyPage() {
               <p>Within these limits, our team is glad to help with the administrative and research-supply side of things:</p>
               <ul className="mt-5 space-y-2.5">
                 {CAN_DISCUSS.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-check-line mt-0.5 shrink-0 text-sage-deep" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-check-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 Sharing a Certificate of Analysis, product spec, or research article isn&apos;t a recommendation
                 about safety, dosage, administration or suitability for use in humans or animals.
               </p>
@@ -248,8 +248,8 @@ export default function RuoPolicyPage() {
               </p>
               <ol className="mt-5 space-y-3">
                 {ENFORCEMENT_STEPS.map((step, i) => (
-                  <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-charcoal/70">
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sage text-xs font-semibold text-white">{i + 1}</span>
+                  <li key={step} className="flex items-start gap-3 text-sm leading-relaxed text-ink/70">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-navy text-xs font-semibold text-white">{i + 1}</span>
                     {step}
                   </li>
                 ))}
@@ -264,12 +264,12 @@ export default function RuoPolicyPage() {
               </p>
               <ul className="mt-5 space-y-2.5">
                 {RESPONSIBILITIES.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-user-settings-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-user-settings-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 Liberty Aminos doesn&apos;t determine whether your proposed research satisfies federal, state, local,
                 institutional or international requirements - that determination is yours to make.
               </p>
@@ -282,7 +282,7 @@ export default function RuoPolicyPage() {
                 otherwise involved in a human or animal exposure, contact a licensed medical professional, emergency
                 services, poison control, or a veterinarian right away.
               </p>
-              <p className="mt-3 text-sm font-semibold text-charcoal">
+              <p className="mt-3 text-sm font-semibold text-ink">
                 Contacting Liberty Aminos is never a substitute for contacting qualified medical or emergency personnel.
               </p>
             </PolicySection>
@@ -299,9 +299,9 @@ export default function RuoPolicyPage() {
                   { code: "21 CFR § 312.160", body: "Covers shipment of certain drugs intended solely for in-vitro testing or laboratory-animal research, including labeling and recordkeeping conditions." },
                   { code: "21 U.S.C. § 331", body: "Lists prohibited acts under the Federal Food, Drug, and Cosmetic Act, including conduct involving adulterated, misbranded or unlawfully distributed products." },
                 ].map((item) => (
-                  <div key={item.code} className="rounded-lg border border-stone bg-ivory-soft p-4">
-                    <p className="font-mono text-xs font-semibold text-sage-deep">{item.code}</p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-charcoal/60">{item.body}</p>
+                  <div key={item.code} className="rounded-lg border border-border-subtle bg-surface p-4">
+                    <p className="font-mono text-xs font-semibold text-navy">{item.code}</p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-ink/60">{item.body}</p>
                   </div>
                 ))}
               </div>
@@ -332,7 +332,7 @@ export default function RuoPolicyPage() {
             </PolicySection>
           </div>
 
-          <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
+          <div className="mt-16 rounded-lg border border-border-subtle bg-navy p-8 text-center text-white md:p-10">
             <h3 className="font-display text-xl font-semibold md:text-2xl">Research with responsibility</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
               By purchasing from Liberty Aminos, you acknowledge our products are supplied exclusively for lawful research and
@@ -340,22 +340,22 @@ export default function RuoPolicyPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-1 rounded-md bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+              className="mt-6 inline-flex items-center gap-1 rounded-md bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
             >
               Contact Compliance <i className="ri-arrow-right-line" />
             </Link>
           </div>
 
-          <div className="mt-12 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-12 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-ink/40">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-ink/60 transition hover:text-ink">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/terms" className="text-ink/60 transition hover:text-ink">
                 Terms of Service
               </Link>
-              <Link href="/returns" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/returns" className="text-ink/60 transition hover:text-ink">
                 Returns Policy
               </Link>
             </div>
@@ -369,8 +369,8 @@ export default function RuoPolicyPage() {
 function PolicySection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

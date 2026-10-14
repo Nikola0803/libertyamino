@@ -124,14 +124,14 @@ function jsonLd(value: object) {
 
 export default function ResearchPeptidesUsaPage() {
   return (
-    <div className="bg-white text-charcoal">
+    <div className="bg-white text-ink">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(pageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(breadcrumbJsonLd) }} />
 
-      <section className="-mt-[90px] bg-charcoal pb-20 pt-[150px] text-white md:-mt-[100px] md:pb-28 md:pt-[175px]">
+      <section className="-mt-[90px] bg-navy pb-20 pt-[150px] text-white md:-mt-[100px] md:pb-28 md:pt-[175px]">
         <div className="mx-auto max-w-[1100px] px-4 text-center md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">
             U.S. laboratory supply · Research use only
           </p>
           <h1 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
@@ -142,7 +142,7 @@ export default function ResearchPeptidesUsaPage() {
             order fulfillment for qualified laboratory and analytical work.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link className="rounded-md bg-copper px-7 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal" href="/shop?category=peptides">
+            <Link className="rounded-md bg-navy px-7 py-3 text-xs font-semibold uppercase tracking-wide text-ink" href="/shop?category=peptides">
               Browse research products
             </Link>
             <Link className="rounded-md border border-white/30 px-7 py-3 text-xs font-semibold uppercase tracking-wide text-white" href="/coas">
@@ -157,7 +157,7 @@ export default function ResearchPeptidesUsaPage() {
         <section className="mx-auto max-w-[1100px] px-4 py-16 md:px-8 md:py-24">
           <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sage-deep">Start with the evidence</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-navy">Start with the evidence</p>
               <h2 className="mt-3 font-display text-3xl font-semibold leading-tight md:text-4xl">
                 What should you look for in a U.S. research peptide supplier?
               </h2>
@@ -169,8 +169,8 @@ export default function ResearchPeptidesUsaPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {EVALUATION_POINTS.map((item, index) => (
-                <article key={item.title} className="rounded-lg border border-stone bg-ivory-soft p-6">
-                  <p className="font-mono text-xs font-semibold text-copper">0{index + 1}</p>
+                <article key={item.title} className="rounded-lg border border-border-subtle bg-surface p-6">
+                  <p className="font-mono text-xs font-semibold text-navy">0{index + 1}</p>
                   <h3 className="mt-3 font-display text-lg font-semibold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-soft-gray">{item.body}</p>
                 </article>
@@ -179,10 +179,10 @@ export default function ResearchPeptidesUsaPage() {
           </div>
         </section>
 
-        <section className="border-y border-stone bg-ivory-soft py-16 md:py-24">
+        <section className="border-y border-border-subtle bg-surface py-16 md:py-24">
           <div className="mx-auto max-w-[1100px] px-4 md:px-8">
             <div className="max-w-3xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sage-deep">Documentation first</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-navy">Documentation first</p>
               <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">How EVLV connects products to COAs</h2>
               <p className="mt-5 leading-relaxed text-soft-gray">
                 Each available report in the EVLV COA Library is organized around a product and batch identifier. A
@@ -192,23 +192,23 @@ export default function ResearchPeptidesUsaPage() {
               </p>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-3">
-              <article className="rounded-lg border border-stone bg-white p-6">
+              <article className="rounded-lg border border-border-subtle bg-white p-6">
                 <h3 className="font-display text-xl font-semibold">1. Identify the product</h3>
                 <p className="mt-2 text-sm leading-relaxed text-soft-gray">Confirm the product name, labeled amount, SKU, and format on the listing.</p>
               </article>
-              <article className="rounded-lg border border-stone bg-white p-6">
+              <article className="rounded-lg border border-border-subtle bg-white p-6">
                 <h3 className="font-display text-xl font-semibold">2. Match the lot</h3>
                 <p className="mt-2 text-sm leading-relaxed text-soft-gray">Use the batch code to locate the corresponding analytical record in the COA Library.</p>
               </article>
-              <article className="rounded-lg border border-stone bg-white p-6">
+              <article className="rounded-lg border border-border-subtle bg-white p-6">
                 <h3 className="font-display text-xl font-semibold">3. Review the report</h3>
                 <p className="mt-2 text-sm leading-relaxed text-soft-gray">Read the method, sample details, reported result, and testing date before use in research.</p>
               </article>
             </div>
             <div className="mt-8 flex flex-wrap gap-5 text-sm font-semibold">
-              <Link className="text-sage-deep underline decoration-sage-deep/30 underline-offset-4" href="/coas">Open the COA Library</Link>
-              <Link className="text-sage-deep underline decoration-sage-deep/30 underline-offset-4" href="/sourcing">Read our testing standards</Link>
-              <Link className="text-sage-deep underline decoration-sage-deep/30 underline-offset-4" href="/ruo">Read the full RUO policy</Link>
+              <Link className="text-navy underline decoration-navy/30 underline-offset-4" href="/coas">Open the COA Library</Link>
+              <Link className="text-navy underline decoration-navy/30 underline-offset-4" href="/sourcing">Read our testing standards</Link>
+              <Link className="text-navy underline decoration-navy/30 underline-offset-4" href="/ruo">Read the full RUO policy</Link>
             </div>
           </div>
         </section>
@@ -216,26 +216,26 @@ export default function ResearchPeptidesUsaPage() {
         <section className="mx-auto max-w-[1100px] px-4 py-16 md:px-8 md:py-24">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.85fr]">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-sage-deep">Common questions</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-navy">Common questions</p>
               <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">Research peptide FAQ</h2>
               <div className="mt-8 space-y-4">
                 {FAQ.map((item) => (
-                  <details key={item.question} className="rounded-lg border border-stone bg-white p-5">
+                  <details key={item.question} className="rounded-lg border border-border-subtle bg-white p-5">
                     <summary className="cursor-pointer list-none pr-6 font-semibold">{item.question}</summary>
                     <p className="mt-3 text-sm leading-relaxed text-soft-gray">{item.answer}</p>
                   </details>
                 ))}
               </div>
             </div>
-            <aside className="h-fit rounded-lg bg-charcoal p-8 text-white lg:sticky lg:top-28">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-copper">Research-use boundary</p>
+            <aside className="h-fit rounded-lg bg-navy p-8 text-white lg:sticky lg:top-28">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-navy">Research-use boundary</p>
               <h2 className="mt-3 font-display text-2xl font-semibold">What EVLV can help with</h2>
               <p className="mt-4 text-sm leading-relaxed text-white/65">
                 Support can help with product identity, labeled quantity, batch documentation, unopened-product
                 storage, order status, shipping, and institutional inquiries. EVLV cannot provide dosing,
                 administration, reconstitution for personal use, treatment, or veterinary guidance.
               </p>
-              <Link className="mt-6 inline-flex text-sm font-semibold text-copper underline underline-offset-4" href="/faq">
+              <Link className="mt-6 inline-flex text-sm font-semibold text-navy underline underline-offset-4" href="/faq">
                 View all support questions →
               </Link>
             </aside>

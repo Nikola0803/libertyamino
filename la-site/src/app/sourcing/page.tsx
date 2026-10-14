@@ -49,9 +49,9 @@ const COA_RIGHT = [
 export default function SourcingPolicyPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal · Compliance</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal · Compliance</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">
             Sourcing & Quality Policy
           </h1>
@@ -71,13 +71,13 @@ export default function SourcingPolicyPage() {
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <div className="mb-14 rounded-lg border border-stone bg-ivory-soft p-5 md:p-6">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-charcoal/40">Policy Sections</p>
+          <div className="mb-14 rounded-lg border border-border-subtle bg-surface p-5 md:p-6">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-ink/40">Policy Sections</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {SECTIONS.map((s) => (
-                <a key={s.href} href={`#${s.href}`} className="text-charcoal/60 transition hover:text-sage-deep">
+                <a key={s.href} href={`#${s.href}`} className="text-ink/60 transition hover:text-navy">
                   {s.num}. {s.title}
                 </a>
               ))}
@@ -110,8 +110,8 @@ export default function SourcingPolicyPage() {
               </p>
               <ul className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 {APPROACH_CHECKS.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-checkbox-circle-line mt-0.5 shrink-0 text-sage-deep" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-checkbox-circle-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
@@ -128,7 +128,7 @@ export default function SourcingPolicyPage() {
                 Keeping supplier details confidential protects supply-chain integrity, supports long-term quality
                 partnerships, reduces disruption risk, and helps us keep quality consistent from batch to batch.
               </p>
-              <p className="mt-3 text-sm font-semibold text-charcoal">
+              <p className="mt-3 text-sm font-semibold text-ink">
                 Confidentiality doesn&apos;t replace verification - we still use analytical documentation and batch
                 review to decide what actually ships.
               </p>
@@ -152,23 +152,23 @@ export default function SourcingPolicyPage() {
               <div className="mt-5 grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <ul className="space-y-2.5">
                   {COA_LEFT.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                      <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-copper" /> {item}
+                    <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                      <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-navy" /> {item}
                     </li>
                   ))}
                 </ul>
                 <ul className="space-y-2.5">
                   {COA_RIGHT.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                      <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-copper" /> {item}
+                    <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                      <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-navy" /> {item}
                     </li>
                   ))}
                 </ul>
               </div>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 COAs and testing records support research identification and quality review. They are not medical,
                 therapeutic, diagnostic or regulatory approvals. See our{" "}
-                <Link href="/coas" className="font-semibold text-copper hover:underline">
+                <Link href="/coas" className="font-semibold text-navy hover:underline">
                   COA archive
                 </Link>{" "}
                 for published batch reports.
@@ -182,7 +182,7 @@ export default function SourcingPolicyPage() {
                 every product goes through the same internal quality expectations, documentation standards and
                 analytical review regardless of where it was sourced.
               </p>
-              <p className="mt-3 text-sm font-semibold text-charcoal">
+              <p className="mt-3 text-sm font-semibold text-ink">
                 Testing, batch integrity, documentation and release review are our standard. Supplier location isn&apos;t.
               </p>
             </PolicySection>
@@ -196,7 +196,7 @@ export default function SourcingPolicyPage() {
               </p>
               <p className="mt-3">
                 Full detail on what our team can and can&apos;t discuss lives in our{" "}
-                <Link href="/ruo" className="font-semibold text-copper hover:underline">
+                <Link href="/ruo" className="font-semibold text-navy hover:underline">
                   Research Use Only policy
                 </Link>
                 .
@@ -221,7 +221,7 @@ export default function SourcingPolicyPage() {
                 sourcing-location information, except where required by law, regulation, court order, valid legal
                 process, or an authorized compliance review.
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-3 text-sm leading-relaxed text-ink/60">
                 Nothing in this policy guarantees uninterrupted supply, identical sourcing for every batch, or
                 disclosure of proprietary business relationships.
               </p>
@@ -236,7 +236,7 @@ export default function SourcingPolicyPage() {
             </PolicySection>
           </div>
 
-          <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
+          <div className="mt-16 rounded-lg border border-border-subtle bg-navy p-8 text-center text-white md:p-10">
             <h3 className="font-display text-xl font-semibold md:text-2xl">Our commitment</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
               We believe independent testing, batch traceability, internal review and documentation are the
@@ -245,22 +245,22 @@ export default function SourcingPolicyPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-1 rounded-md bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+              className="mt-6 inline-flex items-center gap-1 rounded-md bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
             >
               Contact Us <i className="ri-arrow-right-line" />
             </Link>
           </div>
 
-          <div className="mt-12 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-12 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-ink/40">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/ruo" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/ruo" className="text-ink/60 transition hover:text-ink">
                 Research Use Only
               </Link>
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-ink/60 transition hover:text-ink">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/terms" className="text-ink/60 transition hover:text-ink">
                 Terms of Service
               </Link>
             </div>
@@ -274,8 +274,8 @@ export default function SourcingPolicyPage() {
 function PolicySection({ id, num, title, children }: { id: string; num: string; title: string; children: React.ReactNode }) {
   return (
     <div id={id} className="scroll-mt-28">
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

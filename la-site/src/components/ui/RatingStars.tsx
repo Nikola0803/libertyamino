@@ -1,8 +1,8 @@
 export function RatingStars({ rating, reviewCount, size = "sm" }: { rating: number; reviewCount?: number; size?: "sm" | "md" }) {
   const textSize = size === "md" ? "text-sm" : "text-xs";
   return (
-    <div className={`flex items-center gap-1.5 ${textSize} text-charcoal/70`}>
-      <span className="flex items-center gap-0.5 text-sage-deep">
+    <div className={`flex items-center gap-1.5 ${textSize} text-ink/70`}>
+      <span className="flex items-center gap-0.5 text-navy">
         {Array.from({ length: 5 }).map((_, i) => {
           const filled = i < Math.round(rating);
           return (
@@ -12,7 +12,7 @@ export function RatingStars({ rating, reviewCount, size = "sm" }: { rating: numb
           );
         })}
       </span>
-      <span className="font-medium text-charcoal">{rating.toFixed(1)}</span>
+      <span className="font-medium text-ink">{rating.toFixed(1)}</span>
       {typeof reviewCount === "number" && <span>({reviewCount})</span>}
     </div>
   );

@@ -76,9 +76,9 @@ const RELATED_POLICIES = [
 export default function IndemnityWaiverPage() {
   return (
     <>
-      <section className="-mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="-mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal Agreement · Research Use Only</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal Agreement · Research Use Only</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">
             Indemnity & Liability Waiver
           </h1>
@@ -90,13 +90,13 @@ export default function IndemnityWaiverPage() {
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
-          <div className="mb-14 rounded-lg border border-copper/40 bg-copper/5 p-6 md:p-8">
-            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-copper">
+          <div className="mb-14 rounded-lg border border-navy/40 bg-navy/5 p-6 md:p-8">
+            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-navy">
               <i className="ri-scales-3-line" /> Read before purchasing
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-charcoal/70 md:text-base">
+            <p className="mt-3 text-sm leading-relaxed text-ink/70 md:text-base">
               By browsing Liberty Aminos product pages, creating an account, proceeding through checkout, submitting an order,
               or otherwise accepting this Agreement electronically, you confirm that you&apos;ve read, understood,
               and voluntarily agreed to the terms below. Liberty Aminos products are sold strictly for laboratory research -
@@ -105,11 +105,11 @@ export default function IndemnityWaiverPage() {
             </p>
           </div>
 
-          <div className="mb-14 rounded-lg border border-stone bg-ivory-soft p-5 md:p-6">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-charcoal/40">Agreement Sections</p>
+          <div className="mb-14 rounded-lg border border-border-subtle bg-surface p-5 md:p-6">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-ink/40">Agreement Sections</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {SECTIONS.map((s) => (
-                <a key={s.href} href={`#${s.href}`} className="text-charcoal/60 transition hover:text-sage-deep">
+                <a key={s.href} href={`#${s.href}`} className="text-ink/60 transition hover:text-navy">
                   {s.num}. {s.title}
                 </a>
               ))}
@@ -130,14 +130,14 @@ export default function IndemnityWaiverPage() {
                   "You are solely responsible for proper handling, storage, use, disposal, recordkeeping and legal compliance.",
                   "Any use outside legitimate research voids any support, warranty, claim, replacement or other accommodation that might otherwise be available.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-close-circle-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 Full detail on what our team can and can&apos;t discuss lives in our{" "}
-                <Link href="/ruo" className="font-semibold text-copper hover:underline">
+                <Link href="/ruo" className="font-semibold text-navy hover:underline">
                   Research Use Only policy
                 </Link>
                 . We don&apos;t provide dosing guidance, reconstitution protocols for personal use, administration
@@ -156,8 +156,8 @@ export default function IndemnityWaiverPage() {
                   "Liberty Aminos may request verification of identity, age, billing or shipping information, or research-use eligibility before accepting or fulfilling an order.",
                   "Liberty Aminos may refuse, cancel or restrict orders where legal compliance, age verification, account integrity, fraud risk or suspected misuse can't reasonably be verified.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-shield-check-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-shield-check-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
@@ -167,12 +167,12 @@ export default function IndemnityWaiverPage() {
               <p>You agree that products purchased from Liberty Aminos will not be used for any unlawful, unsafe or unauthorized purpose, including but not limited to:</p>
               <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                 {PROHIBITED_USES.map((item) => (
-                  <div key={item} className="rounded-md border border-stone bg-ivory-soft px-3 py-2 text-xs font-medium text-charcoal/70">
+                  <div key={item} className="rounded-md border border-border-subtle bg-surface px-3 py-2 text-xs font-medium text-ink/70">
                     {item}
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 Any indication of misuse, intended misuse, diversion, unlawful resale, or activity inconsistent with
                 research-use-only restrictions can result in order cancellation, account restriction, refusal of
                 future service, and cooperation with appropriate authorities where required or permitted by law.
@@ -201,7 +201,7 @@ export default function IndemnityWaiverPage() {
                 with the purchase, possession, storage, handling, use, transfer, disposal or misuse of any Liberty Aminos
                 product.
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-3 text-sm leading-relaxed text-ink/60">
                 Shipping duration, temperature exposure, reconstitution variables, laboratory handling methods,
                 storage conditions, diluent quality, research methodology and experimental design are outside
                 Liberty AminosLiberty Aminos&apos;sapos;s control once a product leaves our custody.
@@ -212,8 +212,8 @@ export default function IndemnityWaiverPage() {
               <p>To the fullest extent permitted by applicable law, you agree to release Liberty Aminos, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from liability arising out of or related to:</p>
               <ul className="mt-5 space-y-2.5">
                 {RELEASE_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-file-shield-2-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
@@ -223,8 +223,8 @@ export default function IndemnityWaiverPage() {
               <p>You agree to indemnify, defend and hold harmless Liberty Aminos, its owners, officers, employees, contractors, affiliates, vendors, fulfillment partners, payment processors and agents from any claims, liabilities, damages, losses, penalties, fines, regulatory actions, costs or expenses - including reasonable legal fees - arising from or related to:</p>
               <ul className="mt-5 space-y-2.5">
                 {INDEMNIFY_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-file-warning-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-file-warning-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
@@ -234,12 +234,12 @@ export default function IndemnityWaiverPage() {
               <p>You're solely responsible for maintaining appropriate research controls and safety practices, including:</p>
               <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                 {HANDLING_ITEMS.map((item) => (
-                  <div key={item} className="rounded-md border border-stone bg-ivory-soft px-3 py-2 text-center text-xs font-medium text-charcoal/70">
+                  <div key={item} className="rounded-md border border-border-subtle bg-surface px-3 py-2 text-center text-xs font-medium text-ink/70">
                     {item}
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-sm leading-relaxed text-charcoal/60">
+              <p className="mt-5 text-sm leading-relaxed text-ink/60">
                 Failing to maintain appropriate controls, documentation, storage or handling practices releases Liberty Aminos
                 from any obligation related to product condition, research outcomes, complaint eligibility, refund
                 eligibility, replacement eligibility or support.
@@ -258,8 +258,8 @@ export default function IndemnityWaiverPage() {
                   "False information, suspected misuse, fraud indicators, chargeback abuse, policy violations, or refusal to provide required verification may result in account restriction or order cancellation.",
                   "Verification information is handled according to our Privacy Policy and applicable law.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-user-search-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-user-search-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
@@ -272,7 +272,7 @@ export default function IndemnityWaiverPage() {
                   <Link
                     key={p.href}
                     href={p.href}
-                    className="rounded-full border border-stone bg-ivory-soft px-3.5 py-1.5 text-xs font-medium text-charcoal/70 transition hover:border-sage-light hover:text-sage-deep"
+                    className="rounded-full border border-border-subtle bg-surface px-3.5 py-1.5 text-xs font-medium text-ink/70 transition hover:border-navy-light hover:text-navy"
                   >
                     {p.label}
                   </Link>
@@ -287,9 +287,9 @@ export default function IndemnityWaiverPage() {
                 that your electronic acceptance constitutes a valid, binding signature to the fullest extent
                 permitted by applicable law.
               </p>
-              <div className="mt-5 rounded-lg border border-stone bg-ivory-soft p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider text-charcoal/40">Electronic Acceptance Statement</p>
-                <p className="mt-2 text-sm italic leading-relaxed text-charcoal/70">
+              <div className="mt-5 rounded-lg border border-border-subtle bg-surface p-5">
+                <p className="text-xs font-semibold uppercase tracking-wider text-ink/40">Electronic Acceptance Statement</p>
+                <p className="mt-2 text-sm italic leading-relaxed text-ink/70">
                   &ldquo;I have read, understood, and voluntarily agree to this Indemnity Waiver Agreement for
                   Research Compounds. I acknowledge that products are strictly for laboratory research use only and
                   that I accept all responsibilities, risks, releases, and indemnification obligations described
@@ -309,15 +309,15 @@ export default function IndemnityWaiverPage() {
                   "If any provision is found invalid or unenforceable, the remaining provisions remain in full force and effect.",
                   "A printed or electronic copy of this Agreement and your acceptance of it may be used in legal, regulatory, payment or dispute proceedings.",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-charcoal/70">
-                    <i className="ri-hammer-line mt-0.5 shrink-0 text-copper" /> {item}
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink/70">
+                    <i className="ri-hammer-line mt-0.5 shrink-0 text-navy" /> {item}
                   </li>
                 ))}
               </ul>
             </PolicySection>
           </div>
 
-          <div className="mt-16 rounded-lg border border-stone bg-charcoal p-8 text-center text-white md:p-10">
+          <div className="mt-16 rounded-lg border border-border-subtle bg-navy p-8 text-center text-white md:p-10">
             <h3 className="font-display text-xl font-semibold md:text-2xl">Final acknowledgment</h3>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-white/60">
               By proceeding with a purchase from Liberty Aminos, you confirm that you&apos;ve read, understood and voluntarily
@@ -327,25 +327,25 @@ export default function IndemnityWaiverPage() {
             </p>
             <Link
               href="/contact"
-              className="mt-6 inline-flex items-center gap-1 rounded-md bg-copper px-6 py-3 text-xs font-semibold uppercase tracking-wide text-charcoal transition hover:bg-copper-light"
+              className="mt-6 inline-flex items-center gap-1 rounded-md bg-navy px-6 py-3 text-xs font-semibold uppercase tracking-wide text-ink transition hover:bg-navy-light"
             >
               Contact Us <i className="ri-arrow-right-line" />
             </Link>
           </div>
 
-          <div className="mt-12 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-12 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-ink/40">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/ruo" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/ruo" className="text-ink/60 transition hover:text-ink">
                 Research Use Only
               </Link>
-              <Link href="/sourcing" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/sourcing" className="text-ink/60 transition hover:text-ink">
                 Sourcing & Quality
               </Link>
-              <Link href="/terms" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/terms" className="text-ink/60 transition hover:text-ink">
                 Terms of Service
               </Link>
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-ink/60 transition hover:text-ink">
                 Privacy Policy
               </Link>
             </div>
@@ -359,8 +359,8 @@ export default function IndemnityWaiverPage() {
 function PolicySection({ id, num, title, children }: { id: string; num: string; title: string; children: React.ReactNode }) {
   return (
     <div id={id} className="scroll-mt-28">
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 export default function ShippingPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-shipping -mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-shipping -mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[800px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">Shipping Policy</h1>
           <p className="mt-4 text-sm text-white/50">Effective Date: August 2026</p>
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-4 md:px-8">
           <p className="mb-12 text-base leading-relaxed text-soft-gray">
             Liberty Aminos (&ldquo;Liberty Aminos,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) ships orders in a
@@ -90,7 +90,7 @@ export default function ShippingPage() {
             <PolicySection num="9" title="Damaged or Lost Shipments">
               <p>
                 If an order arrives damaged or is lost in transit, customers should{" "}
-                <Link href="/contact" className="font-semibold text-copper hover:underline">
+                <Link href="/contact" className="font-semibold text-navy hover:underline">
                   contact us
                 </Link>{" "}
                 promptly with relevant order details. Claims may be subject to carrier investigation and resolution
@@ -101,7 +101,7 @@ export default function ShippingPage() {
             <PolicySection num="10" title="Contact Information">
               <p>
                 Liberty Aminos. Questions about an order or shipment can be sent through our{" "}
-                <Link href="/contact" className="font-semibold text-copper hover:underline">
+                <Link href="/contact" className="font-semibold text-navy hover:underline">
                   Contact page
                 </Link>
                 .
@@ -109,16 +109,16 @@ export default function ShippingPage() {
             </PolicySection>
           </div>
 
-          <div className="mt-16 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-16 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-ink/40">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/returns" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/returns" className="text-ink/60 transition hover:text-ink">
                 Returns Policy
               </Link>
-              <Link href="/terms" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/terms" className="text-ink/60 transition hover:text-ink">
                 Terms &amp; Conditions
               </Link>
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-ink/60 transition hover:text-ink">
                 Privacy Policy
               </Link>
             </div>
@@ -132,8 +132,8 @@ export default function ShippingPage() {
 function PolicySection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

@@ -9,15 +9,15 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-charcoal pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
+      <section className="cp-info-hero cp-info-quality -mt-[90px] bg-navy pb-16 pt-[150px] text-center text-white md:-mt-[100px] md:pb-24 md:pt-[170px]">
         <div className="mx-auto max-w-[800px] px-4 md:px-8">
-          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper">Legal</p>
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-navy">Legal</p>
           <h1 className="font-display text-3xl font-semibold uppercase leading-tight md:text-5xl">Terms &amp; Conditions</h1>
           <p className="mt-4 text-sm text-white/50">Effective Date: August 2026</p>
         </div>
       </section>
 
-      <section className="bg-ivory py-16 md:py-24">
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[800px] px-4 md:px-8">
           <p className="mb-12 text-base leading-relaxed text-soft-gray">
             These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your access to and use of the Liberty Aminos website and
@@ -49,7 +49,7 @@ export default function TermsPage() {
                 therapeutic, or diagnostic products, offer usage protocols, dosing guidance, or application
                 instructions, or make or imply health, performance, or therapeutic claims. You agree not to use Liberty Aminos
                 products outside of their intended research scope. See our full{" "}
-                <Link href="/ruo" className="font-semibold text-copper hover:underline">
+                <Link href="/ruo" className="font-semibold text-navy hover:underline">
                   Research Use Only Policy
                 </Link>
                 .
@@ -94,7 +94,7 @@ export default function TermsPage() {
               <p>
                 Due to the nature of research products, returns or refunds may be limited or unavailable once an
                 order has been processed or shipped. See our{" "}
-                <Link href="/returns" className="font-semibold text-copper hover:underline">
+                <Link href="/returns" className="font-semibold text-navy hover:underline">
                   Returns Policy
                 </Link>{" "}
                 for details.
@@ -153,7 +153,7 @@ export default function TermsPage() {
                 purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe at
                 any time, or HELP for help. Mobile carriers are not liable for delayed or undelivered messages. How
                 we collect, record and retain SMS consent, and how we handle phone numbers, is described in our{" "}
-                <Link href="/privacy" className="font-semibold text-copper hover:underline">
+                <Link href="/privacy" className="font-semibold text-navy hover:underline">
                   Privacy Policy
                 </Link>
                 .
@@ -163,7 +163,7 @@ export default function TermsPage() {
             <PolicySection num="16" title="Contact Information">
               <p>
                 Liberty Aminos. Questions about these Terms can be sent through our{" "}
-                <Link href="/contact" className="font-semibold text-copper hover:underline">
+                <Link href="/contact" className="font-semibold text-navy hover:underline">
                   Contact page
                 </Link>
                 .
@@ -171,16 +171,16 @@ export default function TermsPage() {
             </PolicySection>
           </div>
 
-          <div className="mt-16 border-t border-stone pt-8">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/40">Related Legal Documents</p>
+          <div className="mt-16 border-t border-border-subtle pt-8">
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-ink/40">Related Legal Documents</p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-              <Link href="/privacy" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/privacy" className="text-ink/60 transition hover:text-ink">
                 Privacy Policy
               </Link>
-              <Link href="/ruo" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/ruo" className="text-ink/60 transition hover:text-ink">
                 Research Use Only Policy
               </Link>
-              <Link href="/returns" className="text-charcoal/60 transition hover:text-charcoal">
+              <Link href="/returns" className="text-ink/60 transition hover:text-ink">
                 Returns Policy
               </Link>
             </div>
@@ -194,8 +194,8 @@ export default function TermsPage() {
 function PolicySection({ num, title, children }: { num: string; title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-charcoal">
-        <span className="text-copper">{num}.</span> {title}
+      <h2 className="flex items-baseline gap-2 font-display text-xl font-semibold text-ink">
+        <span className="text-navy">{num}.</span> {title}
       </h2>
       <div className="mt-3 text-base leading-relaxed text-soft-gray">{children}</div>
     </div>

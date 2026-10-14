@@ -2,21 +2,21 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const CRM_URL = process.env.NEXT_PUBLIC_CRM_URL || 'https://crm.evlvpeptides.com';
-const TRACKING_KEY = process.env.NEXT_PUBLIC_CRM_TRACKING_KEY || 'cmtzmexzs002qbeckbre23u9i';
-const STORAGE_KEY = 'evlv_chat';
+const CRM_URL = process.env.NEXT_PUBLIC_CRM_URL || '';
+const TRACKING_KEY = process.env.NEXT_PUBLIC_CRM_TRACKING_KEY || '';
+const STORAGE_KEY = 'la_chat';
 const POLL_INTERVAL = 4000;
 const CHAT_SESSION_TTL_MS = 60 * 60 * 1000;
 
 const C = {
-  dark: '#0b2f2c',
-  green: '#327657',
-  ivory: '#f1eee7',
-  stone: '#dce5df',
-  text: '#152522',
-  muted: '#697571',
-  staffBubble: '#0b2f2c',
-  visitorBubble: '#e7f0ea',
+  dark: '#0e2153',
+  green: '#0e2153',
+  ivory: '#f8f9fb',
+  stone: '#e2e6ed',
+  text: '#1a1f2e',
+  muted: '#5a6272',
+  staffBubble: '#0e2153',
+  visitorBubble: '#eef1f8',
 };
 
 interface ChatSession {
@@ -215,7 +215,7 @@ export function LiveChat() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
               <div>
-                <div style={{ color: '#fff', fontWeight: 700, fontSize: '13px', letterSpacing: '0.02em' }}>EVLV Support</div>
+                <div style={{ color: '#fff', fontWeight: 700, fontSize: '13px', letterSpacing: '0.02em' }}>Liberty Aminos Support</div>
                 <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: '10px', marginTop: '1px' }}>Usually replies within a few hours</div>
               </div>
             </div>
