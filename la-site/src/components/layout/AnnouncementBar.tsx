@@ -10,7 +10,7 @@ export function AnnouncementBar() {
         Free shipping over $150
         <Link
           href="/heroes"
-          className="bg-[var(--red)] text-white rounded-full px-3 py-0.5 text-[10px] font-bold whitespace-nowrap"
+          className="bg-red text-white rounded-full px-3 py-0.5 text-[10px] font-bold whitespace-nowrap"
         >
           🎖 Military &amp; First Responders — 15% Off, For Life
         </Link>

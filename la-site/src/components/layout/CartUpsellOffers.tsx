@@ -1,13 +1,5 @@
 "use client";
 
-/**
- * Inline checkout upsells, styled after a competitor reference the founder
- * liked: offers embedded directly in the order summary (a checkbox "add this
- * deal" card + a small "Researchers Also Add" row), not a popup modal.
- * Real EVLV pricing throughout - discounts are applied to actual product.price,
- * never fabricated "was $X" numbers.
- */
-
 import Image from "next/image";
 import { useCart } from "@/lib/cart-context";
 import { useCurrency } from "@/lib/currency-context";
@@ -26,6 +18,21 @@ const ALSO_ADD_PACK_LABEL = `1 PCS (${ALSO_ADD_DISCOUNT_PERCENT}% Off Offer)`;
 export const FREE_SHIPPING_THRESHOLD = 300;
 export const FLAT_SHIPPING_COST = 15;
 
+function ProductThumb({ product, className = "" }: { product: Product; className?: string }) {
+  const imgSrc = getProductImage(product);
+  return (
+    <div className={`shrink-0 overflow-hidden rounded-md bg-navy-light ${className}`}>
+      {imgSrc ? (
+        <Image src={imgSrc} alt={product.name} width={90} height={112} className="h-full w-full object-cover" />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center" style={{ background: "linear-gradient(160deg,#0a1840 0%,#0e2153 100%)" }}>
+          <i className="ri-flask-line" style={{ fontSize: 20, color: "rgba(255,255,255,0.3)" }} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function ShippingProgressBar() {
   const { subtotal } = useCart();
   const { formatPrice } = useCurrency();
@@ -36,16 +43,16 @@ export function ShippingProgressBar() {
   return (
     <div
       className={`mb-5 rounded-lg border p-4 shadow-sm ${
-        unlocked ? "border-sage-deep/40 bg-sage-deep/[0.07]" : "border-copper/30 bg-white"
+        unlocked ? "border-navy/40 bg-navy/[0.07]" : "border-navy/30 bg-white"
       }`}
     >
-      <p className="flex items-center gap-1.5 text-xs font-semibold text-charcoal">
-        <i className={`text-sm ${unlocked ? "ri-checkbox-circle-fill text-sage-deep" : "ri-truck-line text-copper"}`} />
+      <p className="flex items-center gap-1.5 text-xs font-semibold text-ink">
+        <i className={`text-sm ${unlocked ? "ri-checkbox-circle-fill text-navy" : "ri-truck-line text-navy"}`} />
         {unlocked ? "You've unlocked free shipping!" : `Spend ${formatPrice(remaining)} more for free shipping!`}
       </p>
-      <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-charcoal/10">
+      <div className="mt-2.5 h-2 w-full overflow-hidden rounded-full bg-ink/10">
         <div
-          className={`h-full rounded-full transition-all duration-500 ${unlocked ? "bg-sage-deep" : "bg-copper"}`}
+          className="h-full rounded-full bg-navy transition-all duration-500"
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -53,17 +60,6 @@ export function ShippingProgressBar() {
   );
 }
 
-/**
- * Optional BAC Water reminder for products whose catalog entry includes
- * reconstitution information. Only fires when the cart has a relevant product
- * (anything with a `reconstitution` note) and doesn't already have
- * BAC Water in it -- never nags on an ancillaries-only or already-
- * covered order.
- *
- * Uses the live CRM-merged catalog passed down by the root layout, so
- * the drawer can add the real BAC Water SKU at its current price without
- * navigating away or maintaining a duplicate static product entry.
- */
 export function BacWaterOffer({ products = [] }: { products?: Product[] }) {
   const { lines, addToCart } = useCart();
   const { formatPrice } = useCurrency();
@@ -74,12 +70,12 @@ export function BacWaterOffer({ products = [] }: { products?: Product[] }) {
   if (alreadyInCart || !needsIt || !product) return null;
 
   return (
-    <div className="mt-5 flex items-center justify-between gap-3 rounded-lg border border-stone bg-ivory-soft p-4">
-      <p className="text-sm font-medium text-charcoal">Add Bacteriostatic Water — {formatPrice(product.price)}</p>
+    <div className="mt-5 flex items-center justify-between gap-3 rounded-lg border border-border-subtle bg-surface p-4">
+      <p className="text-sm font-medium text-ink">Add Bacteriostatic Water — {formatPrice(product.price)}</p>
       <button
         type="button"
         onClick={() => addToCart(product, 1, product.price, "1 PCS")}
-        className="shrink-0 rounded-md border border-charcoal px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-charcoal transition hover:bg-charcoal hover:text-ivory"
+        className="shrink-0 rounded-md border border-navy px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-navy transition hover:bg-navy hover:text-white"
       >
         Add
       </button>
@@ -109,19 +105,17 @@ export function FeaturedOfferCard() {
   }
 
   return (
-    <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-lg border border-copper/40 bg-copper/5 p-4">
-      <input type="checkbox" checked={checked} onChange={toggle} className="mt-1 h-4 w-4 shrink-0 accent-copper" />
-      <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
-        <Image src={getProductImage(product)} alt={product.name} width={90} height={112} className="h-full w-full object-cover" />
-      </div>
+    <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-lg border border-navy/20 bg-navy/[0.03] p-4">
+      <input type="checkbox" checked={checked} onChange={toggle} className="mt-1 h-4 w-4 shrink-0 accent-navy" />
+      <ProductThumb product={product} className="h-14 w-11" />
       <div className="flex-1">
-        <p className="text-sm font-medium text-charcoal">
+        <p className="text-sm font-medium text-ink">
           Add {product.name} ({FEATURED_DISCOUNT_PERCENT}% off today only)
         </p>
-        <p className="mt-0.5 text-xs text-charcoal/50">Pairs well with what&apos;s in your cart.</p>
+        <p className="mt-0.5 text-xs text-muted">Pairs well with what&apos;s in your cart.</p>
         <div className="mt-1.5 flex items-baseline gap-2">
-          <span className="text-xs text-charcoal/40 line-through">{formatPrice(product.price)}</span>
-          <span className="text-sm font-semibold text-copper">{formatPrice(discountedPrice)}</span>
+          <span className="text-xs text-muted line-through">{formatPrice(product.price)}</span>
+          <span className="text-sm font-semibold text-navy">{formatPrice(discountedPrice)}</span>
         </div>
       </div>
     </label>
@@ -140,27 +134,25 @@ export function ResearchersAlsoAdd() {
   if (items.length === 0) return null;
 
   return (
-    <div className="mt-6 border-t border-stone pt-5">
-      <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-charcoal/50">Researchers Also Add</p>
+    <div className="mt-6 border-t border-border-subtle pt-5">
+      <p className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-muted">Researchers Also Add</p>
       <div className="space-y-3">
         {items.map((p) => {
           const discountedPrice = p.price * (1 - ALSO_ADD_DISCOUNT_PERCENT / 100);
           return (
             <div key={p.id} className="flex items-center gap-3">
-              <div className="h-14 w-11 shrink-0 overflow-hidden rounded-md bg-ivory-soft">
-                <Image src={getProductImage(p)} alt={p.name} width={90} height={112} className="h-full w-full object-cover" />
-              </div>
+              <ProductThumb product={p} className="h-14 w-11" />
               <div className="flex-1">
-                <p className="text-xs font-medium text-charcoal">{p.name}</p>
+                <p className="text-xs font-medium text-ink">{p.name}</p>
                 <div className="mt-0.5 flex items-baseline gap-1.5">
-                  <span className="text-[11px] text-charcoal/40 line-through">{formatPrice(p.price)}</span>
-                  <span className="text-xs font-semibold text-charcoal">{formatPrice(discountedPrice)}</span>
+                  <span className="text-[11px] text-muted line-through">{formatPrice(p.price)}</span>
+                  <span className="text-xs font-semibold text-ink">{formatPrice(discountedPrice)}</span>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => addToCart(p, 1, discountedPrice, ALSO_ADD_PACK_LABEL)}
-                className="rounded-md bg-sage-deep px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-ivory transition hover:bg-sage-light"
+                className="rounded-md bg-navy px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wide text-white transition hover:bg-navy-dark"
               >
                 Add {ALSO_ADD_DISCOUNT_PERCENT}% Off
               </button>

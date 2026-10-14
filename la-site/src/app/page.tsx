@@ -167,16 +167,16 @@ export default async function Home() {
           {[0, 1].map((group) => (
             <div className="cp-ticker-group" key={group}>
               {[
-                "U.S. Fulfillment",
-                "Batch-Level COAs",
-                "Independent Lab Reports",
-                "99%+ Purity HPLC",
-                "Buy More, Save More",
-                "Research Use Only · 21+",
-              ].map((item, i) => (
-                <span key={item}>
-                  <i style={{ backgroundPosition: `${i * 20}% center` }} />
-                  <b>{item}</b>
+                { icon: "ri-map-pin-line", label: "U.S. Fulfillment" },
+                { icon: "ri-file-list-3-line", label: "Batch-Level COAs" },
+                { icon: "ri-microscope-line", label: "Independent Lab Reports" },
+                { icon: "ri-flask-line", label: "99%+ Purity HPLC" },
+                { icon: "ri-price-tag-3-line", label: "Buy More, Save More" },
+                { icon: "ri-shield-check-line", label: "Research Use Only · 21+" },
+              ].map(({ icon, label }) => (
+                <span key={label}>
+                  <i className={icon} style={{ fontSize: 18, color: "#0e2153", flexShrink: 0 }} />
+                  <b>{label}</b>
                 </span>
               ))}
             </div>

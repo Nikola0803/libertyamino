@@ -30,7 +30,17 @@ export function ProductClient({ product, coa }: { product: Product; coa?: CoaEnt
 
   return <>
     <section className="cp-pdp">
-      <div className="cp-pdp-gallery"><Image src={getProductImage(product)} alt={`${product.name} Liberty Aminos research compound`} width={1600} height={1600} priority /></div>
+      <div className="cp-pdp-gallery">
+        {getProductImage(product) ? (
+          <Image src={getProductImage(product)!} alt={`${product.name} Liberty Aminos research compound`} width={1600} height={1600} priority />
+        ) : (
+          <div style={{ width: "100%", height: "100%", minHeight: 460, background: "linear-gradient(160deg,#0a1840 0%,#0e2153 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, borderRadius: 16 }}>
+            <i className="ri-flask-line" style={{ fontSize: 48, color: "rgba(255,255,255,0.2)" }} />
+            <span style={{ fontSize: 14, fontWeight: 700, color: "rgba(255,255,255,0.4)", letterSpacing: ".1em", textTransform: "uppercase", textAlign: "center", padding: "0 20px" }}>{product.name}</span>
+            <span style={{ fontSize: 10, fontWeight: 700, color: "rgba(255,255,255,0.25)", letterSpacing: ".12em", textTransform: "uppercase" }}>Product image pending</span>
+          </div>
+        )}
+      </div>
       <div className="cp-pdp-summary">
         <small className="cp-pdp-kicker">Research Compound · RUO</small>
         <h1>{product.name}</h1>

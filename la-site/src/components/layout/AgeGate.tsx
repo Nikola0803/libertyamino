@@ -71,8 +71,8 @@ export function AgeGate({ children }: { children: React.ReactNode }) {
         >
           <section className="cp-ruo-entry-card cp-ruo-entry-card-campaign">
             <div className="cp-ruo-entry-brand"><Logo tone="dark" /></div>
-            <h2 id="cp-age-title" className="mt-4 font-display text-2xl font-semibold text-charcoal">Age Verification Required</h2>
-            <p id="cp-age-description" className="mt-3 text-sm leading-relaxed text-charcoal/70">
+            <h2 id="cp-age-title" className="mt-4 font-display text-2xl font-semibold text-ink">Age Verification Required</h2>
+            <p id="cp-age-description" className="mt-3 text-sm leading-relaxed text-muted">
               You must be 21 years or older to view this site. This site sells products for research use only.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -85,13 +85,13 @@ export function AgeGate({ children }: { children: React.ReactNode }) {
               </button>
               <button
                 type="button"
-                className="flex-1 rounded-md border border-charcoal/30 px-5 py-3 text-sm font-semibold text-charcoal/60 transition hover:bg-charcoal/5"
+                className="flex-1 rounded-md border border-ink/30 px-5 py-3 text-sm font-semibold text-muted transition hover:bg-ink/5"
                 onClick={handleExit}
               >
                 I am under 21 — Exit
               </button>
             </div>
-            <p className="mt-5 text-center text-[10px] leading-relaxed text-charcoal/40">
+            <p className="mt-5 text-center text-[10px] leading-relaxed text-muted/60">
               For laboratory and research use only. Not for human or veterinary use. Must be 21+ to enter.
             </p>
           </section>

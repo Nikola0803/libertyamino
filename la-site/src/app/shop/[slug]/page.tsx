@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "website",
       title,
       description: product.shortDescription,
-      images: [{ url: getProductImage(product), width: 800, height: 800, alt: product.name }],
+      images: getProductImage(product) ? [{ url: getProductImage(product)!, width: 800, height: 800, alt: product.name }] : [],
     },
   };
 }
@@ -51,7 +51,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const coaMap = await getCoaMap();
   const coa = coaMap[product.slug];
   const image = getProductImage(product);
-  const absoluteImage = image.startsWith("http://") || image.startsWith("https://") ? image : `${SITE_URL}${image}`;
+  const absoluteImage = image
+    ? (image.startsWith("http://") || image.startsWith("https://") ? image : `${SITE_URL}${image}`)
+    : null;
   const productForm = product.slug === "kpv-oral-500mcg"
     ? "Tablets"
     : product.format === "oral"
@@ -69,7 +71,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     name: product.name,
     sku: product.sku,
     description: `${product.shortDescription} Research use only; not for human or veterinary use.`,
-    image: [absoluteImage],
+    image: absoluteImage ? [absoluteImage] : undefined,
     category: product.categoryLabel,
     brand: { "@type": "Brand", name: "Liberty Aminos" },
     manufacturer: { "@id": `${SITE_URL}/#organization` },

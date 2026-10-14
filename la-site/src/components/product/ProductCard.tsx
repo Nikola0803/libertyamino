@@ -30,12 +30,21 @@ export function ProductCard({ product, coaVerified = false }: { product: Product
     ? Math.min(...product.variants.map((v) => v.price))
     : product.price;
 
+  const imgSrc = getProductImage(product);
+
   return (
     <article className="cp-product-card">
       {coaVerified && <span className="cp-coa-badge">COA Verified</span>}
       <Link href={`/shop/${product.slug}`} className="cp-product-shot">
-        <Image src={getProductImage(product)} alt={`${product.name} research product`} width={1200} height={1200} />
-        <div className="cp-purity-band">99%+ Purity · HPLC · Independent Lab</div>
+        {imgSrc ? (
+          <Image src={imgSrc} alt={`${product.name} research product`} width={1200} height={1200} />
+        ) : (
+          <div style={{ width: "100%", height: "100%", background: "linear-gradient(160deg,#0e2153 0%,#162d6a 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 10 }}>
+            <i className="ri-flask-line" style={{ fontSize: 36, color: "rgba(255,255,255,0.25)" }} />
+            <span style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.35)", letterSpacing: ".1em", textTransform: "uppercase", textAlign: "center", padding: "0 16px" }}>{product.name}</span>
+          </div>
+        )}
+        <div className="cp-purity">99%+ Purity · HPLC · Independent Lab</div>
       </Link>
       <div className="cp-product-copy">
         <Link href={`/shop/${product.slug}`}><h3>{product.name}</h3></Link>

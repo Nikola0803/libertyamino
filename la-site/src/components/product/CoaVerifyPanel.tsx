@@ -17,7 +17,7 @@ export function CoaVerifyPanel({ lot, pdfUrl }: CoaVerifyPanelProps) {
   return (
     <div
       className="mt-6 rounded-lg p-5"
-      style={{ background: "var(--navy)", color: "#fff" }}
+      style={{ background: "var(--color-navy)", color: "#fff" }}
       aria-label="Batch verification"
     >
       <div className="flex items-center gap-2 mb-3">

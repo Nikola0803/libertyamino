@@ -76,6 +76,9 @@ export function getGeneratedProductImage(product: Pick<Product, "slug" | "name">
   return filename ? generatedPath(filename) : undefined;
 }
 
-export function getProductImage(product: Pick<Product, "slug" | "name" | "image">) {
-  return getGeneratedProductImage(product) || product.image || "/images/certified/evlv-glp3r.png";
+export function getProductImage(product: Pick<Product, "slug" | "name" | "image">): string | null {
+  // Only return a URL from the verified generated-image set.
+  // product.image paths (e.g. /images/products/glp1-s-5mg.png) are placeholders
+  // and not yet uploaded, so we skip them to avoid broken <img> tags.
+  return getGeneratedProductImage(product) ?? null;
 }

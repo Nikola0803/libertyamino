@@ -26,8 +26,7 @@ export default function HeroesDiscountPage() {
   return (
     <>
       <section
-        className="relative overflow-hidden py-20 text-white md:py-32"
-        style={{ background: "var(--navy)" }}
+        className="relative overflow-hidden bg-navy py-20 text-white md:py-32"
       >
         <div
           aria-hidden
@@ -54,7 +53,7 @@ export default function HeroesDiscountPage() {
               <span
                 key={e}
                 className="rounded-full px-4 py-2 text-xs font-semibold text-white"
-                style={{ background: "var(--red)", border: "1px solid rgba(255,255,255,0.1)" }}
+                style={{ background: "var(--color-red)", border: "1px solid rgba(255,255,255,0.1)" }}
               >
                 {e}
               </span>
@@ -63,33 +62,29 @@ export default function HeroesDiscountPage() {
         </div>
       </section>
 
-      <section className="py-12 md:py-16" style={{ background: "var(--off-white)" }}>
+      <section className="bg-off-white py-12 md:py-16">
         <div className="mx-auto max-w-[900px] px-4 md:px-8">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {TRUST_TILES.map((tile) => (
               <div
                 key={tile.title}
-                className="rounded-lg p-5 text-center"
-                style={{ background: "white", border: "1px solid var(--border-subtle)" }}
+                className="rounded-lg border border-border-subtle bg-white p-5 text-center"
               >
-                <i className={`${tile.icon} text-2xl mb-3 block`} style={{ color: "var(--navy)" }} />
-                <p className="text-sm font-semibold mb-1" style={{ color: "var(--ink)" }}>{tile.title}</p>
-                <p className="text-xs leading-relaxed" style={{ color: "var(--muted)" }}>{tile.body}</p>
+                <i className={`${tile.icon} mb-3 block text-2xl text-navy`} />
+                <p className="mb-1 text-sm font-semibold text-ink">{tile.title}</p>
+                <p className="text-xs leading-relaxed text-muted">{tile.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24" style={{ background: "var(--off-white)" }}>
+      <section className="bg-off-white py-16 md:py-24">
         <div className="mx-auto max-w-[600px] px-4 md:px-8">
-          <h2
-            className="mb-2 text-center font-display text-2xl font-semibold"
-            style={{ color: "var(--ink)" }}
-          >
+          <h2 className="mb-2 text-center font-display text-2xl font-semibold text-ink">
             Apply for your discount.
           </h2>
-          <p className="mb-8 text-center text-sm" style={{ color: "var(--muted)" }}>
+          <p className="mb-8 text-center text-sm text-muted">
             Reviewed manually within ~24 hours. Your discount code arrives by email once approved.
           </p>
           <HeroesDiscountForm />
